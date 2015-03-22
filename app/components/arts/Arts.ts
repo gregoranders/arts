@@ -1,5 +1,6 @@
 /// <reference path="../../library.d.ts" />
 
+import angular = require('angular');
 export import IArts = require('./interface/IArts');
 export import IApplication = require('./interface/IApplication');
 export import IModule = require('./interface/IModule');
@@ -16,6 +17,7 @@ export import BaseDirective = require('./BaseDirective');
 export import BaseModule = require('./BaseModule');
 export import BaseService = require('./BaseService');
 
+export import ToolbarDirective = require('./base/directive/toolbar');
 'use strict';
 
 interface IApplicationArray {

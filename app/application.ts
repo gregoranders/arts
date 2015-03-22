@@ -1,23 +1,33 @@
 /// <reference path="./library.d.ts" />
 
-import arts = require("./components/arts/Arts");
+import Arts = require("./components/arts/Arts");
 
-class RouteConfiguration extends arts.BaseConfiguration {
+import ToDo = require("./components/todo/ToDo");
+
+class RouteConfiguration extends Arts.BaseConfiguration {
   static NAME:string = 'com.github.gregoranders.arts.configuration';
 
-  static $inject:Array<string> = ['$routeProvider', '$controllerProvider', '$provide', '$compileProvider', '$locationProvider'];
+  static $inject:Array<string> = [
+    '$routeProvider',
+    '$controllerProvider',
+    '$provide',
+    '$compileProvider',
+    '$locationProvider',
+    '$mdThemingProvider'
+  ];
 
   constructor($routeProvider:angular.route.IRouteProvider,
               $controllerProvider:angular.IControllerProvider,
               $provideService:ng.auto.IProvideService,
               $compileProvider:ng.ICompileProvider,
-              $locationProvider:angular.ILocationProvider) {
+              $locationProvider:angular.ILocationProvider,
+              $mdThemingProvider: any) {
 
     super($routeProvider, $controllerProvider, $provideService, $compileProvider);
 
     $locationProvider.html5Mode(true);
 
-    var component:arts.IApplication = arts.Arts.getApplication(Application.NAME);
+    var component:Arts.IApplication = Arts.Arts.getApplication(Application.NAME);
     component.initModule($routeProvider, $controllerProvider, $provideService, $compileProvider);
 
     var path = component.getBaseURL();
@@ -35,19 +45,27 @@ class RouteConfiguration extends arts.BaseConfiguration {
     super.otherwise({
       redirectTo: '/'
     });
+
+    $mdThemingProvider.theme('default')
+      .primaryPalette('blue');
+
+    component.directive(Arts.ToolbarDirective);
   }
 }
 
-class Application extends arts.BaseApplication {
+class Application extends Arts.BaseApplication {
+
   static NAME:string = 'com.github.gregoranders.arts';
-  static DEPENDENCIES:Array<string> = [];
+
+  static DEPENDENCIES:Array<string> = [ToDo.NAME];
 
   constructor(baseURL:string) {
     super(Application.NAME, baseURL, Application.DEPENDENCIES, RouteConfiguration);
-    arts.Arts.registerApplication(Application.NAME, this);
+    Arts.Arts.registerApplication(Application.NAME, this);
   }
 
   static initializeComponents():void {
+    ToDo.initializeComponents('components/todo');
   }
 }
 
