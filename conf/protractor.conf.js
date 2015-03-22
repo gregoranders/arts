@@ -1,26 +1,39 @@
 'use strict';
+var conf = [];
+
+if(process.env.TRAVIS){
+    conf = [
+        {
+            'browserName': 'firefox'
+        }
+    ];
+} else {
+    conf = [
+        {
+            'browserName': 'chrome',
+            'directConnect': true,
+            'chromeOptions': {
+                'args': ['no-sandbox']
+            }
+        },
+        {
+            'browserName': 'firefox'
+        }
+    ];
+}
 
 exports.config = {
     allScriptsTimeout: 11000,
-    directConnect: true,
+    directConnect: false,
 
     specs: [
         '../build/development/**/*.e2e.spec.js',
         '../build/development/*.e2e.spec.js'
     ],
 
-    multiCapabilities: [
-        {
-            'browserName': 'chrome',
-            'chromeOptions': {
-                'args': ['no-sandbox']
-            }
-        }
-    ],
+    multiCapabilities: conf,
 
     baseUrl: 'http://localhost:9000/',
-
-    seleniumAddress: 'http://localhost:4444/wd/hub',
 
     framework: 'jasmine2',
 
