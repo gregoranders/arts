@@ -34,12 +34,12 @@ class RouteConfiguration extends Arts.BaseConfiguration {
 
     super.when('/', {
       name: 'index',
-      templateUrl: path + '/view/main.html'
+      templateUrl: path + 'view/main.html'
     });
 
     super.when('/about', {
       name: 'about',
-      templateUrl: path + '/view/about.html'
+      templateUrl: path + 'view/about.html'
     });
 
     super.otherwise({
