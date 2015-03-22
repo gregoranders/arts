@@ -1,0 +1,21 @@
+language: node_js
+node_js:
+  - "0.10"
+  - "0.12"
+
+before_script:
+  - sudo apt-get update --fix-missing
+  - sudo apt-get install chromium-browser
+  - sudo apt-get install firefox
+  - export DISPLAY=:99.0
+  - sudo chmod 1777 /dev/shm
+  - Xvfb :99.0 -extension RANDR > /dev/null &
+  - npm install > /dev/null
+  - node_modules/.bin/gulp build
+  - node_modules/.bin/gulp build:release
+  - node_modules/.bin/gulp run:server &
+  - sleep 5
+
+script:
+  - node_modules/.bin/gulp run:test:unit
+  - node_modules/.bin/gulp run:test:e2e
