@@ -1,9 +1,10 @@
 language: node_js
 node_js:
   - "0.10"
-
+use_chrome: true
 before_script:
   - export DISPLAY=:99.0
+  - sudo chmod 1777 /dev/shm
   - sh -e /etc/init.d/xvfb start
   - npm install > /dev/null
   - node_modules/.bin/gulp build

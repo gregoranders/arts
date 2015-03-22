@@ -10,7 +10,10 @@ exports.config = {
 
     multiCapabilities: [
         {
-            'browserName': 'chrome'
+            'browserName': 'chrome',
+            'chromeOptions': {
+                'args': ['no-sandbox']
+            }
         },
         {
             'browserName': 'firefox'
@@ -24,6 +27,9 @@ exports.config = {
     framework: 'jasmine',
 
     jasmineNodeOpts: {
+        isVerbose: true,
+        showTiming: true,
+        includeStackTrace: true,
         showColors: true,
         defaultTimeoutInterval: 30000
     }
