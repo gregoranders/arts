@@ -1,0 +1,59 @@
+{
+  "name": "angular-require-typescript-seed",
+  "description": "angular-require-typescript-seed - the AngularJS and RequireJS using TypeScript Seed",
+  "version": "0.0.1",
+  "homepage": "https://github.com/gregoranders/angular-require-typescript-seed",
+  "author": "Gregor Anders <gregor.anders@gmail.com>",
+  "license": "BSD-3-Clause",
+  "private": false,
+  "appPath": "./build/release",
+  "ignore": [
+    "**/.*",
+    "build",
+    "node_modules",
+    ".bower_components",
+    "types"
+  ],
+  "keywords": [
+    "angular",
+    "require",
+    "typescript",
+    "jasmine",
+    "gulp",
+    "karma",
+    "e2e",
+    "protractor",
+    "seed"
+  ],
+  "dependencies": {
+    "angular": "^1.4.0",
+    "angular-animate": "^1.4.0",
+    "angular-aria": "^1.4.0",
+    "angular-cookies": "^1.4.0",
+    "angular-loader": "^1.4.0",
+    "angular-mocks": "^1.4.0",
+    "angular-material": "^0.8.3",
+    "angular-resource": "^1.4.0",
+    "angular-route": "^1.4.0",
+    "angular-sanitize": "^1.4.0",
+    "angular-touch": "^1.4.0",
+    "angular-translate": "^2.6.1",
+    "font-awesome": "^4.3.0 ",
+    "moment": "^2.9.0",
+    "requirejs": "2.1.16"
+  },
+  "resolutions": {
+    "angular": "^1.4.0",
+    "angular-animate": "^1.4.0",
+    "angular-aria": "^1.4.0",
+    "angular-cookies": "^1.4.0",
+    "angular-loader": "^1.4.0",
+    "angular-mocks": "^1.4.0",
+    "angular-resource": "^1.4.0",
+    "angular-route": "^1.4.0",
+    "angular-sanitize": "^1.4.0",
+    "angular-touch": "^1.4.0",
+    "angular-translate": "^2.6.1",
+    "font-awesome": "^4.3.0"
+  }
+}

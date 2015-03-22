@@ -1,0 +1,16 @@
+language: node_js
+node_js:
+  - "0.10"
+
+before_script:
+  - export DISPLAY=:99.0
+  - sh -e /etc/init.d/xvfb start
+  - npm install > /dev/null
+  - node_modules/.bin/gulp build
+  - node_modules/.bin/gulp build:release
+  - node_modules/.bin/gulp run:server &
+  - sleep 5
+
+script:
+  - node_modules/.bin/gulp run:test:unit
+  - node_modules/.bin/gulp run:test:e2e
