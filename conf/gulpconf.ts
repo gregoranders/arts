@@ -84,11 +84,14 @@ exports.config = {
         }
     },
     typescript: {
-        declarationFiles: true,
+        declarationFiles: false,
+        noExternalResolve: false,
         noImplicitAny: true,
         target: 'ES6',
         module: 'amd',
+        noLib: false,
         sortOutput: true,
+        sourceMap: true,
         removeComments: true
     }
 };

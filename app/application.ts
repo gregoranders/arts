@@ -1,14 +1,11 @@
 /// <reference path="./library.d.ts" />
 
-import arts = require("./components/arts/component");
+import arts = require("./components/arts/Arts");
 
-export module application
-{
-  export function initializeComponents(): void  {
-  }
-
-  export class RouteConfiguration extends arts.BaseRouteConfiguration
+  class RouteConfiguration extends arts.BaseConfiguration
   {
+    static NAME:string = 'com.github.gregoranders.arts.configuration';
+
     static $inject: Array<string> = ['$routeProvider', '$controllerProvider', '$provide', '$compileProvider', '$locationProvider'];
 
     constructor($routeProvider: angular.route.IRouteProvider,
@@ -42,7 +39,7 @@ export module application
     }
   }
 
-  export class Application extends arts.BaseApplication
+  class Application extends arts.BaseApplication
   {
     static NAME: string = 'com.github.gregoranders.arts';
     static DEPENDENCIES: Array<string> = [];
@@ -50,7 +47,11 @@ export module application
     constructor(baseURL: string)
     {
       super(Application.NAME, baseURL, Application.DEPENDENCIES, RouteConfiguration);
+      arts.Arts.registerApplication(Application.NAME, this);
+    }
+
+    static initializeComponents(): void  {
     }
   }
 
-}
+export = Application;

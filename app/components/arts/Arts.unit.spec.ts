@@ -5,23 +5,12 @@
 'use strict';
 
 import angular = require('angular');
-import testSubject = require('./component');
+import testSubject = require('./Arts');
 
 describe('arts component', () => {
 
-    it('component not loaded as angular module', () => {
-        try {
-            expect(angular.module(testSubject.NAME)).toBeUndefined();
-        } catch (e) {
-        }
-    });
-
     it('has BaseModule', () => {
         expect(testSubject.BaseModule).toBeDefined();
-    });
-
-    it('has BaseComponent', () => {
-        expect(testSubject.BaseComponent).toBeDefined();
     });
 
     it('has BaseController', () => {
@@ -41,7 +30,7 @@ describe('arts component', () => {
     });
 
     it('has BaseRouteConfiguration', () => {
-        expect(testSubject.BaseRouteConfiguration).toBeDefined();
+        expect(testSubject.BaseConfiguration).toBeDefined();
     });
 
     it('has Arts', () => {

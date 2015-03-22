@@ -1,9 +1,9 @@
 /// <reference path="./library.d.ts" />
 
-import ns = require('./application');
+import Application = require('./application');
 'use strict';
 
-ns.application.initializeComponents();
+Application.initializeComponents();
 
 var path = requirejs.toUrl('./');
 
@@ -15,4 +15,4 @@ if (path.charAt(path.length - 1) === '/') {
     path = path.substring(0, path.length - 1);
 }
 
-new ns.application.Application(path).bootstrap();
+new Application(path).bootstrap();
