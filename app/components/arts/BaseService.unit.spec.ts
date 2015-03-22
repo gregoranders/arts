@@ -8,7 +8,7 @@ import angular = require('angular');
 import BaseService = require('./BaseService');
 
 class TestClass extends BaseService {
-  static NAME: string = 'test123';
+  static NAME:string = 'test123';
 
   constructor() {
     super();

@@ -13,12 +13,12 @@ class BaseService implements IService {
 
   static $inject:Array<string> = [];
 
-  protected _name: string = BaseService.NAME;
+  protected _name:string = BaseService.NAME;
 
   constructor() {
   }
 
-  name(): string {
+  name():string {
     return this._name;
   }
 }

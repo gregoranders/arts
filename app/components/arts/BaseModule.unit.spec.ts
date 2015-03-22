@@ -12,21 +12,21 @@ import BaseDirective = require('./BaseDirective');
 import BaseModule = require('./BaseModule');
 
 class TestService extends BaseService {
-  static NAME: string = 'testService';
+  static NAME:string = 'testService';
 }
 
 class TestController extends BaseController<any> {
-  static NAME: string = 'testController';
+  static NAME:string = 'testController';
 }
 
 class TestDirective extends BaseDirective {
-  static NAME: string = 'testDirective';
+  static NAME:string = 'testDirective';
 }
 
 class TestClass extends BaseModule {
-  static NAME: string = 'test123';
+  static NAME:string = 'test123';
 
-  constructor(name: string, baseURL: string, dependencies?: Array<string>, configuration?: IConfiguration) {
+  constructor(name:string, baseURL:string, dependencies?:Array<string>, configuration?:IConfiguration) {
     super(name, baseURL, dependencies, configuration);
   }
 }
@@ -54,7 +54,7 @@ describe('arts - BaseModule', () => {
   it('should register service', () => {
     var testSubject = new TestClass(TestClass.NAME, './test/'),
       mockService = <any>{
-        service: function() {
+        service: function () {
 
         }
       };
@@ -67,7 +67,7 @@ describe('arts - BaseModule', () => {
   it('should register controller', () => {
     var testSubject = new TestClass(TestClass.NAME, './test/'),
       mockService = <any>{
-        register: function() {
+        register: function () {
 
         }
       };
@@ -80,7 +80,7 @@ describe('arts - BaseModule', () => {
   it('should register directive', () => {
     var testSubject = new TestClass(TestClass.NAME, './test/'),
       mockService = <any>{
-        directive: function() {
+        directive: function () {
 
         }
       };

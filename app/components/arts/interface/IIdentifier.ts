@@ -1,4 +1,3 @@
-
 interface IIdentifier {
   NAME?: string;
 }

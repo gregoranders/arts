@@ -9,9 +9,9 @@ import IScope = require('./interface/IScope');
 import BaseController = require('./BaseController');
 
 class TestClass extends BaseController<IScope<any>> {
-  static NAME: string = 'test123';
+  static NAME:string = 'test123';
 
-  constructor(public scope: IScope<any>) {
+  constructor(public scope:IScope<any>) {
     super(scope);
   }
 }

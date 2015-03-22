@@ -17,36 +17,36 @@ import BaseModule = require('./BaseModule');
 'use strict';
 
 class BaseApplication extends BaseModule implements IApplication {
-    /**
-     * Class name.
-     *
-     * @type {string}
-     */
-    static NAME:string = 'com.github.gregoranders.arts.base.application';
+  /**
+   * Class name.
+   *
+   * @type {string}
+   */
+  static NAME:string = 'com.github.gregoranders.arts.base.application';
 
-    static DEPENDENCIES: Array<string> = [
-      'ngAnimate',
-      'ngAria',
-      'ngCookies',
-      'ngMaterial',
-      'ngResource',
-      'ngRoute',
-      'ngSanitize',
-      'ngTouch',
-      'pascalprecht.translate'
-    ];
+  static DEPENDENCIES:Array<string> = [
+    'ngAnimate',
+    'ngAria',
+    'ngCookies',
+    'ngMaterial',
+    'ngResource',
+    'ngRoute',
+    'ngSanitize',
+    'ngTouch',
+    'pascalprecht.translate'
+  ];
 
-    static dependencies(deps: Array<string>): Array<string> {
-      return BaseApplication.DEPENDENCIES.concat(deps);
-    }
+  static dependencies(deps:Array<string>):Array<string> {
+    return BaseApplication.DEPENDENCIES.concat(deps);
+  }
 
-    constructor(name: string, baseURL: string, deps?: Array<string>, configuration?: IConfiguration) {
-      super(name, baseURL, BaseApplication.dependencies(deps), configuration);
-    }
+  constructor(name:string, baseURL:string, deps?:Array<string>, configuration?:IConfiguration) {
+    super(name, baseURL, BaseApplication.dependencies(deps), configuration);
+  }
 
-    bootstrap(): void {
-      angular.bootstrap(document, [this.name()]);
-    }
+  bootstrap():void {
+    angular.bootstrap(document, [this.name()]);
+  }
 }
 
 export = BaseApplication;

@@ -13,7 +13,7 @@ class TestClass extends BaseConfiguration {
               $controllerProvider:angular.IControllerProvider,
               $provide:ng.auto.IProvideService,
               $compileProvider:ng.ICompileProvider) {
-    super($routeProvider,$controllerProvider,$provide,$compileProvider);
+    super($routeProvider, $controllerProvider, $provide, $compileProvider);
   }
 }
 
@@ -21,29 +21,25 @@ describe('arts - BaseModule', () => {
 
   it('test otherwise', () => {
     var mockService = <any>{
-        otherwise: function() {
+        otherwise: function () {
 
         }
       },
       testSubject = new TestClass(mockService, null, null, null);
     spyOn(mockService, 'otherwise');
-    testSubject.otherwise({
-
-    });
+    testSubject.otherwise({});
     expect(mockService.otherwise).toHaveBeenCalled();
   });
 
   it('test when', () => {
     var mockService = <any>{
-        when: function() {
+        when: function () {
 
         }
       },
       testSubject = new TestClass(mockService, null, null, null);
     spyOn(mockService, 'when');
-    testSubject.when('test', {
-
-    });
+    testSubject.when('test', {});
     expect(mockService.when).toHaveBeenCalled();
   });
 
