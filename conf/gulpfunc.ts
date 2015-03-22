@@ -23,7 +23,7 @@ var amd = require('amd-optimize'),
     ts = require('gulp-typescript'),
     tsExtends = /^var __extends =/,
     istanbulIgnoreTypeScriptExtend = function() {
-        return through.obj(function(file, enc, done) {
+        return through.obj(function(file: any, enc: any, done: any) {
             if (file.isBuffer() && tsExtends.test(file.contents)) {
                 file.contents = Buffer.concat([
                     new Buffer('/* istanbul ignore next: TypeScript extend */' + os.EOL),
@@ -38,7 +38,7 @@ var amd = require('amd-optimize'),
 exports.func = {
 
     build: {
-        requirejs: function (destination, source, compress, sourceMaps) {
+        requirejs: function (destination: any, source: any, compress: any, sourceMaps: any) {
             return gulp.src([source + '/*.js', source + '/**/*.js'])
                 .pipe(gulpif(compress && sourceMaps, maps.init()))
                 .pipe(amd('boot', {
@@ -51,7 +51,7 @@ exports.func = {
                 .pipe(gulpif(compress && sourceMaps, maps.write()))
                 .pipe(gulp.dest(destination));
         },
-        bower: function (destination, filters, compress, sourceMaps) {
+        bower: function (destination: any, filters: any, compress: any, sourceMaps: any) {
             var jsFilter = filter(filters.js),
                 cssFilter = filter(filters.css),
                 fontFilter = filter(filters.font);
@@ -60,25 +60,25 @@ exports.func = {
                 .pipe(gulpif(compress && sourceMaps, maps.init()))
                 .pipe(jsFilter)
                 .pipe(gulpif(compress, uglify()))
-                .pipe(rename(function (path) {
+                .pipe(rename(function (path: any) {
                     path.dirname = '/js';
                 }))
                 .pipe(jsFilter.restore())
                 .pipe(cssFilter)
                 .pipe(gulpif(compress, minCSS()))
-                .pipe(rename(function (path) {
+                .pipe(rename(function (path: any) {
                     path.dirname = '/css';
                 }))
                 .pipe(cssFilter.restore())
                 .pipe(fontFilter)
-                .pipe(rename(function (path) {
+                .pipe(rename(function (path: any) {
                     path.dirname = '/fonts';
                 }))
                 .pipe(fontFilter.restore())
                 .pipe(gulpif(compress && sourceMaps, maps.write()))
                 .pipe(gulp.dest(destination));
         },
-        typescript: function (destination, source, config, compress, sourceMaps) {
+        typescript: function (destination: any, source: any, config: any, compress: any, sourceMaps: any) {
             var result = gulp.src(source)
                 .pipe(gulpif(compress && sourceMaps, maps.init()))
                 .pipe(ts(ts.createProject(config)));
@@ -93,7 +93,7 @@ exports.func = {
                     .pipe(gulp.dest(destination + '/ts-api'))
             ]);
         },
-        scss: function (destination, source, compress, sourceMaps) {
+        scss: function (destination: any, source: any, compress: any, sourceMaps: any) {
             return gulp.src(source)
                 .pipe(gulpif(compress && sourceMaps, maps.init()))
                 .pipe(sass())
@@ -101,18 +101,18 @@ exports.func = {
                 .pipe(gulpif(compress && sourceMaps, maps.write()))
                 .pipe(gulp.dest(destination));
         },
-        copy: function(destination, source) {
+        copy: function(destination: any, source: any) {
             return gulp.src(source)
                 .pipe(gulp.dest(destination));
         },
-        copyJS: function(destination, source, compress, sourceMaps) {
+        copyJS: function(destination: any, source: any, compress: any, sourceMaps: any) {
             return gulp.src(source)
                 .pipe(gulpif(compress && sourceMaps, maps.init()))
                 .pipe(gulpif(compress, uglify()))
                 .pipe(gulpif(compress && sourceMaps, maps.write()))
                 .pipe(gulp.dest(destination));
         },
-        copyCSS: function(destination, source, compress, sourceMaps) {
+        copyCSS: function(destination: any, source: any, compress: any, sourceMaps: any) {
             return gulp.src(source)
                 .pipe(gulpif(compress && sourceMaps, maps.init()))
                 .pipe(gulpif(compress, minCSS()))
@@ -121,34 +121,34 @@ exports.func = {
         }
     },
     test: {
-        unit: function (config, watch) {
+        unit: function (config: any, watch: any) {
             return gulp.src([])
                 .pipe(karma({
                     configFile: config,
                     action: watch ? 'watch' : 'run'
                 }))
-                .on('error', function (err) {
+                .on('error', function (err: any) {
                     throw err;
                 });
         },
-        e2e: function (config) {
+        e2e: function (config: any) {
             return gulp.src([])
                 .pipe(protractor({
                     configFile: config
                 }))
-                .on('error', function (err) {
+                .on('error', function (err: any) {
                     throw err;
                 });
         }
     },
-    server: function(path, port) {
+    server: function(path: any, port: any) {
         return connect.server({
             root: [path, 'tmp'],
             port: port ,
             base: ['.tmp', ''],
             hostname: '*',
             livereload: true,
-            middleware: function (connect, options) {
+            middleware: function (connect: any, options: any) {
                 return [
                     push({
                         root: '/index.html'
