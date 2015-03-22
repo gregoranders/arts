@@ -2,6 +2,7 @@
 
 exports.config = {
     allScriptsTimeout: 11000,
+    directConnect: true,
 
     specs: [
         '../build/development/**/*.e2e.spec.js',
@@ -22,9 +23,9 @@ exports.config = {
 
     baseUrl: 'http://localhost:9000/',
 
-    seleniumServerJar: '../node_modules/protractor/selenium/selenium-server-standalone-2.45.0.jar',
+    seleniumAddress: 'http://localhost:4444/wd/hub',
 
-    framework: 'jasmine',
+    framework: 'jasmine2',
 
     jasmineNodeOpts: {
         isVerbose: true,
