@@ -9,22 +9,22 @@ import IController = require('./IController');
 import IScope = require('./IScope');
 
 interface IModule extends IInject, IIdentifier {
-    name(): string;
+  name(): string;
 
-    configure(configuration: IConfiguration): IModule;
+  configure(configuration:IConfiguration): IModule;
 
-    directive(directive: IDirective): IModule;
+  directive(directive:IDirective): IModule;
 
-    service(service: IService): IModule;
+  service(service:IService): IModule;
 
-    controller<T extends IScope<any>>(controller: IController<T>): IModule;
+  controller<T extends IScope<any>>(controller:IController<T>): IModule;
 
-    initModule($routeProvider: angular.route.IRouteProvider,
-               $controllerProvider: angular.IControllerProvider,
-               $provideService: ng.auto.IProvideService,
-               $compileProvider: ng.ICompileProvider): IModule;
+  initModule($routeProvider:angular.route.IRouteProvider,
+             $controllerProvider:angular.IControllerProvider,
+             $provideService:ng.auto.IProvideService,
+             $compileProvider:ng.ICompileProvider): IModule;
 
-    getBaseURL(): string;
+  getBaseURL(): string;
 }
 
 export = IModule;

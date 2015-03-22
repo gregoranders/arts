@@ -4,17 +4,23 @@ import IService = require('./interface/IService');
 'use strict';
 
 class BaseService implements IService {
-    /**
-     * Class name.
-     *
-     * @type {string}
-     */
-    static NAME:string = 'com.github.gregoranders.arts.base.service';
+  /**
+   * Class name.
+   *
+   * @type {string}
+   */
+  static NAME:string = 'com.github.gregoranders.arts.base.service';
 
-    static $inject:Array<string> = [];
+  static $inject:Array<string> = [];
 
-    constructor() {
-    }
+  protected _name: string = BaseService.NAME;
+
+  constructor() {
+  }
+
+  name(): string {
+    return this._name;
+  }
 }
 
 export = BaseService;

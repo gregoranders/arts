@@ -38,15 +38,16 @@ var amd = require('amd-optimize'),
 exports.func = {
 
     build: {
-        requirejs: function (destination: any, source: any, compress: any, sourceMaps: any) {
+        requirejs: function (out: string, destination: any, source: any, mod: string, exclude: string[], compress: any, sourceMaps: any) {
             return gulp.src([source + '/*.js', source + '/**/*.js'])
                 .pipe(gulpif(compress && sourceMaps, maps.init()))
-                .pipe(amd('boot', {
+                .pipe(amd(mod, {
                     baseUrl: source,
                     configFile: source + '/config.js',
-                    findNestedDependencies: true
+                    findNestedDependencies: true,
+                    exclude: exclude
                 }))
-                .pipe(concat('boot.js'))
+                .pipe(concat(out))
                 .pipe(gulpif(compress, uglify()))
                 .pipe(gulpif(compress && sourceMaps, maps.write()))
                 .pipe(gulp.dest(destination));

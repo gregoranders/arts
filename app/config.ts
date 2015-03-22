@@ -3,6 +3,7 @@
 requirejs.config(
     {
         paths: {
+            'arts':              'components/arts/Arts',
             'angular':           'vendor/js/angular',
             'angular-animate':   'vendor/js/angular-animate',
             'angular-aria':      'vendor/js/angular-aria',

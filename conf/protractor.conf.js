@@ -15,9 +15,6 @@ exports.config = {
             'chromeOptions': {
                 'args': ['no-sandbox']
             }
-        },
-        {
-            'browserName': 'firefox'
         }
     ],
 
