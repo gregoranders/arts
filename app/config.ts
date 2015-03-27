@@ -10,12 +10,16 @@ requirejs.config(
       'angular-cookies': 'vendor/js/angular-cookies',
       'angular-loader': 'vendor/js/angular-loader',
       'angular-material': 'vendor/js/angular-material',
+      'angular-messages': 'vendor/js/angular-messages',
+      'angular-moment': 'vendor/js/angular-moment',
       'angular-resource': 'vendor/js/angular-resource',
       'angular-route': 'vendor/js/angular-route',
       'angular-sanitize': 'vendor/js/angular-sanitize',
       'angular-touch': 'vendor/js/angular-touch',
       'angular-translate': 'vendor/js/angular-translate',
-      'moment': 'vendor/js/moment'
+      'jquery': 'vendor/js/jquery',
+      'moment': 'vendor/js/moment',
+      'text': 'vendor/js/text'
     },
 
     shim: {
@@ -47,6 +51,17 @@ requirejs.config(
           'angular-animate',
           'angular-aria',
           'angular-touch',
+        ]
+      },
+      'angular-messages': {
+        deps: [
+          'angular'
+        ]
+      },
+      'angular-moment': {
+        deps: [
+          'angular',
+          'moment'
         ]
       },
       'angular-resource': {

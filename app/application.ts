@@ -13,6 +13,7 @@ class RouteConfiguration extends Arts.BaseConfiguration {
     '$provide',
     '$compileProvider',
     '$locationProvider',
+    '$translateProvider',
     '$mdThemingProvider'
   ];
 
@@ -21,7 +22,8 @@ class RouteConfiguration extends Arts.BaseConfiguration {
               $provideService:ng.auto.IProvideService,
               $compileProvider:ng.ICompileProvider,
               $locationProvider:angular.ILocationProvider,
-              $mdThemingProvider: any) {
+              $translateProvider: ng.translate.ITranslateProvider,
+              $mdThemingProvider: ng.material.MDThemingProvider) {
 
     super($routeProvider, $controllerProvider, $provideService, $compileProvider);
 

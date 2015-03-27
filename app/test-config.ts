@@ -29,12 +29,17 @@ requirejs.config({
     'angular-cookies': 'vendor/js/angular-cookies',
     'angular-loader': 'vendor/js/angular-loader',
     'angular-material': 'vendor/js/angular-material',
+    'angular-messages': 'vendor/js/angular-messages',
     'angular-mocks': 'vendor/js/angular-mocks',
+    'angular-moment': 'vendor/js/angular-moment',
     'angular-resource': 'vendor/js/angular-resource',
     'angular-route': 'vendor/js/angular-route',
     'angular-sanitize': 'vendor/js/angular-sanitize',
     'angular-touch': 'vendor/js/angular-touch',
-    'angular-translate': 'vendor/js/angular-translate'
+    'angular-translate': 'vendor/js/angular-translate',
+    'jquery': 'vendor/js/jquery',
+    'moment': 'vendor/js/moment',
+    'text': 'vendor/js/text'
   },
 
   shim: {
@@ -63,15 +68,25 @@ requirejs.config({
     },
     'angular-material': {
       deps: [
-        'angular',
         'angular-animate',
+        'angular-aria',
         'angular-touch',
-        'angular-aria'
+      ]
+    },
+    'angular-messages': {
+      deps: [
+        'angular'
       ]
     },
     'angular-mocks': {
       deps: [
         'angular'
+      ]
+    },
+    'angular-moment': {
+      deps: [
+        'angular',
+        'moment'
       ]
     },
     'angular-resource': {
@@ -89,12 +104,12 @@ requirejs.config({
         'angular'
       ]
     },
-    'angular-translate': {
+    'angular-touch': {
       deps: [
         'angular'
       ]
     },
-    'angular-touch': {
+    'angular-translate': {
       deps: [
         'angular'
       ]

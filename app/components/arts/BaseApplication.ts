@@ -5,6 +5,8 @@
 ///<amd-dependency path="angular-cookies" />
 ///<amd-dependency path="angular-loader" />
 ///<amd-dependency path="angular-material" />
+///<amd-dependency path="angular-messages" />
+///<amd-dependency path="angular-moment" />
 ///<amd-dependency path="angular-resource" />
 ///<amd-dependency path="angular-route" />
 ///<amd-dependency path="angular-sanitize" />
@@ -29,11 +31,13 @@ class BaseApplication extends BaseModule implements IApplication {
     'ngAria',
     'ngCookies',
     'ngMaterial',
+    'ngMessages',
     'ngResource',
     'ngRoute',
     'ngSanitize',
     'ngTouch',
-    'pascalprecht.translate'
+    'pascalprecht.translate',
+    'angularMoment',
   ];
 
   static dependencies(deps:Array<string>):Array<string> {

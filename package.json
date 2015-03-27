@@ -77,7 +77,8 @@
     "karma-coverage": "^0.2.7",
     "karma-jasmine": "^0.3.5",
     "protractor": "^1.8.0",
-    "requirejs": "2.1.16"
+    "requirejs": "2.1.16",
+    "requirejs-text": "2.0.12"
   },
   "scripts": {
     "transpile-config": "tsc --target 'ES5' --sourcemap --outDir ./conf conf/gulpconf.ts && tsc --target 'ES5' --sourcemap --outDir ./conf conf/gulpfunc.ts && tsc --target 'ES5' --sourcemap --outDir ./ gulpfile.ts",

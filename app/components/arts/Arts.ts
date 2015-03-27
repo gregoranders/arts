@@ -1,6 +1,7 @@
 /// <reference path="../../library.d.ts" />
 
 import angular = require('angular');
+
 export import IArts = require('./interface/IArts');
 export import IApplication = require('./interface/IApplication');
 export import IModule = require('./interface/IModule');
