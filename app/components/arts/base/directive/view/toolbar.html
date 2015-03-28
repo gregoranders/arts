@@ -1,24 +1,3 @@
-<md-toolbar class="main-nav background-regal l-pinned-top l-layer-5 md-default-theme">
-    <nav>
-        <h1>
-            <a class="md-button md-default-theme" ng-href="$BASE" md-button>
-                <span>arts</span>
-            </a>
-        </h1>
-        <md-button class="main-nav-button main-nav-mobile-trigger l-right md-default-theme" aria-label="View Menu" ng-click="vm.toggleSideBar($event)" tabindex="0">
-            <span class="ng-scope">Site Menu </span>
-        </md-button>
-        <ul ng-class="showNavigation ? 'is-visible' : ''">
-            <li class="l-left">
-                <a class="main-nav-button md-default-theme" href="todo" md-button>
-                    <span>ToDo</span>
-                </a>
-            </li>
-            <li class="l-right">
-                <a class="main-nav-button md-default-theme" href="about" md-button>
-                    <span>About</span>
-                </a>
-            </li>
-        </ul>
-    </nav>
+<md-toolbar>
+    <ng-transclude></ng-transclude>
 </md-toolbar>

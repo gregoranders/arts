@@ -1,0 +1,22 @@
+{
+  "load" : {
+    "partial" : {
+      "arts": {
+        "language": {
+          "english": "English",
+          "german": "German",
+          "polish": "Polish",
+          "russian": "Russian"
+        },
+        "theme": {
+          "blue": "Blue",
+          "indigo": "Indigo",
+          "green": "Green"
+        },
+        "about": {
+          "setupandinstall" : "Setup and installation"
+        }
+      }
+    }
+  }
+}

@@ -4,6 +4,7 @@
 ///<amd-dependency path="angular-aria" />
 ///<amd-dependency path="angular-cookies" />
 ///<amd-dependency path="angular-loader" />
+///<amd-dependency path="angular-local-storage" />
 ///<amd-dependency path="angular-material" />
 ///<amd-dependency path="angular-messages" />
 ///<amd-dependency path="angular-moment" />
@@ -12,6 +13,13 @@
 ///<amd-dependency path="angular-sanitize" />
 ///<amd-dependency path="angular-touch" />
 ///<amd-dependency path="angular-translate" />
+///<amd-dependency path="angular-translate-handler-log" />
+///<amd-dependency path="angular-translate-interpolation-messageformat" />
+///<amd-dependency path="angular-translate-loader-partial" />
+///<amd-dependency path="angular-translate-loader-static-files" />
+///<amd-dependency path="angular-translate-loader-url" />
+///<amd-dependency path="angular-translate-storage-cookie" />
+///<amd-dependency path="angular-translate-storage-local" />
 
 import IApplication = require('./interface/IApplication');
 import IConfiguration = require('./interface/IConfiguration');
@@ -38,6 +46,7 @@ class BaseApplication extends BaseModule implements IApplication {
     'ngTouch',
     'pascalprecht.translate',
     'angularMoment',
+    'LocalStorageModule'
   ];
 
   static dependencies(deps:Array<string>):Array<string> {

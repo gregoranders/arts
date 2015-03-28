@@ -9,6 +9,7 @@ class ToolbarDirective extends BaseDirective {
   scope: {};
   controller: any = Controller;
   controllerAs: string = 'vm';
+  transclude: boolean = true;
 }
 
 export = ToolbarDirective;

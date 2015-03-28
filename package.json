@@ -81,7 +81,7 @@
     "requirejs-text": "2.0.12"
   },
   "scripts": {
-    "transpile-config": "tsc --target 'ES5' --sourcemap --outDir ./conf conf/gulpconf.ts && tsc --target 'ES5' --sourcemap --outDir ./conf conf/gulpfunc.ts && tsc --target 'ES5' --sourcemap --outDir ./ gulpfile.ts",
+    "transpile-config": "tsc --target ES5 --sourcemap --outDir ./conf conf/gulpconf.ts && tsc --target ES5 --sourcemap --outDir ./conf conf/gulpfunc.ts && tsc --target ES5 --sourcemap --outDir ./ gulpfile.ts",
     "postinstall": "bower install && webdriver-manager update && npm run-script transpile-config",
 
     "prestart": "npm install",

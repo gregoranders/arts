@@ -1,0 +1,22 @@
+{
+  "load": {
+    "partial": {
+      "arts": {
+        "language": {
+          "english": "Aнглийский",
+          "german": "Hемецкий",
+          "polish": "Nольский",
+          "russian": "Pусский"
+        },
+        "theme": {
+          "blue": "синий",
+          "indigo": "индиго",
+          "green": "зеленый"
+        },
+        "about": {
+          "setupandinstall" : "Установка и монтаж"
+        }
+      }
+    }
+  }
+}

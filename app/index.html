@@ -12,24 +12,65 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,500,400italic,700" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="css/styles.css"/>
     <script data-main="config" src="vendor/js/require.js"></script>
-    <base href="/index.html">
 </head>
-<body layout="column" role="document" class="l-offset-nav">
 
-<arts-toolbar></arts-toolbar>
+<body layout="column" role="document" md-theme="{{ vm.theme }}">
 
-<md-content>
+<arts-toolbar>
+    <div layout="row">
+        <div>
+            <md-select placeholder="vm.application" ng-model="vm.application" class="md-toolbar-tools">
+                <md-option value="arts">
+                    <span>Arts</span>
+                </md-option>
+            </md-select>
+        </div>
+        <div flex>
+
+        </div>
+        <div layout="row">
+            <md-select ng-model="vm.theme" class="md-toolbar-tools">
+                <md-option value="blue">
+                    <span translate="load.partial.arts.theme.blue">Blue</span>
+                </md-option>
+                <md-option value="indigo">
+                    <span translate="load.partial.arts.theme.indigo">Indigo</span>
+                </md-option>
+                <md-option value="green">
+                    <span translate="load.partial.arts.theme.green">Green</span>
+                </md-option>
+            </md-select>
+        </div>
+        <div layout="row">
+            <md-select ng-model="vm.language" class="md-toolbar-tools">
+                <md-option value="en_US">
+                    <span translate="load.partial.arts.language.english">English</span>
+                </md-option>
+                <md-option value="de_DE">
+                    <span translate="load.partial.arts.language.german">German</span>
+                </md-option>
+                <md-option value="pl_PL">
+                    <span translate="load.partial.arts.language.polish">Polish</span>
+                </md-option>
+                <md-option value="ru_RU">
+                    <span translate="load.partial.arts.language.russian">Russian</span>
+                </md-option>
+            </md-select>
+        </div>
+    </div>
+</arts-toolbar>
+
+<md-content class="content">
     <div ng-view></div>
 </md-content>
 
-<div class="main-footer">
-    <footer class="background-steel">
-        <small class="text-caption">Powered by arts ©2015. Code licensed under the
-            <a href="http://opensource.org/licenses/BSD-3-Clause" class="text-snow">BSD 3-clause "New" or "Revised" License</a>.
-            Documentation licensed under <a class="text-snow" href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.
-        </small>
-    </footer>
-</div>
+<footer class="footer">
+    <small>Powered by <a href="https://github.com/gregoranders/arts">arts</a> <i class="fa fa-copyright"></i>2015. Code licensed under the
+        <a href="http://opensource.org/licenses/BSD-3-Clause" class="text-snow">BSD 3-clause "New" or "Revised" License</a>.
+        Documentation licensed under <a class="text-snow" href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.
+    </small>
+</footer>
+
 </body>
 
 </html>

@@ -1,0 +1,22 @@
+{
+  "load": {
+    "partial": {
+      "arts": {
+        "language": {
+          "english": "Englisch",
+          "german": "Deutsch",
+          "polish": "Polnisch",
+          "russian": "Russisch"
+        },
+        "theme": {
+          "blue": "Blau",
+          "indigo": "Indigo",
+          "green": "Gr&uuml;n"
+        },
+        "about": {
+          "setupandinstall" : "Einrichtung und Installation"
+        }
+      }
+    }
+  }
+}

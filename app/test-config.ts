@@ -28,6 +28,7 @@ requirejs.config({
     'angular-aria': 'vendor/js/angular-aria',
     'angular-cookies': 'vendor/js/angular-cookies',
     'angular-loader': 'vendor/js/angular-loader',
+    'angular-local-storage': 'vendor/js/angular-local-storage',
     'angular-material': 'vendor/js/angular-material',
     'angular-messages': 'vendor/js/angular-messages',
     'angular-mocks': 'vendor/js/angular-mocks',
@@ -37,6 +38,13 @@ requirejs.config({
     'angular-sanitize': 'vendor/js/angular-sanitize',
     'angular-touch': 'vendor/js/angular-touch',
     'angular-translate': 'vendor/js/angular-translate',
+    'angular-translate-handler-log': 'vendor/js/angular-translate-handler-log',
+    'angular-translate-interpolation-messageformat': 'vendor/js/angular-translate-interpolation-messageformat',
+    'angular-translate-loader-partial': 'vendor/js/angular-translate-loader-partial',
+    'angular-translate-loader-static-files': 'vendor/js/angular-translate-loader-static-files',
+    'angular-translate-loader-url': 'vendor/js/angular-translate-loader-url',
+    'angular-translate-storage-cookie': 'vendor/js/angular-translate-storage-cookie',
+    'angular-translate-storage-local': 'vendor/js/angular-translate-storage-local',
     'jquery': 'vendor/js/jquery',
     'moment': 'vendor/js/moment',
     'text': 'vendor/js/text'
@@ -62,6 +70,11 @@ requirejs.config({
       ]
     },
     'angular-loader': {
+      deps: [
+        'angular'
+      ]
+    },
+    'angular-local-storage': {
       deps: [
         'angular'
       ]
@@ -112,6 +125,41 @@ requirejs.config({
     'angular-translate': {
       deps: [
         'angular'
+      ]
+    },
+    'angular-translate-handler-log': {
+      deps: [
+        'angular-translate'
+      ]
+    },
+    'angular-translate-interpolation-messageformat': {
+      deps: [
+        'angular-translate'
+      ]
+    },
+    'angular-translate-loader-partial': {
+      deps: [
+        'angular-translate'
+      ]
+    },
+    'angular-translate-loader-static-files': {
+      deps: [
+        'angular-translate'
+      ]
+    },
+    'angular-translate-loader-url': {
+      deps: [
+        'angular-translate'
+      ]
+    },
+    'angular-translate-storage-cookie': {
+      deps: [
+        'angular-translate'
+      ]
+    },
+    'angular-translate-storage-local': {
+      deps: [
+        'angular-translate'
       ]
     }
   },

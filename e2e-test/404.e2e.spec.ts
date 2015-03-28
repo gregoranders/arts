@@ -4,7 +4,7 @@
 describe('404', function () {
 
     beforeEach(function () {
-        browser.get('/404');
+        browser.get('/#/404');
     });
 
     it('should redirect to /', function () {

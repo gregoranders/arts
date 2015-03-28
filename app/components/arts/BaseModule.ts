@@ -45,6 +45,11 @@ class BaseModule implements IModule {
     return this;
   }
 
+  run(configuration:IConfiguration):IModule {
+    this.native.run([configuration]);
+    return this;
+  }
+
   directive(directive:IDirective):IModule {
     // Directives are expected to be functions.... to be able to use a class we need to
     // use this factory approach here.

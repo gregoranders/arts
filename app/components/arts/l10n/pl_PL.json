@@ -1,0 +1,22 @@
+{
+  "load": {
+    "partial": {
+      "arts": {
+        "language": {
+          "english": "Angielski",
+          "german": "Niemiecki",
+          "polish": "Polski",
+          "russian": "Rosyjski"
+        },
+        "theme": {
+          "blue": "Niebieski",
+          "indigo": "Indigo",
+          "green": "Zielony"
+        },
+        "about": {
+          "setupandinstall" : "Konfiguracja i instalacja"
+        }
+      }
+    }
+  }
+}
