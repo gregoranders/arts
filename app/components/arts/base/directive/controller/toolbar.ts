@@ -2,12 +2,24 @@ import IScope = require("../../../interface/IScope");
 import IController = require("../../../interface/IController");
 import BaseController = require("../../../BaseController");
 
+interface ITheme {
+  id: string;
+}
+
+interface ILanguage {
+  id: string;
+}
+
 interface Scope extends IScope<Controller> {
 }
 
 interface Controller extends IController<Scope> {
+  languages: ILanguage[];
   language: string;
+
+  themes: ITheme[];
   theme: string;
+
   application: string;
 
   setApplication(application:string): void;
@@ -18,9 +30,23 @@ interface Controller extends IController<Scope> {
 class ToolbarController extends BaseController<Scope> implements Controller {
 
   static NAME:string = 'com.github.gregoranders.arts.base.controller.toolbar';
-  static APPLICATION:string = 'arts';
+
+  static LANGUAGES: ILanguage[] = [
+    {id: 'en_US'},
+    {id: 'de_DE'},
+    {id: 'pl_PL'},
+    {id: 'ru_RU'}
+  ];
   static LANGUAGE:string = 'en_US';
+
+  static THEMES: ILanguage[] = [
+    {id: 'blue'},
+    {id: 'green'},
+    {id: 'indigo'}
+  ];
   static THEME:string = 'green';
+
+  static APPLICATION:string = 'arts';
 
   static $inject:string[] = ['$scope',
     '$translate',
@@ -28,8 +54,12 @@ class ToolbarController extends BaseController<Scope> implements Controller {
     'localStorageService'
   ];
 
+  languages: ILanguage[] = [];
   language:string = undefined;
+
+  themes: ILanguage[] = [];
   theme:string = undefined;
+
   application:string = undefined;
 
   constructor(public $scope:Scope, private $translate:ng.translate.ITranslateService,
@@ -38,21 +68,27 @@ class ToolbarController extends BaseController<Scope> implements Controller {
     super($scope);
 
     // language
-    this.language = localStorageService.get('language');
+    this.languages = ToolbarController.LANGUAGES;
 
-    if (!this.language) {
-      this.language = ToolbarController.LANGUAGE;
+    var lang = localStorageService.get('language');
+
+    if (!lang) {
+      lang = ToolbarController.LANGUAGE;
     }
 
-    this.$scope.$watch(() => {
-      return this.language;
-    }, (language:string, old:string) => {
-      if (old !== language) {
-        this.setLanguage(language);
-      }
+    $translate.use(lang).then(() => {
+      this.setLanguage(lang);
+      this.$scope.$watch(() => {
+        return this.language;
+      }, (language:string, old:string) => {
+        if (language && old !== language) {
+          this.setLanguage(language);
+        }
+      });
     });
 
     // theme
+    this.themes = ToolbarController.THEMES;
     this.theme = localStorageService.get('theme');
 
     if (!this.theme) {
@@ -81,17 +117,18 @@ class ToolbarController extends BaseController<Scope> implements Controller {
     });
   }
 
-  setLanguage(language:string):void {
-    this.$translate.refresh(language);
-    this.$translate.use(language);
-    this.language = language;
-    this.localStorageService.set('language', this.language);
-    this.$window.location.reload();
+  setLanguage(language:string): void {
+    this.$translate.use(language).then(() => {
+      this.language = language;
+      this.localStorageService.set('language', this.language);
+    });
   }
 
   setTheme(theme:string):void {
     this.theme = theme;
     this.localStorageService.set('theme', this.theme);
+
+    // It seems there is something broken with angular material forcing a hard reload here to apply new color palettes
     this.$window.location.reload();
   }
 

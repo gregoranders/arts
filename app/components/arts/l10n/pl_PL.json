@@ -3,10 +3,10 @@
     "partial": {
       "arts": {
         "language": {
-          "english": "Angielski",
-          "german": "Niemiecki",
-          "polish": "Polski",
-          "russian": "Rosyjski"
+          "en_US": "Angielski",
+          "de_DE": "Niemiecki",
+          "pl_PL": "Polski",
+          "ru_RU": "Rosyjski"
         },
         "theme": {
           "blue": "Niebieski",

@@ -32,30 +32,30 @@
         </div>
         <div layout="row">
             <md-select ng-model="vm.theme" class="md-toolbar-tools">
-                <md-option value="blue">
-                    <span translate="load.partial.arts.theme.blue">Blue</span>
-                </md-option>
-                <md-option value="indigo">
-                    <span translate="load.partial.arts.theme.indigo">Indigo</span>
-                </md-option>
-                <md-option value="green">
-                    <span translate="load.partial.arts.theme.green">Green</span>
+                <md-select-label class="md-select-label">
+                    <span translate="load.partial.arts.theme.{{vm.theme}}" class="ng-scope"></span>
+                </md-select-label>
+                <md-option ng-value="{{ theme.id }}" ng-repeat="theme in vm.themes">
+                    <span translate="load.partial.arts.theme.{{ theme.id }}"></span>
                 </md-option>
             </md-select>
         </div>
         <div layout="row">
             <md-select ng-model="vm.language" class="md-toolbar-tools">
+                <md-select-label class="md-select-label">
+                    <span translate="load.partial.arts.language.{{vm.language}}" class="ng-scope"></span>
+                </md-select-label>
                 <md-option value="en_US">
-                    <span translate="load.partial.arts.language.english">English</span>
+                    <span translate="load.partial.arts.language.en_US"></span>
                 </md-option>
                 <md-option value="de_DE">
-                    <span translate="load.partial.arts.language.german">German</span>
+                    <span translate="load.partial.arts.language.de_DE"></span>
                 </md-option>
                 <md-option value="pl_PL">
-                    <span translate="load.partial.arts.language.polish">Polish</span>
+                    <span translate="load.partial.arts.language.pl_PL"></span>
                 </md-option>
                 <md-option value="ru_RU">
-                    <span translate="load.partial.arts.language.russian">Russian</span>
+                    <span translate="load.partial.arts.language.ru_RU"></span>
                 </md-option>
             </md-select>
         </div>

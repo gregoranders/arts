@@ -97,7 +97,6 @@ class ApplicationConfiguration extends Arts.BaseConfiguration {
     });
     this.$translatePartialLoaderProvider.addPart('arts');
 
-
     // defaults
     localStorageServiceProvider
       .setPrefix(Application.NAME)
