@@ -1,7 +1,7 @@
 # angular-require-typescript-seed
 **the AngularJS and RequireJS using TypeScript Seed**
 
-[![Dependency Status][daviddm-image]][daviddm-url] [![NPM version][npm-image]][npm-url] [![Downloads][downloads-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Coverage Status][coverall-image]][coverall-url] [![Gitter][gitter-image]][gitter-url] [![License][license-image]][license-url]
+[![Dependency Status][daviddm-image]][daviddm-url] [![NPM version][npm-image]][npm-url] [![Downloads][downloads-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Coverage Status][coverall-image]][coverall-url] [![License][license-image]][license-url] [![Gitter][gitter-image]][gitter-url]
 
 This project is an application skeleton for a typical [AngularJS](http://angularjs.org/) web app
 using [RequireJS](http://requirejs.org/) written in [TypeScript](http://www.typescriptlang.org/).
