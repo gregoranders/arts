@@ -46,17 +46,26 @@ body[md-theme="green"] {
   .error {
     background: orangered!important;
   }
+  .bottom-sheet {
+    background-color: $bg-color-theme-green!important;
+  }
 }
 
 body[md-theme="blue"] {
   .header, .footer {
     background: $bg-color-theme-blue;
   }
+  .bottom-sheet {
+    background-color: $bg-color-theme-blue!important;
+  }
 }
 
 body[md-theme="indigo"] {
   .header, .footer {
     background: $bg-color-theme-indigo;
+  }
+  .bottom-sheet {
+    background-color: $bg-color-theme-indigo!important;
   }
 }
 
@@ -118,4 +127,21 @@ body[md-theme="indigo"] {
 
 .error {
   background: red!important;
+}
+
+.bottom-sheet {
+
+  span {
+    color: $fg-color;
+    opacity: .55;
+  }
+
+  .bottom-sheet-text {
+    margin-top: 15px;
+  }
+
+  md-item {
+    margin-bottom: 0!important;
+    height: inherit!important;
+  }
 }

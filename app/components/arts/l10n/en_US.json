@@ -21,7 +21,8 @@
         "generic": {
           "refresh": "Refresh",
           "success": "Success",
-          "error": "Error"
+          "error": "Error",
+          "tools": "Tools"
         }
       }
     }

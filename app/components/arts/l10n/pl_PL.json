@@ -21,7 +21,8 @@
         "generic": {
           "refresh": "Odświeżyć",
           "success": "Wykonano",
-          "error": "Błąd"
+          "error": "Błąd",
+          "tools": "Narzędzia"
         }
       }
     }

@@ -20,6 +20,13 @@
                         </md-tooltip>
                     </md-button>
                     <span class="header-buttons-spacer"></span>
+                    <md-button class="md-primary md-raised md-fab" aria-label="Refresh" ng-click="vm.bottomSheet()">
+                        <md-icon md-font-icon="fa fa-terminal fa-2x"></md-icon>
+                        <md-tooltip md-direction="bottom left" md-autohide="true">
+                            <span translate="load.partial.arts.generic.tools"></span>
+                        </md-tooltip>
+                    </md-button>
+                    <span class="header-buttons-spacer"></span>
                     <md-button class="md-primary md-raised md-fab" aria-label="Success" ng-click="vm.success()">
                         <md-icon md-font-icon="fa fa-check fa-2x"></md-icon>
                         <md-tooltip md-direction="bottom left" md-autohide="true">
@@ -59,7 +66,7 @@
             </md-list>
         </md-content>
     </md-sidenav>
-    <md-content class="md-padding" layout="row" flex>
+    <md-content class="md-padding" layout="row" flex id="content">
         <md-tabs md-selected="vm.selectedTabIndex">
             <md-tab label="{{ 'load.partial.arts.about.setup' | translate }}">
                 <hljs lang="bash">git clone https://github.com/gregoranders/arts.git</hljs>
@@ -70,3 +77,4 @@
         </md-tabs>
     </md-content>
 </section>
+

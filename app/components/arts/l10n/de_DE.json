@@ -21,7 +21,8 @@
         "generic": {
           "refresh": "Aktualisieren",
           "success": "Erfolgreich",
-          "error": "Fehler"
+          "error": "Fehler",
+          "tools": "Werkzeuge"
         }
       }
     }
