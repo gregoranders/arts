@@ -40,6 +40,12 @@ body[md-theme="green"] {
   .header, .footer {
     background: $bg-color-theme-green;
   }
+  .success {
+    background: greenyellow!important;
+  }
+  .error {
+    background: orangered!important;
+  }
 }
 
 body[md-theme="blue"] {
@@ -102,4 +108,14 @@ body[md-theme="indigo"] {
   .md-button.md-fab md-icon {
     margin-top: -4px;
   }
+  .header-buttons-spacer {
+    margin-right: 5px;
+  }
+}
+.success {
+  background: green!important;
+}
+
+.error {
+  background: red!important;
 }

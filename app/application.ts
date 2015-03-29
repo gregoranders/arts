@@ -13,6 +13,9 @@ interface IController extends Arts.IController<IScope> {
   toggleSideBar(id: string): void;
 
   refresh(): void;
+
+  success(): void;
+  error(): void;
 }
 
 class IndexController extends Arts.BaseController<IScope> implements IController {
@@ -39,6 +42,23 @@ class IndexController extends Arts.BaseController<IScope> implements IController
     this.$mdToast.show({
       hideDelay: 3000,
       template: '<md-toast><span translate="load.partial.arts.generic.refresh"></span></md-toast>',
+      position: 'top right'
+    });
+  }
+
+  success(): void {
+    this.$mdToast.show({
+      hideDelay: 3000,
+      template: '<md-toast class="success"><span translate="load.partial.arts.generic.success"></span></md-toast>',
+      position: 'top right'
+    });
+
+  }
+
+  error(): void {
+    this.$mdToast.show({
+      hideDelay: 3000,
+      template: '<md-toast class="error"><span translate="load.partial.arts.generic.error"></span></md-toast>',
       position: 'top right'
     });
   }

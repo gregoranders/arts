@@ -19,7 +19,9 @@
           "installation": "монтаж"
         },
         "generic": {
-          "refresh": "обновление"
+          "refresh": "обновление",
+          "success": "успех",
+          "error": "ошибка"
         }
       }
     }

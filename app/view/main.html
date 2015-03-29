@@ -15,8 +15,22 @@
                 <md-item>
                     <md-button class="md-primary md-raised md-fab" aria-label="Refresh" ng-click="vm.refresh()">
                         <md-icon md-font-icon="fa fa-refresh fa-2x"></md-icon>
-                        <md-tooltip md-direction="left" md-autohide="true">
-                            <span translate="load.partial.arts.generic.refresh">Refresh</span>
+                        <md-tooltip md-direction="bottom left" md-autohide="true">
+                            <span translate="load.partial.arts.generic.refresh"></span>
+                        </md-tooltip>
+                    </md-button>
+                    <span class="header-buttons-spacer"></span>
+                    <md-button class="md-primary md-raised md-fab" aria-label="Success" ng-click="vm.success()">
+                        <md-icon md-font-icon="fa fa-check fa-2x"></md-icon>
+                        <md-tooltip md-direction="bottom left" md-autohide="true">
+                            <span translate="load.partial.arts.generic.success"></span>
+                        </md-tooltip>
+                    </md-button>
+                    <span class="header-buttons-spacer"></span>
+                    <md-button class="md-primary md-raised md-fab" aria-label="Error" ng-click="vm.error()">
+                        <md-icon md-font-icon="fa fa-ban fa-2x"></md-icon>
+                        <md-tooltip md-direction="bottom left" md-autohide="true">
+                            <span translate="load.partial.arts.generic.error"></span>
                         </md-tooltip>
                     </md-button>
                 </md-item>

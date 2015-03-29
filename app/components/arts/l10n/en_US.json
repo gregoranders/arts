@@ -19,7 +19,9 @@
           "installation": "Installation"
         },
         "generic": {
-          "refresh": "Refresh"
+          "refresh": "Refresh",
+          "success": "Success",
+          "error": "Error"
         }
       }
     }

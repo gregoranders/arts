@@ -19,7 +19,9 @@
           "installation": "Instalacja"
         },
         "generic": {
-          "refresh": "Odświeżyć"
+          "refresh": "Odświeżyć",
+          "success": "Wykonano",
+          "error": "Błąd"
         }
       }
     }
