@@ -126,6 +126,7 @@ class ToolbarController extends BaseController<Scope> implements Controller {
 
   setTheme(theme:string):void {
     this.theme = theme;
+
     this.localStorageService.set('theme', this.theme);
 
     // It seems there is something broken with angular material forcing a hard reload here to apply new color palettes

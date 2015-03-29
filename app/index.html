@@ -35,7 +35,7 @@
                 <md-select-label class="md-select-label">
                     <span translate="load.partial.arts.theme.{{vm.theme}}" class="ng-scope"></span>
                 </md-select-label>
-                <md-option ng-value="{{ theme.id }}" ng-repeat="theme in vm.themes">
+                <md-option value="{{ theme.id }}" ng-repeat="theme in vm.themes">
                     <span translate="load.partial.arts.theme.{{ theme.id }}"></span>
                 </md-option>
             </md-select>
@@ -45,17 +45,8 @@
                 <md-select-label class="md-select-label">
                     <span translate="load.partial.arts.language.{{vm.language}}" class="ng-scope"></span>
                 </md-select-label>
-                <md-option value="en_US">
-                    <span translate="load.partial.arts.language.en_US"></span>
-                </md-option>
-                <md-option value="de_DE">
-                    <span translate="load.partial.arts.language.de_DE"></span>
-                </md-option>
-                <md-option value="pl_PL">
-                    <span translate="load.partial.arts.language.pl_PL"></span>
-                </md-option>
-                <md-option value="ru_RU">
-                    <span translate="load.partial.arts.language.ru_RU"></span>
+                <md-option value="{{ language.id }}" ng-repeat="language in vm.languages">
+                    <span translate="load.partial.arts.language.{{ language.id }}"></span>
                 </md-option>
             </md-select>
         </div>
