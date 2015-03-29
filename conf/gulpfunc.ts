@@ -21,6 +21,7 @@ var amd = require('amd-optimize'),
   protractor = require('gulp-protractor').protractor,
   push = require('connect-pushstate'),
   ts = require('gulp-typescript'),
+  typedoc = require('gulp-typedoc'),
   tsExtends = /^var __extends =/,
   istanbulIgnoreTypeScriptExtend = function () {
     return through.obj(function (file:any, enc:any, done:any) {
@@ -99,6 +100,9 @@ exports.func = {
         result.dts
           .pipe(gulp.dest(destination + '/ts-api'))
       ]);
+    },
+    typedoc: function(destination: string, source: string[], config: any) {
+      return gulp.src(source).pipe(typedoc(config));
     },
     scss: function (destination:any, source:any, compress:any, sourceMaps:any) {
       return gulp.src(source)

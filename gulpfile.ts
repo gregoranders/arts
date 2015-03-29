@@ -60,6 +60,17 @@ gulp.task('build:ts:e2e', function ()
     false).pipe(connect.reload());
 });
 
+// TypeScript Doc
+gulp.task('build:ts:doc', function ()
+{
+  return func.build.typedoc(
+    config.paths.build.development,
+    config.paths.source.typescript.main,
+    config.typedoc
+  );
+});
+
+
 // Sass related tasks
 gulp.task('build:sass', function ()
 {

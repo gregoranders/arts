@@ -103,5 +103,12 @@ exports.config = {
     sortOutput: true,
     sourceMap: true,
     removeComments: true
+  },
+  typedoc: {
+    module: "amd",
+    out: paths.build + "/typedoc",
+    name: "arts",
+    target: "es5",
+    includeDeclarations: true
   }
 };
