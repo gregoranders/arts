@@ -28,6 +28,7 @@ class IndexController extends Arts.BaseController<IScope> implements IController
 
   switchToTab(tab: number): void {
     this.selectedTabIndex = tab;
+    this.$mdSidenav('left').close();
   }
 
   toggleSideBar(id: string): void {
