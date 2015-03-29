@@ -21,9 +21,12 @@
 <arts-toolbar>
     <div layout="row">
         <div>
-            <md-select placeholder="vm.application" ng-model="vm.application" class="md-toolbar-tools">
-                <md-option value="arts">
-                    <span>Arts</span>
+            <md-select ng-model="vm.application" class="md-toolbar-tools">
+                <md-select-label class="md-select-label">
+                    <span class="ng-scope">{{ vm.application }}</span>
+                </md-select-label>
+                <md-option value="{{ application.id }}" ng-repeat="application in vm.applications">
+                    <span>{{ application.name }}</span>
                 </md-option>
             </md-select>
         </div>

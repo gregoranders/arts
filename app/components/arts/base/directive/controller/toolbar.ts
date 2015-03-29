@@ -10,6 +10,11 @@ interface ILanguage {
   id: string;
 }
 
+interface IApplication {
+  id: string;
+  name: string;
+}
+
 interface Scope extends IScope<Controller> {
 }
 
@@ -20,6 +25,7 @@ interface Controller extends IController<Scope> {
   themes: ITheme[];
   theme: string;
 
+  applications: IApplication[];
   application: string;
 
   setApplication(application:string): void;
@@ -46,6 +52,9 @@ class ToolbarController extends BaseController<Scope> implements Controller {
   ];
   static THEME:string = 'green';
 
+  static APPLICATIONS: IApplication[] = [
+    {id: 'arts', name: 'Arts'}
+  ];
   static APPLICATION:string = 'arts';
 
   static $inject:string[] = ['$scope',
@@ -60,6 +69,7 @@ class ToolbarController extends BaseController<Scope> implements Controller {
   themes: ILanguage[] = [];
   theme:string = undefined;
 
+  applications: IApplication[];
   application:string = undefined;
 
   constructor(public $scope:Scope, private $translate:ng.translate.ITranslateService,
@@ -69,7 +79,6 @@ class ToolbarController extends BaseController<Scope> implements Controller {
 
     // language
     this.languages = ToolbarController.LANGUAGES;
-
     var lang = localStorageService.get('language');
 
     if (!lang) {
@@ -104,6 +113,7 @@ class ToolbarController extends BaseController<Scope> implements Controller {
     });
 
     // application
+    this.applications = ToolbarController.APPLICATIONS;
     this.application = localStorageService.get('application');
 
     if (!this.application) {
