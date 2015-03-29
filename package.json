@@ -2,7 +2,7 @@
   "title": "arts - the AngularJS and RequireJS using TypeScript Seed",
   "name": "angular-require-typescript-seed",
   "description": "angular-require-typescript-seed - the AngularJS and RequireJS using TypeScript Seed",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "homepage": "https://github.com/gregoranders/angular-require-typescript-seed",
   "author": {
     "email": "gregor.anders@gmail.com",
@@ -24,14 +24,10 @@
   "engines": {
     "node": "~0.10.0"
   },
-  "tags": [
+  "keywords": [
     "angular",
     "require",
     "typescript",
-    "bootstrap",
-    "fuelux",
-    "jasny bootstrap",
-    "font awesome",
     "jquery",
     "jasmine",
     "gulp",

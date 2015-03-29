@@ -1,7 +1,7 @@
 {
   "name": "angular-require-typescript-seed",
   "description": "angular-require-typescript-seed - the AngularJS and RequireJS using TypeScript Seed",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "homepage": "https://github.com/gregoranders/angular-require-typescript-seed",
   "author": "Gregor Anders <gregor.anders@gmail.com>",
   "license": "BSD-3-Clause",
