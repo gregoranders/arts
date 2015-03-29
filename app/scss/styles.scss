@@ -92,8 +92,9 @@ body[md-theme="indigo"] {
   display: block;
   padding: 16px;
   text-align: left;
+  width: 100%;
 }
 
-md-sidenav .md-button.md-default-theme {
-  border-radius: 0;
+.header-buttons button {
+  margin-top: 12px;
 }

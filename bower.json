@@ -30,6 +30,7 @@
     "angular-animate": "^1.4.0",
     "angular-aria": "^1.4.0",
     "angular-cookies": "^1.4.0",
+    "angular-highlightjs": "^0.4.1",
     "angular-loader": "^1.4.0",
     "angular-local-storage": "^0.1.5",
     "angular-material": "^0.8.3",

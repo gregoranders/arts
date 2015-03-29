@@ -10,7 +10,7 @@
             </div>
             <h2>angular-require-typescript-seed</h2>
         </div>
-        <div>
+        <div class="header-buttons">
             <md-list>
                 <md-item>
                     <md-button class="md-primary md-raised md-fab" aria-label="Refresh">
@@ -33,19 +33,26 @@
         <md-content>
             <md-list>
                 <md-item>
-                    <a href="#setup/setup" class="sidebar-link md-primary" md-button>
-                        <span>Action One</span>
-                    </a>
+                    <md-button class="md-primary sidebar-link" ng-click="vm.switchToTab(0)">
+                        <span translate="load.partial.arts.about.setup">Setup</span>
+                    </md-button>
                 </md-item>
                 <md-item>
-                    <a href="#setup/setup" class="sidebar-link md-primary" md-button>
-                        <span>Action One</span>
-                    </a>
+                    <md-button class="md-primary sidebar-link" ng-click="vm.switchToTab(1)">
+                        <span translate="load.partial.arts.about.installation">Installation</span>
+                    </md-button>
                 </md-item>
             </md-list>
         </md-content>
     </md-sidenav>
     <md-content class="md-padding" layout="row" flex>
-
+        <md-tabs md-selected="vm.selectedTabIndex">
+            <md-tab label="{{ 'load.partial.arts.about.setup' | translate }}">
+                <hljs lang="bash">git clone https://github.com/gregoranders/arts.git</hljs>
+            </md-tab>
+            <md-tab label="{{ 'load.partial.arts.about.installation' | translate }}">
+                <hljs lang="bash">npm install</hljs>
+            </md-tab>
+        </md-tabs>
     </md-content>
 </section>

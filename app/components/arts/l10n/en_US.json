@@ -14,7 +14,9 @@
           "green": "Green"
         },
         "about": {
-          "setupandinstall": "Setup and installation"
+          "setupandinstall": "Setup and installation",
+          "setup": "Setup",
+          "installation": "Installation"
         },
         "generic": {
           "refresh": "Refresh"

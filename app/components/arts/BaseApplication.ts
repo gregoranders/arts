@@ -3,6 +3,7 @@
 ///<amd-dependency path="angular-animate" />
 ///<amd-dependency path="angular-aria" />
 ///<amd-dependency path="angular-cookies" />
+///<amd-dependency path="angular-highlightjs" />
 ///<amd-dependency path="angular-loader" />
 ///<amd-dependency path="angular-local-storage" />
 ///<amd-dependency path="angular-material" />
@@ -46,7 +47,8 @@ class BaseApplication extends BaseModule implements IApplication {
     'ngTouch',
     'pascalprecht.translate',
     'angularMoment',
-    'LocalStorageModule'
+    'LocalStorageModule',
+    'hljs'
   ];
 
   static dependencies(deps:Array<string>):Array<string> {

@@ -7,15 +7,28 @@ interface IScope extends Arts.IScope<IController> {
 }
 
 interface IController extends Arts.IController<IScope> {
+  selectedTabIndex: number;
 
+  switchToTab(tab: number): void;
+  toggleSideBar(id: string): void;
 }
 
 class IndexController extends Arts.BaseController<IScope> implements IController {
 
-  static $inject:string[] = ['$scope'];
+  static $inject:string[] = ['$scope', '$mdSidenav'];
 
-  constructor(public $scope:IScope) {
+  selectedTabIndex: number = 0;
+
+  constructor(public $scope:IScope, private $mdSidenav:ng.material.MDSidenavService) {
     super($scope);
+  }
+
+  switchToTab(tab: number): void {
+    this.selectedTabIndex = tab;
+  }
+
+  toggleSideBar(id: string): void {
+    this.$mdSidenav(id).toggle();
   }
 }
 

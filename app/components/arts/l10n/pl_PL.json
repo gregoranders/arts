@@ -14,7 +14,9 @@
           "green": "Zielony"
         },
         "about": {
-          "setupandinstall": "Konfiguracja i instalacja"
+          "setupandinstall": "Konfiguracja i instalacja",
+          "setup": "Konfiguracja",
+          "installation": "Instalacja"
         },
         "generic": {
           "refresh": "Odświeżyć"

@@ -14,7 +14,9 @@
           "green": "зеленый"
         },
         "about": {
-          "setupandinstall": "Установка и монтаж"
+          "setupandinstall": "Установка и монтаж",
+          "setup": "Установка",
+          "installation": "монтаж"
         },
         "generic": {
           "refresh": "обновление"
