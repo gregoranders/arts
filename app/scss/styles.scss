@@ -1,5 +1,8 @@
-$bg-color: #2196f3;
 $fg-color: #fff;
+
+$bg-color-theme-blue: blue;
+$bg-color-theme-green: darkgreen;
+$bg-color-theme-indigo: darkblue;
 
 body {
   font-family: 'Roboto', "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
@@ -14,7 +17,7 @@ body {
 .header {
   position: relative;
   height: 103px;
-  background: $bg-color;
+  padding: 10px;
 
   h1, h2, .button-font-icon {
     color: $fg-color;
@@ -35,13 +38,19 @@ body {
 
 body[md-theme="green"] {
   .header, .footer {
-    background: darkgreen;
+    background: $bg-color-theme-green;
   }
 }
 
 body[md-theme="blue"] {
   .header, .footer {
-    background: $bg-color;
+    background: $bg-color-theme-blue;
+  }
+}
+
+body[md-theme="indigo"] {
+  .header, .footer {
+    background: $bg-color-theme-indigo;
   }
 }
 
@@ -59,7 +68,6 @@ body[md-theme="blue"] {
 }
 
 .footer {
-  background: $bg-color;
   text-align: center;
   padding: 16px;
   color: $fg-color;
@@ -80,21 +88,10 @@ body[md-theme="blue"] {
   }
 }
 
-.l-pad-10 {
-  padding: 10px;
-}
-
-.l-mar-1 {
-  margin: 1em 1em;
-}
-
 .sidebar-link {
   display: block;
   padding: 16px;
-}
-
-.language-text {
-  padding-left: 16px;
+  text-align: left;
 }
 
 md-sidenav .md-button.md-default-theme {
