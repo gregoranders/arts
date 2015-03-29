@@ -15,6 +15,9 @@
         },
         "about": {
           "setupandinstall": "Setup and installation"
+        },
+        "generic": {
+          "refresh": "Refresh"
         }
       }
     }

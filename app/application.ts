@@ -12,18 +12,15 @@ interface IController extends Arts.IController<IScope> {
 
 class IndexController extends Arts.BaseController<IScope> implements IController {
 
-  static $inject:string[] = ['$scope', '$mdSidenav'];
+  static $inject:string[] = ['$scope'];
 
-  constructor(public $scope:IScope, private $mdSidenav:ng.material.MDSidenavService) {
+  constructor(public $scope:IScope) {
     super($scope);
-  }
-
-  toggleSideBar(id:string):void {
-    this.$mdSidenav('left').toggle();
   }
 }
 
-class RouteConfiguration extends Arts.BaseConfiguration {
+class ApplicationConfiguration extends Arts.BaseConfiguration {
+
   static NAME:string = 'com.github.gregoranders.arts.configuration';
 
   static $inject:Array<string> = [
@@ -37,14 +34,14 @@ class RouteConfiguration extends Arts.BaseConfiguration {
     'localStorageServiceProvider'
   ];
 
-  constructor($routeProvider:angular.route.IRouteProvider,
-              $controllerProvider:angular.IControllerProvider,
-              $provideService:ng.auto.IProvideService,
-              $compileProvider:ng.ICompileProvider,
-              $translateProvider:ng.translate.ITranslateProvider,
-              $translatePartialLoaderProvider:ng.translate.ITranslatePartialLoaderService,
-              $mdThemingProvider:ng.material.MDThemingProvider,
-              localStorageServiceProvider:angular.local.storage.ILocalStorageServiceProvider) {
+  constructor(private $routeProvider:angular.route.IRouteProvider,
+              private $controllerProvider:angular.IControllerProvider,
+              private $provideService:ng.auto.IProvideService,
+              private $compileProvider:ng.ICompileProvider,
+              private $translateProvider:ng.translate.ITranslateProvider,
+              private $translatePartialLoaderProvider:ng.translate.ITranslatePartialLoaderService,
+              private $mdThemingProvider:ng.material.MDThemingProvider,
+              private localStorageServiceProvider:angular.local.storage.ILocalStorageServiceProvider) {
 
     super($routeProvider, $controllerProvider, $provideService, $compileProvider);
 
@@ -52,11 +49,12 @@ class RouteConfiguration extends Arts.BaseConfiguration {
         .initModule($routeProvider, $controllerProvider, $provideService, $compileProvider),
       language = localStorage.getItem(Application.NAME + '.language'),
       theme = localStorage.getItem(Application.NAME + '.theme'),
-      path = component.getBaseURL();
+      basePath = component.getBaseURL();
 
+    // routing
     super.when('/', {
       name: 'index',
-      templateUrl: path + 'view/main.html',
+      templateUrl: basePath + 'view/main.html',
       controller: IndexController
     });
 
@@ -64,24 +62,30 @@ class RouteConfiguration extends Arts.BaseConfiguration {
       redirectTo: '/'
     });
 
-    $mdThemingProvider.theme('blue')
-      .primaryPalette('blue')
-      .accentPalette('light-blue');
+    // theming
+    this.$mdThemingProvider.theme('blue')
+        .primaryPalette('blue')
+        .accentPalette('light-blue');
 
-    $mdThemingProvider.theme('indigo')
-      .primaryPalette('indigo')
-      .accentPalette('blue');
+    this.$mdThemingProvider.theme('indigo')
+        .primaryPalette('indigo')
+        .accentPalette('blue');
 
-    $mdThemingProvider.theme('green')
-      .primaryPalette('green')
-      .accentPalette('light-green');
+    this.$mdThemingProvider.theme('green')
+        .primaryPalette('green')
+        .accentPalette('light-green');
 
-    $mdThemingProvider.alwaysWatchTheme(true);
+    this.$mdThemingProvider.alwaysWatchTheme(true);
 
-    $translateProvider.useLoader('$translatePartialLoader', {
-      urlTemplate: path + '/components/{part}/l10n/{lang}.json'
+
+    // translations
+    this.$translateProvider.useLoader('$translatePartialLoader', {
+      urlTemplate: basePath + '/components/{part}/l10n/{lang}.json'
     });
+    this.$translatePartialLoaderProvider.addPart('arts');
 
+
+    // defaults
     localStorageServiceProvider
       .setPrefix(Application.NAME)
       .setNotify(true, true);
@@ -97,8 +101,6 @@ class RouteConfiguration extends Arts.BaseConfiguration {
     $translateProvider.preferredLanguage(language);
     $mdThemingProvider.setDefaultTheme(theme);
 
-    $translatePartialLoaderProvider.addPart('arts');
-
     component.directive(Arts.ToolbarDirective);
   }
 }
@@ -110,7 +112,7 @@ class Application extends Arts.BaseApplication {
   static DEPENDENCIES:Array<string> = [];
 
   constructor(baseURL:string) {
-    super(Application.NAME, baseURL, Application.DEPENDENCIES, RouteConfiguration);
+    super(Application.NAME, baseURL, Application.DEPENDENCIES, ApplicationConfiguration);
     Arts.Arts.registerApplication(Application.NAME, this);
   }
 

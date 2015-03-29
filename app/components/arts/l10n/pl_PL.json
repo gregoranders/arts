@@ -15,6 +15,9 @@
         },
         "about": {
           "setupandinstall": "Konfiguracja i instalacja"
+        },
+        "generic": {
+          "refresh": "Odświeżyć"
         }
       }
     }
