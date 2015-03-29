@@ -17,8 +17,5 @@ using [RequireJS](http://requirejs.org/) written in [TypeScript](http://www.type
 [daviddm-url]: https://david-dm.org/gregoranders/arts
 [daviddm-image]: https://david-dm.org/gregoranders/arts.svg
 
-[coverall-url]: https://coveralls.io/repos/gregoranders/arts
-[coverall-image]: https://coveralls.io/repos/gregoranders/arts/development.svg
-
-[gitter-url]: https://gitter.im/gulpjs/gulp
-[gitter-image]: https://badges.gitter.im/gulpjs/gulp.png
+[coverall-url]: https://coveralls.io/repos/gregoranders/arts?branch=master
+[coverall-image]: https://coveralls.io/repos/gregoranders/arts/badge.svg?branch=master
