@@ -86,9 +86,9 @@
     "postinstall": "bower install && webdriver-manager update && npm run-script transpile-config",
 
     "prestart": "npm install",
-    "start": "gulp build:development && gulp run:server:development",
+    "start": "gulp build && gulp run:server",
 
-    "pretest": "npm install && gulp build:development",
-    "test": "gulp run:test:unit:development"
+    "pretest": "npm install && gulp build",
+    "test": "gulp run:test:unit:ci"
   }
 }
