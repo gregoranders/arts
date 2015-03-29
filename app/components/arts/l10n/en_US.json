@@ -1,6 +1,6 @@
 {
-  "load" : {
-    "partial" : {
+  "load": {
+    "partial": {
       "arts": {
         "language": {
           "english": "English",
@@ -14,7 +14,7 @@
           "green": "Green"
         },
         "about": {
-          "setupandinstall" : "Setup and installation"
+          "setupandinstall": "Setup and installation"
         }
       }
     }

@@ -51,11 +51,13 @@ body[md-theme="blue"] {
     height: auto;
   }
 }
+
 @media handheld and (max-width: 480px), screen and (max-device-width: 480px), screen and (max-width: 800px) {
   .mobile-trigger {
     display: inline-block;
   }
 }
+
 .footer {
   background: $bg-color;
   text-align: center;

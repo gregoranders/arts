@@ -2,8 +2,6 @@
 
 import Arts = require("./components/arts/Arts");
 
-declare var window:Window;
-
 interface IScope extends Arts.IScope<IController> {
 
 }
@@ -47,7 +45,7 @@ class RouteConfiguration extends Arts.BaseConfiguration {
               $translateProvider:ng.translate.ITranslateProvider,
               $translatePartialLoaderProvider:ng.translate.ITranslatePartialLoaderService,
               $mdThemingProvider:ng.material.MDThemingProvider,
-              localStorageServiceProvider:any) {
+              localStorageServiceProvider:angular.local.storage.ILocalStorageServiceProvider) {
 
     super($routeProvider, $controllerProvider, $provideService, $compileProvider);
 
