@@ -1,0 +1,30 @@
+{
+  "load": {
+    "partial": {
+      "arts": {
+        "language": {
+          "en_US": "Angielski",
+          "de_DE": "Niemiecki",
+          "pl_PL": "Polski",
+          "ru_RU": "Rosyjski"
+        },
+        "theme": {
+          "blue": "Niebieski",
+          "indigo": "Indigo",
+          "green": "Zielony"
+        },
+        "about": {
+          "setupandinstall": "Konfiguracja i instalacja",
+          "setup": "Konfiguracja",
+          "installation": "Instalacja"
+        },
+        "generic": {
+          "refresh": "Odświeżyć",
+          "success": "Wykonano",
+          "error": "Błąd",
+          "tools": "Narzędzia"
+        }
+      }
+    }
+  }
+}

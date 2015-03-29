@@ -1,5 +1,6 @@
 'use strict';
-var conf = [];
+var conf = [],
+    gulpconf = require('./gulpconf');
 
 if(process.env.TRAVIS){
     conf = [
@@ -11,10 +12,7 @@ if(process.env.TRAVIS){
     conf = [
         {
             'browserName': 'chrome',
-            'directConnect': true,
-            'chromeOptions': {
-                'args': ['no-sandbox']
-            }
+            'directConnect': true
         },
         {
             'browserName': 'firefox'
@@ -27,8 +25,8 @@ exports.config = {
     directConnect: false,
 
     specs: [
-        '../build/development/**/*.e2e.spec.js',
-        '../build/development/*.e2e.spec.js'
+        '../' + gulpconf.config.paths.build.development + '/**/*.e2e.spec.js',
+        '../' + gulpconf.config.paths.build.development + '/*.e2e.spec.js'
     ],
 
     multiCapabilities: conf,

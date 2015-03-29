@@ -13,6 +13,8 @@ interface IModule extends IInject, IIdentifier {
 
   configure(configuration:IConfiguration): IModule;
 
+  run(configuration:IConfiguration): IModule;
+
   directive(directive:IDirective): IModule;
 
   service(service:IService): IModule;

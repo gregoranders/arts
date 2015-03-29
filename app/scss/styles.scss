@@ -1,6 +1,147 @@
-$font-stack: Arial, Helvetica, sans-serif;
-$font-size: 1em;
-$line-height: 1.4;
-$bg-color: #fff;
-$color: #000;
-$inverse-color: #fff;
+$fg-color: #fff;
+
+$bg-color-theme-blue: blue;
+$bg-color-theme-green: darkgreen;
+$bg-color-theme-indigo: darkblue;
+
+body {
+  font-family: 'Roboto', "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  margin: 0;
+  font-size: 14px;
+}
+
+.mobile-trigger {
+  display: none;
+}
+
+.header {
+  position: relative;
+  height: 103px;
+  padding: 10px;
+
+  h1, h2, .button-font-icon {
+    color: $fg-color;
+    opacity: .75;
+  }
+
+  h2 {
+    font-size: 16px;
+    font-weight: 100;
+    margin: -20px 0px 0px;
+  }
+
+  .button-font-icon {
+    margin-top: -5px;
+    margin-right: 5px;
+  }
+}
+
+body[md-theme="green"] {
+  .header, .footer {
+    background: $bg-color-theme-green;
+  }
+  .success {
+    background: greenyellow!important;
+  }
+  .error {
+    background: orangered!important;
+  }
+  .bottom-sheet {
+    background-color: $bg-color-theme-green!important;
+  }
+}
+
+body[md-theme="blue"] {
+  .header, .footer {
+    background: $bg-color-theme-blue;
+  }
+  .bottom-sheet {
+    background-color: $bg-color-theme-blue!important;
+  }
+}
+
+body[md-theme="indigo"] {
+  .header, .footer {
+    background: $bg-color-theme-indigo;
+  }
+  .bottom-sheet {
+    background-color: $bg-color-theme-indigo!important;
+  }
+}
+
+@media handheld and (max-width: 400px), screen and (max-device-width: 400px), screen and (max-width: 800px) {
+  .header, .footer {
+    font-size: .7em;
+    height: auto;
+  }
+}
+
+@media handheld and (max-width: 480px), screen and (max-device-width: 480px), screen and (max-width: 800px) {
+  .mobile-trigger {
+    display: inline-block;
+  }
+}
+
+.footer {
+  text-align: center;
+  padding: 16px;
+  color: $fg-color;
+
+  small {
+    opacity: .55;
+  }
+
+  a {
+    color: $fg-color;
+    text-decoration: none;
+    opacity: .55;
+  }
+
+  a:hover {
+    text-decoration: underline;
+    opacity: 1;
+  }
+}
+
+.sidebar-link {
+  display: block;
+  padding: 16px;
+  text-align: left;
+  width: 100%;
+}
+
+.header-buttons {
+  button {
+    margin-top: 12px;
+  }
+  .md-button.md-fab md-icon {
+    margin-top: -4px;
+  }
+  .header-buttons-spacer {
+    margin-right: 5px;
+  }
+}
+.success {
+  background: green!important;
+}
+
+.error {
+  background: red!important;
+}
+
+.bottom-sheet {
+
+  span {
+    color: $fg-color;
+    opacity: .55;
+  }
+
+  .bottom-sheet-text {
+    margin-top: 15px;
+  }
+
+  md-item {
+    margin-bottom: 0!important;
+    height: inherit!important;
+  }
+}

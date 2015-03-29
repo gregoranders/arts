@@ -1,9 +1,11 @@
 'use strict';
 
+var gulpconf = require('./gulpconf.js');
+
 module.exports = function (config) {
     config.set({
 
-        basePath: '../build/development',
+        basePath: '../' + gulpconf.config.paths.build.development,
 
         files: [
             {pattern: 'vendor/js/*.js', included: false},

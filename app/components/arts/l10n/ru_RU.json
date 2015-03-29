@@ -1,0 +1,30 @@
+{
+  "load": {
+    "partial": {
+      "arts": {
+        "language": {
+          "en_US": "Aнглийский",
+          "de_DE": "Hемецкий",
+          "pl_PL": "Nольский",
+          "ru_RU": "Pусский"
+        },
+        "theme": {
+          "blue": "синий",
+          "indigo": "индиго",
+          "green": "зеленый"
+        },
+        "about": {
+          "setupandinstall": "Установка и монтаж",
+          "setup": "Установка",
+          "installation": "монтаж"
+        },
+        "generic": {
+          "refresh": "обновление",
+          "success": "успех",
+          "error": "ошибка",
+          "tools": "инструменты"
+        }
+      }
+    }
+  }
+}

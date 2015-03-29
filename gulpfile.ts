@@ -15,6 +15,7 @@ gulp.task('build', [
   'build:ts:test',
   'build:ts:e2e',
   'build:sass',
+  'build:json',
   'build:html'
 ]);
 
@@ -59,6 +60,17 @@ gulp.task('build:ts:e2e', function ()
     false).pipe(connect.reload());
 });
 
+// TypeScript Doc
+gulp.task('build:ts:doc', function ()
+{
+  return func.build.typedoc(
+    config.paths.build.development,
+    config.paths.source.typescript.main,
+    config.typedoc
+  );
+});
+
+
 // Sass related tasks
 gulp.task('build:sass', function ()
 {
@@ -75,6 +87,16 @@ gulp.task('build:html', function ()
   return func.build.copy(
     config.paths.build.development,
     config.paths.source.html,
+    false,
+    false).pipe(connect.reload());
+});
+
+// json related tasks
+gulp.task('build:json', function ()
+{
+  return func.build.copyJSON(
+    config.paths.build.development,
+    config.paths.source.json,
     false,
     false).pipe(connect.reload());
 });
@@ -107,6 +129,18 @@ gulp.task('build:release', ['build'], function ()
     config.paths.build.release,
     config.paths.build.development + '/config.js',
     true,
+    false).pipe(connect.reload());
+
+  func.build.copyJSON(
+    config.paths.build.release,
+    config.paths.build.development + '/*.json',
+    false,
+    false).pipe(connect.reload());
+
+  func.build.copyJSON(
+    config.paths.build.release,
+    config.paths.build.development + '/**/*.json',
+    false,
     false).pipe(connect.reload());
 
   func.build.copyJS(
@@ -174,4 +208,5 @@ gulp.task('watch', ['run:server'], function ()
   gulp.watch(config.paths.source.typescript.e2e, ['build:ts:e2e']);
   gulp.watch(config.paths.source.scss, ['build:sass']);
   gulp.watch(config.paths.source.html, ['build:html']);
+  gulp.watch(config.paths.source.json, ['build:json']);
 });

@@ -1,0 +1,30 @@
+{
+  "load": {
+    "partial": {
+      "arts": {
+        "language": {
+          "en_US": "English",
+          "de_DE": "German",
+          "pl_PL": "Polish",
+          "ru_RU": "Russian"
+        },
+        "theme": {
+          "blue": "Blue",
+          "indigo": "Indigo",
+          "green": "Green"
+        },
+        "about": {
+          "setupandinstall": "Setup and installation",
+          "setup": "Setup",
+          "installation": "Installation"
+        },
+        "generic": {
+          "refresh": "Refresh",
+          "success": "Success",
+          "error": "Error",
+          "tools": "Tools"
+        }
+      }
+    }
+  }
+}
