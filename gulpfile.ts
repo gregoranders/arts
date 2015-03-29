@@ -131,6 +131,18 @@ gulp.task('build:release', ['build'], function ()
     true,
     false).pipe(connect.reload());
 
+  func.build.copyJSON(
+    config.paths.build.release,
+    config.paths.build.development + '/*.json',
+    false,
+    false).pipe(connect.reload());
+
+  func.build.copyJSON(
+    config.paths.build.release,
+    config.paths.build.development + '/**/*.json',
+    false,
+    false).pipe(connect.reload());
+
   func.build.copyJS(
     config.paths.build.release + '/vendor/js',
     config.paths.build.development + '/vendor/js/require.js',
