@@ -5,7 +5,7 @@ class ToolbarDirective extends BaseDirective {
   static NAME:string = 'artsToolbar';
 
   restrict:string = 'E';
-  templateUrl:string = 'components/arts/base/directive/view/toolbar.html';
+  template:string = '<md-toolbar><ng-transclude></ng-transclude></md-toolbar>';
   scope:{};
   controller:any = Controller;
   controllerAs:string = 'vm';
