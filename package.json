@@ -2,7 +2,7 @@
   "title": "arts - the AngularJS and RequireJS using TypeScript Seed",
   "name": "angular-require-typescript-seed",
   "description": "angular-require-typescript-seed - the AngularJS and RequireJS using TypeScript Seed",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "homepage": "https://github.com/gregoranders/angular-require-typescript-seed",
   "author": {
     "email": "gregor.anders@gmail.com",
@@ -66,6 +66,7 @@
 
     "glob": "5.0.3",
     "gulp-protractor": "^0.0.12",
+    "coveralls": "^2.11.2",
     "jasmine-core": "^2.2.0",
     "karma": "^0.12.31",
     "karma-chrome-launcher": "^0.1.7",
@@ -86,9 +87,9 @@
     "postinstall": "bower install && webdriver-manager update && npm run-script transpile-config",
 
     "prestart": "npm install",
-    "start": "gulp build:development && gulp run:server:development",
+    "start": "gulp build && gulp run:server",
 
-    "pretest": "npm install && gulp build:development",
-    "test": "gulp run:test:unit:development"
+    "pretest": "npm install && gulp build",
+    "test": "gulp run:test:unit:ci && cd build/development && mv test-coverage/*/lcov.info . && cat lcov.info | ../../node_modules/.bin/coveralls"
   }
 }

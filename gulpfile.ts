@@ -169,6 +169,14 @@ gulp.task('run:test:unit', function ()
   );
 });
 
+gulp.task('run:test:unit:ci', function ()
+{
+  return func.test.unit(
+      './conf/karma-ci.conf.js',
+      false
+  );
+});
+
 // E2E test related tasks
 gulp.task('run:test:e2e', function ()
 {
