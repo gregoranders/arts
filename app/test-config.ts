@@ -27,6 +27,7 @@ requirejs.config({
     'angular-animate': 'vendor/js/angular-animate',
     'angular-aria': 'vendor/js/angular-aria',
     'angular-cookies': 'vendor/js/angular-cookies',
+    'angular-highlightjs': 'vendor/js/angular-highlightjs',
     'angular-loader': 'vendor/js/angular-loader',
     'angular-local-storage': 'vendor/js/angular-local-storage',
     'angular-material': 'vendor/js/angular-material',
@@ -45,6 +46,7 @@ requirejs.config({
     'angular-translate-loader-url': 'vendor/js/angular-translate-loader-url',
     'angular-translate-storage-cookie': 'vendor/js/angular-translate-storage-cookie',
     'angular-translate-storage-local': 'vendor/js/angular-translate-storage-local',
+    'highlight': 'vendor/js/highlight.pack',
     'jquery': 'vendor/js/jquery',
     'moment': 'vendor/js/moment',
     'text': 'vendor/js/text'
@@ -67,6 +69,12 @@ requirejs.config({
     'angular-cookies': {
       deps: [
         'angular'
+      ]
+    },
+    'angular-highlightjs': {
+      deps: [
+        'angular',
+        'highlight'
       ]
     },
     'angular-loader': {
@@ -154,7 +162,8 @@ requirejs.config({
     },
     'angular-translate-storage-cookie': {
       deps: [
-        'angular-translate'
+        'angular-translate',
+        'angular-cookies'
       ]
     },
     'angular-translate-storage-local': {
