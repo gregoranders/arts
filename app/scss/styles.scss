@@ -95,6 +95,11 @@ body[md-theme="indigo"] {
   width: 100%;
 }
 
-.header-buttons button {
-  margin-top: 12px;
+.header-buttons {
+  button {
+    margin-top: 12px;
+  }
+  .md-button.md-fab md-icon {
+    margin-top: -4px;
+  }
 }
