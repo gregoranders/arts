@@ -11,15 +11,18 @@ interface IController extends Arts.IController<IScope> {
 
   switchToTab(tab: number): void;
   toggleSideBar(id: string): void;
+
+  refresh(): void;
 }
 
 class IndexController extends Arts.BaseController<IScope> implements IController {
 
-  static $inject:string[] = ['$scope', '$mdSidenav'];
+  static $inject:string[] = ['$scope', '$mdSidenav', '$mdToast'];
 
   selectedTabIndex: number = 0;
 
-  constructor(public $scope:IScope, private $mdSidenav:ng.material.MDSidenavService) {
+  constructor(public $scope:IScope, private $mdSidenav:ng.material.MDSidenavService,
+    private $mdToast: ng.material.MDToastService) {
     super($scope);
   }
 
@@ -29,6 +32,14 @@ class IndexController extends Arts.BaseController<IScope> implements IController
 
   toggleSideBar(id: string): void {
     this.$mdSidenav(id).toggle();
+  }
+
+  refresh(): void {
+    this.$mdToast.show({
+      hideDelay: 3000,
+      template: '<md-toast><span translate="load.partial.arts.generic.refresh"></span></md-toast>',
+      position: 'top right'
+    });
   }
 }
 
