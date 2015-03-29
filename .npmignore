@@ -1,0 +1,17 @@
+app/*.js
+app/*.js.map
+app/**/*.js
+app/**/*.js.map
+
+e2e-test/*.js
+e2e-test/*.js.map
+e2e-test/**/*.js
+e2e-test/**/*.js.map
+             
+*.js
+*.js.map
+
+build
+node_modules
+.bower_components
+.idea

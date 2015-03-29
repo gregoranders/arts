@@ -14,3 +14,14 @@ before_script:
 
 script:
   - node_modules/.bin/gulp run:test:e2e
+
+notifications:
+  webhooks:
+    urls:
+      - https://webhooks.gitter.im/e/32efdc70f5ad67ec2ad8
+    on_success: always  # options: [always|never|change] default: always
+    on_failure: always  # options: [always|never|change] default: always
+    on_start: false     # default: false
+
+git:
+  depth: 10
