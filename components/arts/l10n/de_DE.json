@@ -1,0 +1,30 @@
+{
+  "load": {
+    "partial": {
+      "arts": {
+        "language": {
+          "en_US": "Englisch",
+          "de_DE": "Deutsch",
+          "pl_PL": "Polnisch",
+          "ru_RU": "Russisch"
+        },
+        "theme": {
+          "blue": "Blau",
+          "indigo": "Indigo",
+          "green": "Gr&uuml;n"
+        },
+        "about": {
+          "setupandinstall": "Einrichtung und Installation",
+          "setup": "Einrichtung",
+          "installation": "Installation"
+        },
+        "generic": {
+          "refresh": "Aktualisieren",
+          "success": "Erfolgreich",
+          "error": "Fehler",
+          "tools": "Werkzeuge"
+        }
+      }
+    }
+  }
+}

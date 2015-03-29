@@ -1,6 +1,80 @@
-<header class="hero background-sky">
-    <h1 class="hero-title text-display-1">Setup &amp; Install</h1>
-
-    <h2 class="hero-subtitle text-subhead">angular-require-typescript-seed - the AngularJS and RequireJS using
-        TypeScript Seed</h2>
+<header class="header">
+    <div layout="row">
+        <div flex>
+            <div layout="row">
+                <md-button ng-click="vm.toggleSideBar('left')" class="button-font-icon" aria-label="Left Sidebar"
+                           hide-gt-md>
+                    <md-icon md-font-icon="fa fa-bars fa-2x "></md-icon>
+                </md-button>
+                <h1 translate="load.partial.arts.about.setupandinstall">Setup &amp; Install</h1>
+            </div>
+            <h2>angular-require-typescript-seed</h2>
+        </div>
+        <div class="header-buttons">
+            <md-list>
+                <md-item>
+                    <md-button class="md-primary md-raised md-fab" aria-label="Refresh" ng-click="vm.refresh()">
+                        <md-icon md-font-icon="fa fa-refresh fa-2x"></md-icon>
+                        <md-tooltip md-direction="bottom left" md-autohide="true">
+                            <span translate="load.partial.arts.generic.refresh"></span>
+                        </md-tooltip>
+                    </md-button>
+                    <span class="header-buttons-spacer"></span>
+                    <md-button class="md-primary md-raised md-fab" aria-label="Refresh" ng-click="vm.bottomSheet()">
+                        <md-icon md-font-icon="fa fa-terminal fa-2x"></md-icon>
+                        <md-tooltip md-direction="bottom left" md-autohide="true">
+                            <span translate="load.partial.arts.generic.tools"></span>
+                        </md-tooltip>
+                    </md-button>
+                    <span class="header-buttons-spacer"></span>
+                    <md-button class="md-primary md-raised md-fab" aria-label="Success" ng-click="vm.success()">
+                        <md-icon md-font-icon="fa fa-check fa-2x"></md-icon>
+                        <md-tooltip md-direction="bottom left" md-autohide="true">
+                            <span translate="load.partial.arts.generic.success"></span>
+                        </md-tooltip>
+                    </md-button>
+                    <span class="header-buttons-spacer"></span>
+                    <md-button class="md-primary md-raised md-fab" aria-label="Error" ng-click="vm.error()">
+                        <md-icon md-font-icon="fa fa-ban fa-2x"></md-icon>
+                        <md-tooltip md-direction="bottom left" md-autohide="true">
+                            <span translate="load.partial.arts.generic.error"></span>
+                        </md-tooltip>
+                    </md-button>
+                </md-item>
+            </md-list>
+        </div>
+    </div>
 </header>
+
+<section layout="row">
+    <md-sidenav md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
+        <md-toolbar>
+            <h1 class="md-toolbar-tools" translate="load.partial.arts.about.setupandinstall">Setup &amp; Install</h1>
+        </md-toolbar>
+        <md-content>
+            <md-list>
+                <md-item>
+                    <md-button class="md-primary sidebar-link" ng-click="vm.switchToTab(0)">
+                        <span translate="load.partial.arts.about.setup">Setup</span>
+                    </md-button>
+                </md-item>
+                <md-item>
+                    <md-button class="md-primary sidebar-link" ng-click="vm.switchToTab(1)">
+                        <span translate="load.partial.arts.about.installation">Installation</span>
+                    </md-button>
+                </md-item>
+            </md-list>
+        </md-content>
+    </md-sidenav>
+    <md-content class="md-padding" layout="row" flex id="content">
+        <md-tabs md-selected="vm.selectedTabIndex">
+            <md-tab label="{{ 'load.partial.arts.about.setup' | translate }}">
+                <hljs lang="bash">git clone https://github.com/gregoranders/arts.git</hljs>
+            </md-tab>
+            <md-tab label="{{ 'load.partial.arts.about.installation' | translate }}">
+                <hljs lang="bash">npm install</hljs>
+            </md-tab>
+        </md-tabs>
+    </md-content>
+</section>
+
