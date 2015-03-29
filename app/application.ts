@@ -19,7 +19,6 @@ class IndexController extends Arts.BaseController<IScope> implements IController
   }
 
   toggleSideBar(id:string):void {
-    console.log(id);
     this.$mdSidenav('left').toggle();
   }
 }
