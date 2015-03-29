@@ -177,13 +177,6 @@ gulp.task('run:test:unit:ci', function ()
   );
 });
 
-gulp.task('run:test:coverall', function ()
-{
-  return func.test.ci(
-      config.paths.build.development + '/**/lcov.info'
-  );
-});
-
 // E2E test related tasks
 gulp.task('run:test:e2e', function ()
 {
