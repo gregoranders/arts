@@ -13,13 +13,13 @@ using [RequireJS](http://requirejs.org/) written in [TypeScript](http://www.type
 [npm-image]: https://badge.fury.io/js/angular-require-typescript-seed.svg
 
 [travis-url]: https://travis-ci.org/gregoranders/arts
-[travis-image]: https://travis-ci.org/gregoranders/arts.svg?branch=master
+[travis-image]: https://travis-ci.org/gregoranders/arts.svg?branch=development
 
 [daviddm-url]: https://david-dm.org/gregoranders/arts
 [daviddm-image]: https://david-dm.org/gregoranders/arts.svg
 
-[coverall-url]: https://coveralls.io/repos/gregoranders/arts?branch=master
-[coverall-image]: https://coveralls.io/repos/gregoranders/arts/badge.svg?branch=master
+[coverall-url]: https://coveralls.io/repos/gregoranders/arts?branch=development
+[coverall-image]: https://coveralls.io/repos/gregoranders/arts/badge.svg?branch=development
 
 [gitter-url]: https://gitter.im/gregoranders/arts
 [gitter-image]: https://badges.gitter.im/gregoranders/arts.png
