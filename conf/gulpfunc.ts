@@ -3,6 +3,7 @@
 'use strict';
 var amd = require('amd-optimize'),
   bower = require('main-bower-files'),
+  coveralls = require('gulp-coveralls'),
   through = require('through2'),
   filter = require('gulp-filter'),
   gulp = require('gulp'),
@@ -157,6 +158,10 @@ exports.func = {
         .on('error', function (err:any) {
           throw err;
         });
+    },
+    ci: function(path: string) {
+      return gulp.src(path)
+          .pipe(coveralls());
     }
   },
   server: function (path:any, port:any) {
