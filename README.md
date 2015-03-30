@@ -4,6 +4,9 @@
 [![Build Status][travis-image]][travis-url]
 [![Coverage Status][coverall-image]][coverall-url]
 [![License][license-image]][license-url]
+[![Release][release-image]][release-url]
+[![Tag][tag-image]][tag-url]
+[![Node][node-image]][node-url]
 [![Issues][issues-image]][issues-url]
 [![Gitter][gitter-image]][gitter-url]
 
@@ -86,3 +89,12 @@ npm test
 
 [issues-url]: https://github.com/gregoranders/arts/issues
 [issues-image]: https://img.shields.io/github/issues-raw/gregoranders/arts.svg
+
+[tag-url]: https://github.com/gregoranders/arts/tags
+[tag-image]: https://img.shields.io/github/tag/gregoranders/arts.svg
+
+[release-url]: https://github.com/gregoranders/arts/releases
+[release-image]: https://img.shields.io/github/release/gregoranders/arts.svg
+
+[node-url]: https://nodejs.org/
+[node-image]: https://img.shields.io/node/v/angular-require-typescript-seed.svg
