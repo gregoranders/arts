@@ -7,7 +7,7 @@ before_script:
   - export DISPLAY=:99.0
   - sudo chmod 1777 /dev/shm
   - Xvfb :99.0 -extension RANDR > /dev/null &
-  - npm test > /dev/null
+  - npm run-script coverall > /dev/null
   - node_modules/.bin/gulp build:release
   - node_modules/.bin/gulp run:server &
   - sleep 5

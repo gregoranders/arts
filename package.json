@@ -2,7 +2,7 @@
   "title": "arts - the AngularJS and RequireJS using TypeScript Seed",
   "name": "angular-require-typescript-seed",
   "description": "angular-require-typescript-seed - the AngularJS and RequireJS using TypeScript Seed",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "homepage": "https://github.com/gregoranders/angular-require-typescript-seed",
   "author": {
     "email": "gregor.anders@gmail.com",
@@ -22,11 +22,14 @@
     "url": "git://github.com/gregoranders/arts.git"
   },
   "engines": {
-    "node": "~0.10.0"
+    "node": "~0.10.0",
+    "node": "~0.12.0"
   },
   "keywords": [
     "angular",
+    "angularjs",
     "require",
+    "requirejs",
     "typescript",
     "jquery",
     "jasmine",
@@ -80,12 +83,13 @@
   },
   "scripts": {
     "transpile-config": "tsc --target ES5 --sourcemap --outDir ./conf conf/gulpconf.ts && tsc --target ES5 --sourcemap --outDir ./conf conf/gulpfunc.ts && tsc --target ES5 --sourcemap --outDir ./ gulpfile.ts",
+    "coverall": "gulp build && gulp run:test:unit:ci && cd build/development && mv test-coverage/*/lcov.info . && cat lcov.info | ../../node_modules/.bin/coveralls",
     "postinstall": "bower install && webdriver-manager update && npm run-script transpile-config",
 
     "prestart": "npm install",
     "start": "gulp build && gulp run:server",
 
     "pretest": "npm install && gulp build",
-    "test": "gulp run:test:unit:ci && cd build/development && mv test-coverage/*/lcov.info . && cat lcov.info | ../../node_modules/.bin/coveralls"
+    "test": "gulp run:test:unit"
   }
 }

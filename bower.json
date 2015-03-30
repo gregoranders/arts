@@ -1,12 +1,11 @@
 {
   "name": "angular-require-typescript-seed",
   "description": "angular-require-typescript-seed - the AngularJS and RequireJS using TypeScript Seed",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "homepage": "https://github.com/gregoranders/angular-require-typescript-seed",
   "author": "Gregor Anders <gregor.anders@gmail.com>",
   "license": "BSD-3-Clause",
   "private": false,
-  "appPath": "./build/release",
   "ignore": [
     "**/.*",
     "build",
@@ -16,7 +15,9 @@
   ],
   "keywords": [
     "angular",
+    "angularjs",
     "require",
+    "requirejs",
     "typescript",
     "jasmine",
     "gulp",
