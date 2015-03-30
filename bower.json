@@ -15,7 +15,9 @@
   ],
   "keywords": [
     "angular",
+    "angularjs",
     "require",
+    "requirejs",
     "typescript",
     "jasmine",
     "gulp",

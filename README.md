@@ -1,10 +1,59 @@
+[![Dependency Status][daviddm-image]][daviddm-url]
+[![NPM version][npm-image]][npm-url]
+[![Downloads][downloads-image]][npm-url]
+[![Build Status][travis-image]][travis-url]
+[![Coverage Status][coverall-image]][coverall-url]
+[![License][license-image]][license-url] [![Gitter][gitter-image]][gitter-url]
+
 # angular-require-typescript-seed
 **the AngularJS and RequireJS using TypeScript Seed**
 
-[![Dependency Status][daviddm-image]][daviddm-url] [![NPM version][npm-image]][npm-url] [![Downloads][downloads-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Coverage Status][coverall-image]][coverall-url] [![License][license-image]][license-url] [![Gitter][gitter-image]][gitter-url]
 
 This project is an application skeleton for a typical [AngularJS](http://angularjs.org/) web app
 using [RequireJS](http://requirejs.org/) written in [TypeScript](http://www.typescriptlang.org/).
+
+
+## Building
+
+In order to build ensure that you have [Git](http://git-scm.com/downloads) and [Node.js](http://nodejs.org/) installed.
+
+### Manually
+Clone a copy of the repo:
+
+```
+git clone https://github.com/gregoranders/arts.git
+```
+
+Change to the arts directory:
+
+```
+cd arts
+```
+
+Run build:
+
+```
+npm test
+```
+
+### NPM
+
+```
+npm install angular-require-typescript-seed
+```
+
+Change to the arts directory:
+
+```
+cd node_modules/angular-require-typescript-seed
+```
+
+Run build:
+
+```
+npm test
+```
+
 
 
 [downloads-image]: http://img.shields.io/npm/dm/angular-require-typescript-seed.svg
