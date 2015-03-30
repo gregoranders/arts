@@ -21,8 +21,8 @@ export import BaseService = require('./BaseService');
 
 export import ArtsVersion = require('./ArtsVersion');
 
-export var VERSION: string = ArtsVersion.VERSION;
-export var URL: string = ArtsVersion.URL;
+export var VERSION:string = ArtsVersion.VERSION;
+export var URL:string = ArtsVersion.URL;
 
 export import ToolbarDirective = require('./base/directive/ToolbarDirective');
 'use strict';

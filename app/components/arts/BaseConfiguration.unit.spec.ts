@@ -22,11 +22,11 @@ describe('arts - BaseModule', () => {
 
   it('test otherwise', () => {
     var mockService = <any>{
-        otherwise: function () {
+          otherwise: function () {
 
-        }
-      },
-      testSubject = new TestClass(mockService, null, null, null, null);
+          }
+        },
+        testSubject = new TestClass(mockService, null, null, null, null);
     spyOn(mockService, 'otherwise');
     testSubject.otherwise({});
     expect(mockService.otherwise).toHaveBeenCalled();
@@ -34,11 +34,11 @@ describe('arts - BaseModule', () => {
 
   it('test when', () => {
     var mockService = <any>{
-        when: function () {
+          when: function () {
 
-        }
-      },
-      testSubject = new TestClass(mockService, null, null, null, null);
+          }
+        },
+        testSubject = new TestClass(mockService, null, null, null, null);
     spyOn(mockService, 'when');
     testSubject.when('test', {});
     expect(mockService.when).toHaveBeenCalled();

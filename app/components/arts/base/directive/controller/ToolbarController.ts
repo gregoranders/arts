@@ -42,7 +42,7 @@ class ToolbarController extends BaseController<IToolbarControllerScope> implemen
 
   static NAME:string = 'com.github.gregoranders.arts.base.controller.toolbar';
 
-  static LANGUAGES: ILanguage[] = [
+  static LANGUAGES:ILanguage[] = [
     {id: 'en_US'},
     {id: 'de_DE'},
     {id: 'pl_PL'},
@@ -50,14 +50,14 @@ class ToolbarController extends BaseController<IToolbarControllerScope> implemen
   ];
   static LANGUAGE:string = 'en_US';
 
-  static THEMES: ILanguage[] = [
+  static THEMES:ILanguage[] = [
     {id: 'blue'},
     {id: 'green'},
     {id: 'indigo'}
   ];
   static THEME:string = 'green';
 
-  static APPLICATIONS: IApplication[] = [
+  static APPLICATIONS:IApplication[] = [
     {id: 'arts', name: 'Arts'}
   ];
   static APPLICATION:string = 'arts';
@@ -68,17 +68,17 @@ class ToolbarController extends BaseController<IToolbarControllerScope> implemen
     'localStorageService'
   ];
 
-  languages: ILanguage[] = [];
+  languages:ILanguage[] = [];
   language:string = undefined;
 
-  themes: ILanguage[] = [];
+  themes:ILanguage[] = [];
   theme:string = undefined;
 
-  applications: IApplication[];
+  applications:IApplication[];
   application:string = undefined;
 
-  url: string = ArtsVersion.URL;
-  version: string = ArtsVersion.VERSION;
+  url:string = ArtsVersion.URL;
+  version:string = ArtsVersion.VERSION;
 
   constructor(public $scope:IToolbarControllerScope, private $translate:ng.translate.ITranslateService,
               private $window:Window,
@@ -135,7 +135,7 @@ class ToolbarController extends BaseController<IToolbarControllerScope> implemen
     });
   }
 
-  setLanguage(language:string): void {
+  setLanguage(language:string):void {
     this.$translate.use(language).then(() => {
       this.language = language;
       this.localStorageService.set('language', this.language);

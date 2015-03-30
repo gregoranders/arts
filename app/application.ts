@@ -22,10 +22,10 @@ class ApplicationConfiguration extends Arts.BaseApplicationConfiguration {
         localStorageServiceProvider);
 
     var component:Arts.IApplication = <Arts.IApplication>Arts.Arts.getApplication(Application.NAME)
-        .initModule($routeProvider, $controllerProvider, $provideService, $compileProvider),
-      language = localStorage.getItem(Application.NAME + '.language'),
-      theme = localStorage.getItem(Application.NAME + '.theme'),
-      basePath = component.getBaseURL();
+            .initModule($routeProvider, $controllerProvider, $provideService, $compileProvider),
+        language = localStorage.getItem(Application.NAME + '.language'),
+        theme = localStorage.getItem(Application.NAME + '.theme'),
+        basePath = component.getBaseURL();
 
     super.initTranslations(basePath);
 
@@ -38,7 +38,7 @@ class Application extends Arts.BaseApplication {
   static NAME:string = 'com.github.gregoranders.arts';
 
   static DEPENDENCIES:Array<string> = [
-      SetupComponent.NAME
+    SetupComponent.NAME
   ];
 
   constructor(baseURL:string) {
@@ -46,13 +46,13 @@ class Application extends Arts.BaseApplication {
     Arts.Arts.registerApplication(Application.NAME, this);
   }
 
-  static initializeComponents(basePath: string): Arts.IModule[] {
+  static initializeComponents(basePath:string):Arts.IModule[] {
 
-      var components: Arts.IModule[] = [];
+    var components:Arts.IModule[] = [];
 
-      components.push(SetupComponent.initializeComponents( basePath + 'components/setup/'));
+    components.push(SetupComponent.initializeComponents(basePath + 'components/setup/'));
 
-      return components;
+    return components;
   }
 }
 

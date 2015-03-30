@@ -53,11 +53,11 @@ describe('arts - BaseModule', () => {
 
   it('should register service', () => {
     var testSubject = new TestClass(TestClass.NAME, './test/'),
-      mockService = <any>{
-        service: function () {
+        mockService = <any>{
+          service: function () {
 
-        }
-      };
+          }
+        };
     testSubject.initModule(null, null, mockService, null);
     spyOn(mockService, 'service');
     testSubject.service(<any>TestService);
@@ -66,11 +66,11 @@ describe('arts - BaseModule', () => {
 
   it('should register controller', () => {
     var testSubject = new TestClass(TestClass.NAME, './test/'),
-      mockService = <any>{
-        register: function () {
+        mockService = <any>{
+          register: function () {
 
-        }
-      };
+          }
+        };
     testSubject.initModule(null, mockService, null, null);
     spyOn(mockService, 'register');
     testSubject.controller(<any>TestController);
@@ -79,11 +79,11 @@ describe('arts - BaseModule', () => {
 
   it('should register directive', () => {
     var testSubject = new TestClass(TestClass.NAME, './test/'),
-      mockService = <any>{
-        directive: function () {
+        mockService = <any>{
+          directive: function () {
 
-        }
-      };
+          }
+        };
     testSubject.initModule(null, null, null, mockService);
     spyOn(mockService, 'directive');
     testSubject.directive(<any>TestDirective);
