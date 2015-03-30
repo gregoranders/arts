@@ -33,6 +33,12 @@ cd arts
 Run build:
 
 ```
+npm build
+```
+
+Run tests:
+
+```
 npm test
 ```
 
@@ -48,7 +54,7 @@ Change to the arts directory:
 cd node_modules/angular-require-typescript-seed
 ```
 
-Run build:
+Run tests:
 
 ```
 npm test
