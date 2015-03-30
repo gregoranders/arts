@@ -1,5 +1,5 @@
 import BaseDirective = require("../../BaseDirective");
-import Controller = require('./controller/toolbar');
+import ToolbarController = require('./controller/ToolbarController');
 
 class ToolbarDirective extends BaseDirective {
   static NAME:string = 'artsToolbar';
@@ -9,7 +9,7 @@ class ToolbarDirective extends BaseDirective {
   scope:{
 
   };
-  controller:any = Controller;
+  controller:any = ToolbarController;
   controllerAs:string = 'vm';
   transclude:boolean = true;
 }

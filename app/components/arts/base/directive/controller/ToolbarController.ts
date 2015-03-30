@@ -17,10 +17,10 @@ interface IApplication {
   name: string;
 }
 
-interface Scope extends IScope<Controller> {
+interface IToolbarControllerScope extends IScope<IToolbarController> {
 }
 
-interface Controller extends IController<Scope> {
+interface IToolbarController extends IController<IToolbarControllerScope> {
   languages: ILanguage[];
   language: string;
 
@@ -38,7 +38,7 @@ interface Controller extends IController<Scope> {
   setTheme(theme:string): void;
 }
 
-class ToolbarController extends BaseController<Scope> implements Controller {
+class ToolbarController extends BaseController<IToolbarControllerScope> implements IToolbarController {
 
   static NAME:string = 'com.github.gregoranders.arts.base.controller.toolbar';
 
@@ -80,7 +80,7 @@ class ToolbarController extends BaseController<Scope> implements Controller {
   url: string = ArtsVersion.URL;
   version: string = ArtsVersion.VERSION;
 
-  constructor(public $scope:Scope, private $translate:ng.translate.ITranslateService,
+  constructor(public $scope:IToolbarControllerScope, private $translate:ng.translate.ITranslateService,
               private $window:Window,
               private localStorageService:angular.local.storage.ILocalStorageService<string>) {
     super($scope);

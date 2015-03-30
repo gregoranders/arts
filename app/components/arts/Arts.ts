@@ -24,7 +24,7 @@ export import ArtsVersion = require('./ArtsVersion');
 export var VERSION: string = ArtsVersion.VERSION;
 export var URL: string = ArtsVersion.URL;
 
-export import ToolbarDirective = require('./base/directive/toolbar');
+export import ToolbarDirective = require('./base/directive/ToolbarDirective');
 'use strict';
 
 interface IApplicationArray {
