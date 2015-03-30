@@ -2,7 +2,7 @@
   "title": "arts - the AngularJS and RequireJS using TypeScript Seed",
   "name": "angular-require-typescript-seed",
   "description": "angular-require-typescript-seed - the AngularJS and RequireJS using TypeScript Seed",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "homepage": "https://github.com/gregoranders/angular-require-typescript-seed",
   "author": {
     "email": "gregor.anders@gmail.com",
@@ -36,7 +36,7 @@
     "protractor",
     "seed"
   ],
-  "devDependencies": {
+  "dependencies": {
     "bower": "^1.3.12",
     "gulp": "^3.8.11",
     "grunt": "^0.4.5",
