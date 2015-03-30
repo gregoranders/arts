@@ -21,7 +21,7 @@ module.exports = function (config) {
         port: 9001,
 
         preprocessors: {
-            '!(vendor)/**/*.js': ['coverage']
+            '!(vendor)/**/!(*spec).js': ['coverage']
         },
 
         frameworks: ['jasmine', 'requirejs'],
