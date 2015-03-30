@@ -13,6 +13,7 @@ export import IController = require('./interface/IController');
 export import IScope = require('./interface/IScope');
 export import BaseApplication = require('./BaseApplication');
 export import BaseConfiguration = require('./BaseConfiguration');
+export import BaseApplicationConfiguration = require('./BaseApplicationConfiguration');
 export import BaseController = require('./BaseController');
 export import BaseDirective = require('./BaseDirective');
 export import BaseModule = require('./BaseModule');
