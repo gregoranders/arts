@@ -6,7 +6,6 @@
   "author": "Gregor Anders <gregor.anders@gmail.com>",
   "license": "BSD-3-Clause",
   "private": false,
-  "appPath": "./build/release",
   "ignore": [
     "**/.*",
     "build",
