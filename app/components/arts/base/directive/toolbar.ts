@@ -6,7 +6,9 @@ class ToolbarDirective extends BaseDirective {
 
   restrict:string = 'E';
   template:string = '<md-toolbar><ng-transclude></ng-transclude></md-toolbar>';
-  scope:{};
+  scope:{
+
+  };
   controller:any = Controller;
   controllerAs:string = 'vm';
   transclude:boolean = true;
