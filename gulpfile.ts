@@ -1,4 +1,4 @@
-/// <reference path="types/gulp/gulp.d.ts" />
+/// <reference path="typings/tsd.d.ts" />
 
 var config = require('./conf/gulpconf.js').config,
   func = require('./conf/gulpfunc.js').func,
