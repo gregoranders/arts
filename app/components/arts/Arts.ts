@@ -19,8 +19,10 @@ export import BaseDirective = require('./BaseDirective');
 export import BaseModule = require('./BaseModule');
 export import BaseService = require('./BaseService');
 
-export var VERSION: string = '0.0.8';
-export var URL: string = 'https://github.com/gregoranders/arts';
+export import ArtsVersion = require('./ArtsVersion');
+
+export var VERSION: string = ArtsVersion.VERSION;
+export var URL: string = ArtsVersion.URL;
 
 export import ToolbarDirective = require('./base/directive/toolbar');
 'use strict';

@@ -1,4 +1,4 @@
-import Arts = require("../../../Arts");
+import ArtsVersion = require("../../../ArtsVersion");
 
 import IScope = require("../../../interface/IScope");
 import IController = require("../../../interface/IController");
@@ -77,8 +77,8 @@ class ToolbarController extends BaseController<Scope> implements Controller {
   applications: IApplication[];
   application:string = undefined;
 
-  url: string = Arts.URL;
-  version: string = Arts.VERSION;
+  url: string = ArtsVersion.URL;
+  version: string = ArtsVersion.VERSION;
 
   constructor(public $scope:Scope, private $translate:ng.translate.ITranslateService,
               private $window:Window,

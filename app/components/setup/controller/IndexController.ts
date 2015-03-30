@@ -1,4 +1,5 @@
 import Arts = require('../../arts/Arts');
+import Component = require("../Component");
 
 interface IScope extends Arts.IScope<IController> {
 
@@ -28,15 +29,21 @@ class IndexController extends Arts.BaseController<IScope> implements IController
 
     bottomSheetPromise: ng.IPromise<void>;
 
+    private baseURL: string;
+
     constructor(public $scope:IScope, private $mdSidenav:ng.material.MDSidenavService,
                 private $mdToast: ng.material.MDToastService,
                 private $mdBottomSheet: ng.material.MDBottomSheetService) {
         super($scope);
+
+        var component:Arts.IApplication = <Arts.IApplication>Arts.Arts.getModule(Component.NAME);
+
+        this.baseURL = component.getBaseURL();
     }
 
     bottomSheet(): void {
         this.bottomSheetPromise = this.$mdBottomSheet.show({
-            templateUrl: 'view/main-bottom-sheet.html',
+            templateUrl: this.baseURL + 'view/main-bottom-sheet.html',
             scope: this.$scope,
             preserveScope: true,
             parent: <any>angular.element(document.getElementById('content'))

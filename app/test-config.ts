@@ -104,12 +104,6 @@ requirejs.config({
         'angular'
       ]
     },
-    'angular-moment': {
-      deps: [
-        'angular',
-        'moment'
-      ]
-    },
     'angular-resource': {
       deps: [
         'angular'

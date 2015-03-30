@@ -85,6 +85,7 @@
   "scripts": {
     "transpile-config": "tsc --target ES5 --sourcemap --outDir ./conf conf/gulpconf.ts && tsc --target ES5 --sourcemap --outDir ./conf conf/gulpfunc.ts && tsc --target ES5 --sourcemap --outDir ./ gulpfile.ts",
     "coverall": "gulp build && gulp run:test:unit:ci && cd build/development && mv test-coverage/*/lcov.info . && cat lcov.info | ../../node_modules/.bin/coveralls",
+    "build-release": "gulp build:release",
     "tsd": "tsd reinstall -o -s",
     "postinstall": "bower install && webdriver-manager update && npm run-script transpile-config",
 

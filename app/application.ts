@@ -50,7 +50,7 @@ class Application extends Arts.BaseApplication {
 
       var components: Arts.IModule[] = [];
 
-      components.push(SetupComponent.initializeComponents(basePath));
+      components.push(SetupComponent.initializeComponents( basePath + 'components/setup/'));
 
       return components;
   }

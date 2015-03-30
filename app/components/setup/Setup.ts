@@ -2,6 +2,7 @@
 import Arts = require("../arts/Arts");
 
 import IndexController = require("./controller/IndexController");
+import Component = require("./Component");
 
 class ModuleConfiguration extends Arts.BaseConfiguration {
 
@@ -30,7 +31,7 @@ class ModuleConfiguration extends Arts.BaseConfiguration {
 
 class SetupComponent extends Arts.BaseModule {
 
-    static NAME:string = 'com.github.gregoranders.arts.setup';
+    static NAME:string = Component.NAME;
 
     static DEPENDENCIES:Array<string> = [];
 
