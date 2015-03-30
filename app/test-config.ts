@@ -1,4 +1,4 @@
-/// <reference path='../types/requirejs/require.d.ts' />
+/// <reference path="./library.d.ts" />
 
 interface Window {
   __karma__: any;

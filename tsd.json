@@ -1,0 +1,60 @@
+{
+  "version": "v4",
+  "repo": "borisyankov/DefinitelyTyped",
+  "ref": "master",
+  "path": "typings",
+  "bundle": "typings/tsd.d.ts",
+  "installed": {
+    "angularjs/angular.d.ts": {
+      "commit": "fbb8c672d56d1cfe677b81c300f8506a31e0404c"
+    },
+    "angularjs/angular-animate.d.ts": {
+      "commit": "fbb8c672d56d1cfe677b81c300f8506a31e0404c"
+    },
+    "angularjs/angular-cookies.d.ts": {
+      "commit": "fbb8c672d56d1cfe677b81c300f8506a31e0404c"
+    },
+    "angularjs/angular-mocks.d.ts": {
+      "commit": "fbb8c672d56d1cfe677b81c300f8506a31e0404c"
+    },
+    "angularjs/angular-resource.d.ts": {
+      "commit": "fbb8c672d56d1cfe677b81c300f8506a31e0404c"
+    },
+    "angularjs/angular-route.d.ts": {
+      "commit": "fbb8c672d56d1cfe677b81c300f8506a31e0404c"
+    },
+    "angularjs/angular-sanitize.d.ts": {
+      "commit": "fbb8c672d56d1cfe677b81c300f8506a31e0404c"
+    },
+    "angular-material/angular-material.d.ts": {
+      "commit": "fbb8c672d56d1cfe677b81c300f8506a31e0404c"
+    },
+    "angular-local-storage/angular-local-storage.d.ts": {
+      "commit": "fbb8c672d56d1cfe677b81c300f8506a31e0404c"
+    },
+    "angular-protractor/angular-protractor.d.ts": {
+      "commit": "fbb8c672d56d1cfe677b81c300f8506a31e0404c"
+    },
+    "angular-translate/angular-translate.d.ts": {
+      "commit": "fbb8c672d56d1cfe677b81c300f8506a31e0404c"
+    },
+    "gulp/gulp.d.ts": {
+      "commit": "fbb8c672d56d1cfe677b81c300f8506a31e0404c"
+    },
+    "jasmine/jasmine.d.ts": {
+      "commit": "fbb8c672d56d1cfe677b81c300f8506a31e0404c"
+    },
+    "jquery/jquery.d.ts": {
+      "commit": "fbb8c672d56d1cfe677b81c300f8506a31e0404c"
+    },
+    "node/node.d.ts": {
+      "commit": "fbb8c672d56d1cfe677b81c300f8506a31e0404c"
+    },
+    "requirejs/require.d.ts": {
+      "commit": "fbb8c672d56d1cfe677b81c300f8506a31e0404c"
+    },
+    "selenium-webdriver/selenium-webdriver.d.ts": {
+      "commit": "fbb8c672d56d1cfe677b81c300f8506a31e0404c"
+    }
+  }
+}

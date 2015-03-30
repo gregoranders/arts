@@ -62,6 +62,7 @@
     "through2": "^0.6.3",
     "merge2": "^0.3.1",
     "typescript": "^1.4.1",
+    "tsd": "^0.5.7",
 
     "glob": "5.0.3",
     "gulp-protractor": "^0.0.12",
@@ -84,6 +85,7 @@
   "scripts": {
     "transpile-config": "tsc --target ES5 --sourcemap --outDir ./conf conf/gulpconf.ts && tsc --target ES5 --sourcemap --outDir ./conf conf/gulpfunc.ts && tsc --target ES5 --sourcemap --outDir ./ gulpfile.ts",
     "coverall": "gulp build && gulp run:test:unit:ci && cd build/development && mv test-coverage/*/lcov.info . && cat lcov.info | ../../node_modules/.bin/coveralls",
+    "tsd": "tsd reinstall -o -s",
     "postinstall": "bower install && webdriver-manager update && npm run-script transpile-config",
 
     "prestart": "npm install",

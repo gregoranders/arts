@@ -1,4 +1,4 @@
-/// <reference path='../types/requirejs/require.d.ts' />
+/// <reference path="./library.d.ts" />
 
 requirejs.config(
   {
