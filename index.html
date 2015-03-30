@@ -14,7 +14,6 @@
           type="text/css">
     <link rel="stylesheet" href="css/styles.css"/>
     <script data-main="config" src="vendor/js/require.js"></script>
-    <base href="/arts/">
 </head>
 
 <body layout="column" role="document" md-theme="{{ vm.theme }}">
@@ -62,12 +61,9 @@
 </md-content>
 
 <footer class="footer">
-    <small>Powered by <a href="https://github.com/gregoranders/arts">arts</a> <i class="fa fa-copyright"></i>2015. Code
-        licensed under the
-        <a href="http://opensource.org/licenses/BSD-3-Clause" class="text-snow">BSD 3-clause "New" or "Revised"
-            License</a>.
-        Documentation licensed under <a class="text-snow" href="http://creativecommons.org/licenses/by/3.0/">CC BY
-            3.0</a>.
+    <small>Powered by <a href="{{ vm.url }}">arts</a> <i class="fa fa-code-fork"></i><a href="{{ vm.url }}/releases/tag/v{{ vm.version }}">{{ vm.version }}</a> <i class="fa fa-copyright"></i>
+        2015. Code licensed under the <a href="http://opensource.org/licenses/BSD-3-Clause" class="text-snow">BSD 3-clause "New" or "Revised" License</a>.
+        Documentation licensed under <a class="text-snow" href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.
     </small>
 </footer>
 
