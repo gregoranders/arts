@@ -3,7 +3,9 @@
 [![Downloads][downloads-image]][npm-url]
 [![Build Status][travis-image]][travis-url]
 [![Coverage Status][coverall-image]][coverall-url]
-[![License][license-image]][license-url] [![Gitter][gitter-image]][gitter-url]
+[![License][license-image]][license-url]
+[![Issues][issues-image]][issues-url]
+[![Gitter][gitter-image]][gitter-url]
 
 # angular-require-typescript-seed
 **the AngularJS and RequireJS using TypeScript Seed**
@@ -81,3 +83,6 @@ npm test
 
 [license-url]: https://github.com/gregoranders/arts/blob/master/LICENSE
 [license-image]: https://img.shields.io/npm/l/angular-require-typescript-seed.svg
+
+[issues-url]: https://github.com/gregoranders/arts/issues
+[issues-image]: https://img.shields.io/github/issues-raw/gregoranders/arts.svg
