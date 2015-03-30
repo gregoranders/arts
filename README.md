@@ -14,8 +14,6 @@
 **the AngularJS and RequireJS using TypeScript Seed**
 
 
-[![Join the chat at https://gitter.im/gregoranders/arts](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/gregoranders/arts?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-
 This project is an application skeleton for a typical [AngularJS](http://angularjs.org/) web app
 using [RequireJS](http://requirejs.org/) written in [TypeScript](http://www.typescriptlang.org/).
 
@@ -83,7 +81,7 @@ npm test
 [coverall-url]: https://coveralls.io/repos/gregoranders/arts?branch=master
 [coverall-image]: https://coveralls.io/repos/gregoranders/arts/badge.svg?branch=master
 
-[gitter-url]: https://gitter.im/gregoranders/arts
+[gitter-url]: https://gitter.im/gregoranders/arts?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
 [gitter-image]: https://badges.gitter.im/gregoranders/arts.png
 
 [license-url]: https://github.com/gregoranders/arts/blob/master/LICENSE
