@@ -20,6 +20,7 @@ rm -rf *
 
 cp -dpR ${OLD_PWD}/build/release/* ./
 git add .
+git add components/*/l10n/*.json -f
 git commit -m "gh-pages" -sS
 git push origin gh-pages
 
