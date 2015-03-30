@@ -82,7 +82,7 @@
   },
   "scripts": {
     "transpile-config": "tsc --target ES5 --sourcemap --outDir ./conf conf/gulpconf.ts && tsc --target ES5 --sourcemap --outDir ./conf conf/gulpfunc.ts && tsc --target ES5 --sourcemap --outDir ./ gulpfile.ts",
-    "coverall": "gulp run:test:unit:ci && cd build/development && mv test-coverage/*/lcov.info . && cat lcov.info | ../../node_modules/.bin/coveralls",
+    "coverall": "gulp build && gulp run:test:unit:ci && cd build/development && mv test-coverage/*/lcov.info . && cat lcov.info | ../../node_modules/.bin/coveralls",
     "postinstall": "bower install && webdriver-manager update && npm run-script transpile-config",
 
     "prestart": "npm install",
