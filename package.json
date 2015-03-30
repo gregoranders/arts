@@ -65,7 +65,7 @@
     "tsd": "^0.5.7",
 
     "glob": "5.0.3",
-    "gulp-protractor": "git@github.com:szimek/gulp-protractor.git",
+    "gulp-protractor": "git://github.com/szimek/gulp-protractor.git",
     "coveralls": "^2.11.2",
     "jasmine-core": "^2.2.0",
     "karma": "^0.12.31",
