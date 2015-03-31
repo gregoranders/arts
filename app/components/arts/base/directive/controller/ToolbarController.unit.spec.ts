@@ -34,35 +34,70 @@ describe('ToolbarController', ():void => {
   });
 
   it('should be able to be created', ():void => {
-    var promise: any = {
-          then: (func: any): void => {
+    var promise:any = {
+          then: (func:any):void => {
             func();
           }
         },
         $scope:any = {
-          $watch: (func: any, func1: any): void => {
+          $watch: (func:any, func1:any):void => {
             func();
             func1('test', 'test');
           }
         },
         $translate:any = {
-          use: (): ng.IPromise<any> => {
+          use: ():ng.IPromise<any> => {
             return promise;
           }
         },
         $window:any = {},
         localStorageService:any = {
-          get: (): string => {
+          get: ():string => {
             return '';
           },
-          set: (): void => {
+          set: ():void => {
 
           }
         };
 
 
-
     expect(new testSubject($scope, $translate, $window, localStorageService)).toBeDefined();
+  });
+
+  it('should be able to be set theme', ():void => {
+    var promise:any = {
+          then: (func:any):void => {
+            func();
+          }
+        },
+        $scope:any = {
+          $watch: (func:any, func1:any):void => {
+            func();
+            func1('test', 'tes1t');
+          }
+        },
+        $translate:any = {
+          use: ():ng.IPromise<any> => {
+            return promise;
+          }
+        },
+        $window:any = {
+          location: {
+            reload: () => {
+            }
+          }
+        },
+        localStorageService:any = {
+          get: ():string => {
+            return '';
+          },
+          set: ():void => {
+
+          }
+        },
+        test:testSubject = new testSubject($scope, $translate, $window, localStorageService);
+
+    test.setTheme('blue');
   });
 
 
