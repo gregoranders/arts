@@ -19,7 +19,7 @@ describe('arts', () => {
   it('has correct version', () => {
     expect(testSubject.VERSION).toBeDefined();
 
-    expect(testSubject.VERSION).toBe('0.0.8');
+    expect(testSubject.VERSION).toBe('0.0.9');
   });
 
 });
