@@ -1,78 +1,187 @@
+import ArtsVersion = require("../../../ArtsVersion");
+
 import IScope = require("../../../interface/IScope");
 import IController = require("../../../interface/IController");
 import BaseController = require("../../../BaseController");
 
+/**
+ * Interface representing a theme used in arts.
+ */
 interface ITheme {
+
+  /**
+   * Theme id. Example: 'red', 'blue'
+   */
   id: string;
 }
 
+/**
+ * Interface representing a language used in arts.
+ */
 interface ILanguage {
+
+  /**
+   * Language id. Example: 'en_US', 'de_DE'
+   */
   id: string;
 }
 
+/**
+ * Interface representing a application used in arts.
+ */
 interface IApplication {
+
+  /**
+   * Application id. Example: 'arts'
+   */
   id: string;
+
+  /**
+   * Application name. Example: 'Arts'
+   */
   name: string;
 }
 
-interface Scope extends IScope<Controller> {
+/**
+ * Interface representing the scope of the controller.
+ */
+interface IToolbarControllerScope extends IScope<IToolbarController> {
 }
 
-interface Controller extends IController<Scope> {
+/**
+ * Interface representing the ToolbarController public properties and methods that can be used in the view.
+ */
+interface IToolbarController extends IController<IToolbarControllerScope> {
+
+  /**
+   * Available languages.
+   */
   languages: ILanguage[];
+
+  /**
+   * Current language.
+   */
   language: string;
 
+  /**
+   * Available themes.
+   */
   themes: ITheme[];
+
+  /**
+   * Current theme.
+   */
   theme: string;
 
+  /**
+   * Application url.
+   */
+  url: string;
+
+  /**
+   * Application version.
+   */
+  version: string;
+
+  /**
+   * Available applications.
+   */
   applications: IApplication[];
+
+  /**
+   * Current application.
+   */
   application: string;
 
+  /**
+   * Sets the current application.
+   */
   setApplication(application:string): void;
+
+  /**
+   * Sets the current language.
+   */
   setLanguage(language:string): void;
+
+  /**
+   * Sets the current theme.
+   */
   setTheme(theme:string): void;
 }
 
-class ToolbarController extends BaseController<Scope> implements Controller {
+/**
+ * Default IToolbarController implementation.
+ */
+class ToolbarController extends BaseController<IToolbarControllerScope> implements IToolbarController {
 
+  /**
+   * Name of the controller.
+   */
   static NAME:string = 'com.github.gregoranders.arts.base.controller.toolbar';
 
-  static LANGUAGES: ILanguage[] = [
+  /**
+   * Available languages.
+   */
+  static LANGUAGES:ILanguage[] = [
     {id: 'en_US'},
     {id: 'de_DE'},
     {id: 'pl_PL'},
     {id: 'ru_RU'}
   ];
+
+  /**
+   * Default language.
+   */
   static LANGUAGE:string = 'en_US';
 
-  static THEMES: ILanguage[] = [
+  /**
+   * Available themes.
+   */
+  static THEMES:ILanguage[] = [
     {id: 'blue'},
     {id: 'green'},
     {id: 'indigo'}
   ];
+
+  /**
+   * Default theme.
+   */
   static THEME:string = 'green';
 
-  static APPLICATIONS: IApplication[] = [
+  /**
+   * Available applications.
+   */
+  static APPLICATIONS:IApplication[] = [
     {id: 'arts', name: 'Arts'}
   ];
+
+  /**
+   * Default application.
+   */
   static APPLICATION:string = 'arts';
 
+  /**
+   * AngularJS DI.
+   */
   static $inject:string[] = ['$scope',
     '$translate',
     '$window',
     'localStorageService'
   ];
 
-  languages: ILanguage[] = [];
+  languages:ILanguage[] = [];
   language:string = undefined;
 
-  themes: ILanguage[] = [];
+  themes:ILanguage[] = [];
   theme:string = undefined;
 
-  applications: IApplication[];
+  applications:IApplication[];
   application:string = undefined;
 
-  constructor(public $scope:Scope, private $translate:ng.translate.ITranslateService,
+  url:string = ArtsVersion.URL;
+  version:string = ArtsVersion.VERSION;
+
+  constructor(public $scope:IToolbarControllerScope, private $translate:ng.translate.ITranslateService,
               private $window:Window,
               private localStorageService:angular.local.storage.ILocalStorageService<string>) {
     super($scope);
@@ -127,7 +236,7 @@ class ToolbarController extends BaseController<Scope> implements Controller {
     });
   }
 
-  setLanguage(language:string): void {
+  setLanguage(language:string):void {
     this.$translate.use(language).then(() => {
       this.language = language;
       this.localStorageService.set('language', this.language);

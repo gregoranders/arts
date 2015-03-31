@@ -1,4 +1,4 @@
-/// <reference path='../types/requirejs/require.d.ts' />
+/// <reference path="./library.d.ts" />
 
 interface Window {
   __karma__: any;
@@ -102,12 +102,6 @@ requirejs.config({
     'angular-mocks': {
       deps: [
         'angular'
-      ]
-    },
-    'angular-moment': {
-      deps: [
-        'angular',
-        'moment'
       ]
     },
     'angular-resource': {

@@ -79,6 +79,10 @@ describe('arts', () => {
     expect(testSubject.BaseConfiguration).toBeDefined();
   });
 
+  it('has BaseApplicationConfiguration', () => {
+    expect(testSubject.BaseApplicationConfiguration).toBeDefined();
+  });
+
   it('has Arts', () => {
     expect(testSubject.Arts).toBeDefined();
   });

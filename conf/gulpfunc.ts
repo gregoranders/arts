@@ -1,4 +1,4 @@
-/// <reference path="../types/gulp/gulp.d.ts" />
+/// <reference path="../typings/tsd.d.ts" />
 
 'use strict';
 var amd = require('amd-optimize'),
@@ -18,7 +18,7 @@ var amd = require('amd-optimize'),
   uglify = require('gulp-uglify'),
   sass = require('gulp-sass'),
   os = require('os'),
-  protractor = require('gulp-protractor').protractor,
+  protrac = require('gulp-protractor').protractor,
   push = require('connect-pushstate'),
   ts = require('gulp-typescript'),
   typedoc = require('gulp-typedoc'),
@@ -151,7 +151,7 @@ exports.func = {
     },
     e2e: function (config:any) {
       return gulp.src([])
-        .pipe(protractor({
+        .pipe(protrac({
           configFile: config
         }))
         .on('error', function (err:any) {

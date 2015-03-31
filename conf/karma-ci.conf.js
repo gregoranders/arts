@@ -21,7 +21,7 @@ module.exports = function (config) {
         port: 9001,
 
         preprocessors: {
-            '!(vendor)/**/*.js': ['coverage']
+            '!(vendor)/**/!(*spec).js': ['coverage']
         },
 
         frameworks: ['jasmine', 'requirejs'],
@@ -36,8 +36,6 @@ module.exports = function (config) {
         ],
 
         plugins: [
-            'karma-firefox-launcher',
-            'karma-chrome-launcher',
             'karma-phantomjs-launcher',
             'karma-jasmine',
             'karma-junit-reporter',
@@ -47,7 +45,7 @@ module.exports = function (config) {
 
         reporters: ['progress', 'coverage', 'junit'],
 
-        singleRun: false,
+        singleRun: true,
 
         colors: true,
 

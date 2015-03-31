@@ -11,30 +11,28 @@ class BaseConfiguration implements IConfiguration {
    */
   static NAME:string = 'com.github.gregoranders.arts.base.configuration';
 
-  static $inject:Array<string> = ['$routeProvider', '$controllerProvider', '$provide', '$compileProvider'];
+  static $inject:Array<string> = [
+    '$routeProvider',
+    '$controllerProvider',
+    '$provide',
+    '$compileProvider',
+    '$translateProvider'
+  ];
 
-  private routeProvider:angular.route.IRouteProvider;
-  private controllerProvider:angular.IControllerProvider;
-  private serviceProvider:angular.auto.IProvideService;
-  private compileProvider:angular.ICompileProvider;
-
-  constructor($routeProvider:angular.route.IRouteProvider,
-              $controllerProvider:angular.IControllerProvider,
-              $provide:ng.auto.IProvideService,
-              $compileProvider:ng.ICompileProvider) {
-    this.routeProvider = $routeProvider;
-    this.controllerProvider = $controllerProvider;
-    this.serviceProvider = $provide;
-    this.compileProvider = $compileProvider;
+  constructor(protected $routeProvider:angular.route.IRouteProvider,
+              protected $controllerProvider:angular.IControllerProvider,
+              protected $provideService:ng.auto.IProvideService,
+              protected $compileProvider:ng.ICompileProvider,
+              protected $translateProvider:ng.translate.ITranslateProvider) {
   }
 
   when(name:string, route:angular.route.IRoute):BaseConfiguration {
-    this.routeProvider.when(name, route);
+    this.$routeProvider.when(name, route);
     return this;
   }
 
   otherwise(route:angular.route.IRoute):BaseConfiguration {
-    this.routeProvider.otherwise(route);
+    this.$routeProvider.otherwise(route);
     return this;
   }
 }

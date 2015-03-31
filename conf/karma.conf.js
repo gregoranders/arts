@@ -13,6 +13,7 @@ module.exports = function (config) {
             {pattern: '*.html', included: false},
             {pattern: '**/*.html', included: false},
             {pattern: '**/*.unit.spec.js', included: false},
+            {pattern: '**/*.json', included: false},
             './test-config.js'
         ],
 
@@ -21,7 +22,7 @@ module.exports = function (config) {
         port: 9001,
 
         preprocessors: {
-            '!(vendor)/**/*.js': ['coverage']
+            '!(vendor)/**/!(*spec).js': ['coverage']
         },
 
         frameworks: ['jasmine', 'requirejs'],
@@ -36,8 +37,6 @@ module.exports = function (config) {
         ],
 
         plugins: [
-            'karma-firefox-launcher',
-            'karma-chrome-launcher',
             'karma-phantomjs-launcher',
             'karma-jasmine',
             'karma-junit-reporter',

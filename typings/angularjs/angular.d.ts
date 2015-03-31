@@ -306,18 +306,18 @@ declare module angular {
         constant(name: string, value: any): IModule;
         constant(object: Object): IModule;
         /**
-         * The $vm service is used by Angular to create new controllers.
+         * The $controller service is used by Angular to create new controllers.
          *
-         * This provider allows vm registration via the register method.
+         * This provider allows controller registration via the register method.
          *
          * @param name Controller name, or an object map of controllers where the keys are the names and the values are the constructors.
          * @param controllerConstructor Controller constructor fn (optionally decorated with DI annotations in the array notation).
          */
         controller(name: string, controllerConstructor: Function): IModule;
         /**
-         * The $vm service is used by Angular to create new controllers.
+         * The $controller service is used by Angular to create new controllers.
          *
-         * This provider allows vm registration via the register method.
+         * This provider allows controller registration via the register method.
          *
          * @param name Controller name, or an object map of controllers where the keys are the names and the values are the constructors.
          * @param controllerConstructor Controller constructor fn (optionally decorated with DI annotations in the array notation).
@@ -586,13 +586,13 @@ declare module angular {
     }
 
     interface IScope extends IRootScopeService { }
-	
+
     /**
      * $scope for ngRepeat directive.
      * see https://docs.angularjs.org/api/ng/directive/ngRepeat
      */
     interface IRepeatScope extends IScope {
-	
+
         /**
          * iterator offset of the repeated element (0..length-1).
          */
@@ -622,7 +622,7 @@ declare module angular {
          * true if the iterator position $index is odd (otherwise false).
          */
         $odd: boolean;
-	
+
 	}
 
     interface IAngularEvent {
@@ -891,6 +891,7 @@ declare module angular {
         // implementation tests it as boolean, which makes more sense
         // since this is a toggler
         html5Mode(active: boolean): ILocationProvider;
+        html5Mode(mode: { enabled?: boolean; requireBase?: boolean; rewriteLinks?: boolean; }): ILocationProvider;
     }
 
     ///////////////////////////////////////////////////////////////////////////
@@ -1079,7 +1080,7 @@ declare module angular {
 
     ///////////////////////////////////////////////////////////////////////////
     // ControllerService
-    // see http://docs.angularjs.org/api/ng.$vm
+    // see http://docs.angularjs.org/api/ng.$controller
     // see http://docs.angularjs.org/api/ng.$controllerProvider
     ///////////////////////////////////////////////////////////////////////////
     interface IControllerService {

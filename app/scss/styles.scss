@@ -41,13 +41,13 @@ body[md-theme="green"] {
     background: $bg-color-theme-green;
   }
   .success {
-    background: greenyellow!important;
+    background: greenyellow !important;
   }
   .error {
-    background: orangered!important;
+    background: orangered !important;
   }
   .bottom-sheet {
-    background-color: $bg-color-theme-green!important;
+    background-color: $bg-color-theme-green !important;
   }
 }
 
@@ -56,7 +56,7 @@ body[md-theme="blue"] {
     background: $bg-color-theme-blue;
   }
   .bottom-sheet {
-    background-color: $bg-color-theme-blue!important;
+    background-color: $bg-color-theme-blue !important;
   }
 }
 
@@ -65,7 +65,7 @@ body[md-theme="indigo"] {
     background: $bg-color-theme-indigo;
   }
   .bottom-sheet {
-    background-color: $bg-color-theme-indigo!important;
+    background-color: $bg-color-theme-indigo !important;
   }
 }
 
@@ -121,12 +121,13 @@ body[md-theme="indigo"] {
     margin-right: 5px;
   }
 }
+
 .success {
-  background: green!important;
+  background: green !important;
 }
 
 .error {
-  background: red!important;
+  background: red !important;
 }
 
 .bottom-sheet {
@@ -141,7 +142,7 @@ body[md-theme="indigo"] {
   }
 
   md-item {
-    margin-bottom: 0!important;
-    height: inherit!important;
+    margin-bottom: 0 !important;
+    height: inherit !important;
   }
 }

@@ -55,6 +55,7 @@ exports.config = {
     },
     source: {
       typescript: {
+        typedoc: paths.source + '/components/arts/Arts.ts',
         main: [
           paths.source + '/*.ts',
           paths.source + '/**/*.ts',
@@ -105,10 +106,11 @@ exports.config = {
     removeComments: true
   },
   typedoc: {
-    module: "amd",
+    module: 'amd',
+    target: 'ES6',
     out: paths.build + "/typedoc",
-    name: "arts",
-    target: "es5",
-    includeDeclarations: true
+    mode: 'file',
+    name: 'arts',
+    includeDeclarations: false
   }
 };
