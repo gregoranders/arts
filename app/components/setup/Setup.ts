@@ -5,7 +5,7 @@ import Component = require("./Component");
 
 class ModuleConfiguration extends Arts.BaseConfiguration {
 
-  static NAME:string = 'com.github.gregoranders.arts.configuration';
+  static NAME:string = Component.NAME + '.configuration';
 
   constructor(protected $routeProvider:angular.route.IRouteProvider,
               protected $controllerProvider:angular.IControllerProvider,
