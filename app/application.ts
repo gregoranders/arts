@@ -3,6 +3,7 @@
 import Arts = require("./components/arts/Arts");
 
 import SetupComponent = require('./components/setup/Setup');
+import DocsComponent = require('./components/docs/Docs');
 
 class ApplicationConfiguration extends Arts.BaseApplicationConfiguration {
 
@@ -38,7 +39,8 @@ class Application extends Arts.BaseApplication {
   static NAME:string = 'com.github.gregoranders.arts';
 
   static DEPENDENCIES:Array<string> = [
-    SetupComponent.NAME
+    SetupComponent.NAME,
+    DocsComponent.NAME
   ];
 
   constructor(baseURL:string) {
@@ -51,6 +53,7 @@ class Application extends Arts.BaseApplication {
     var components:Arts.IModule[] = [];
 
     components.push(SetupComponent.initializeComponents(basePath + 'components/setup/'));
+    components.push(DocsComponent.initializeComponents(basePath + 'components/docs/'));
 
     return components;
   }

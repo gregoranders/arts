@@ -15,7 +15,8 @@ class BaseService implements IService {
 
   protected _name:string = BaseService.NAME;
 
-  constructor() {
+  constructor(name:string) {
+    this._name = name;
   }
 
   name():string {

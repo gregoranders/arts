@@ -17,6 +17,7 @@ gulp.task('build', [
   'build:ts:doc',
   'build:sass',
   'build:json',
+  'build:json:doc',
   'build:html'
 ]);
 
@@ -100,6 +101,15 @@ gulp.task('build:json', function ()
     config.paths.source.json,
     false,
     false).pipe(connect.reload());
+});
+
+gulp.task('build:json:doc', function ()
+{
+  return func.build.typedoc(
+      config.paths.build.development,
+      config.paths.source.typescript.typedoc,
+      config.typedocJSON
+  );
 });
 
 

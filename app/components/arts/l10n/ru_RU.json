@@ -16,7 +16,8 @@
         "about": {
           "setupandinstall": "Установка и монтаж",
           "setup": "Установка",
-          "installation": "монтаж"
+          "installation": "монтаж",
+          "documentation": "документация"
         },
         "generic": {
           "refresh": "обновление",

@@ -112,5 +112,13 @@ exports.config = {
     mode: 'file',
     name: 'arts',
     includeDeclarations: false
+  },
+  typedocJSON: {
+    module: 'amd',
+    target: 'ES6',
+    json: paths.build + "/development/components/docs/l10n/docs.json",
+    mode: 'file',
+    name: 'arts',
+    includeDeclarations: false
   }
 };

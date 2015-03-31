@@ -16,7 +16,8 @@
         "about": {
           "setupandinstall": "Setup and installation",
           "setup": "Setup",
-          "installation": "Installation"
+          "installation": "Installation",
+          "documentation": "Documentation"
         },
         "generic": {
           "refresh": "Refresh",

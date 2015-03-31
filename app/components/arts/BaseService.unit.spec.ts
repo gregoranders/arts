@@ -11,8 +11,7 @@ class TestClass extends BaseService {
   static NAME:string = 'test123';
 
   constructor() {
-    super();
-    this._name = TestClass.NAME;
+    super(TestClass.NAME);
   }
 }
 

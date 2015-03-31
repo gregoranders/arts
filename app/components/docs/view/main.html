@@ -1,0 +1,50 @@
+<header class="header">
+  <div layout="row">
+    <div flex>
+      <div layout="row">
+        <md-button ng-click="vm.toggleSideBar('left')" class="button-font-icon" aria-label="Left Sidebar"
+                   hide-gt-md>
+          <md-icon md-font-icon="fa fa-bars fa-2x "></md-icon>
+        </md-button>
+        <h1 translate="com.github.gregoranders.arts.docs.documentation">Documentation</h1>
+      </div>
+      <h2>angular-require-typescript-seed</h2>
+    </div>
+    <div class="header-buttons">
+    </div>
+  </div>
+</header>
+
+<section layout="row">
+  <md-sidenav md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
+    <md-toolbar>
+      <h1 class="md-toolbar-tools" translate="com.github.gregoranders.arts.docs.documentation">Documentation</h1>
+    </md-toolbar>
+    <md-content>
+      <md-list>
+        <md-item ng-repeat="group in vm.docs.groups">
+          <md-button class="md-primary sidebar-link" ng-click="vm.switchToTab( group )">
+            <span>{{ group.title }}</span>
+          </md-button>
+        </md-item>
+      </md-list>
+    </md-content>
+  </md-sidenav>
+  <md-content class="md-padding" layout="row" flex id="content">
+    <md-tabs md-selected="vm.selectedTabIndex">
+      <md-tab ng-repeat="group in vm.docs.groups">
+        <md-tab-label>{{ group.title }}</md-tab-label>
+        <md-tab-template>
+          <md-list ng-show="vm.documentation.classes">
+            <md-item ng-repeat="class in vm.documentation.classes">
+              <md-button class="md-primary sidebar-link" ng-click="vm.switchToTab( group )">
+                <span>{{ class.name }}</span>
+              </md-button>
+            </md-item>
+          </md-list>
+        </md-tab-template>
+      </md-tab>
+    </md-tabs>
+  </md-content>
+</section>
+

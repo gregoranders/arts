@@ -32,7 +32,9 @@ class SetupComponent extends Arts.BaseModule {
 
   static NAME:string = Component.NAME;
 
-  static DEPENDENCIES:Array<string> = [];
+  static DEPENDENCIES:Array<string> = [
+    'pascalprecht.translate'
+  ];
 
   constructor(baseURL:string) {
     super(SetupComponent.NAME, baseURL, SetupComponent.DEPENDENCIES, ModuleConfiguration);
