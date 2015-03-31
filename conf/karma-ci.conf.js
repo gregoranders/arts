@@ -45,7 +45,7 @@ module.exports = function (config) {
 
         reporters: ['progress', 'coverage', 'junit'],
 
-        singleRun: false,
+        singleRun: true,
 
         colors: true,
 
