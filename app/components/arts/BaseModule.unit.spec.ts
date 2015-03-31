@@ -21,6 +21,7 @@ class TestController extends BaseController<any> {
 
 class TestDirective extends BaseDirective {
   static NAME:string = 'testDirective';
+  static $inject:string[] = ['test'];
 }
 
 class TestClass extends BaseModule {
@@ -90,22 +91,67 @@ describe('arts - BaseModule', () => {
     expect(mockService.directive).toHaveBeenCalled();
   });
 
-  it('should run with configuration', (): void => {
+  it('should run with configuration', ():void => {
 
-    var native: any = <any> {
-      run: (): void => {
+    var native:any = <any> {
+      run: ():void => {
       }
     };
 
-    spyOn(angular, 'module').and.callFake( (): void => {
+    spyOn(angular, 'module').and.callFake(():void => {
       return native;
     }).and.returnValue(native);
+
+    spyOn(native, 'run');
 
     var testSubject = new TestClass(TestClass.NAME, './test/');
 
     testSubject.run(null);
 
     expect(native.run).toHaveBeenCalledWith([null]);
+  });
+
+  it('should create directive', ():void => {
+    var $compileProviderMock:any = {
+          directive: (name:string, factory:any):void => {
+            expect(name).toBe(TestDirective.NAME);
+            expect(factory).toBeDefined();
+            expect(factory.$inject).toBeDefined();
+            expect(factory.$inject).toBe(TestDirective.$inject);
+
+            factory();
+          }
+        },
+        testSubject = new TestClass(TestClass.NAME, 'test');
+
+    testSubject.initModule(null, null, null, $compileProviderMock);
+
+    testSubject.directive(TestDirective);
+  });
+
+  it('should create directive with DI', ():void => {
+    var DITestDirective:any = (params: string[]) => {
+          expect(params).toContain('test1');
+          expect(params).toContain('test2');
+        },
+        $compileProviderMock:any = {
+          directive: (name:string, factory:any):void => {
+            expect(name).toBe(DITestDirective.NAME);
+            expect(factory).toBeDefined();
+            expect(factory.$inject).toBeDefined();
+            expect(factory.$inject).toBe(DITestDirective.$inject);
+
+            factory('test1', 'test2');
+          }
+        },
+        testSubject = new TestClass(TestClass.NAME, 'test');
+
+    DITestDirective.NAME  = 'testDirective';
+    DITestDirective.$inject = ['test1', 'test2'];
+
+    testSubject.initModule(null, null, null, $compileProviderMock);
+
+    testSubject.directive(DITestDirective);
   });
 
 });
