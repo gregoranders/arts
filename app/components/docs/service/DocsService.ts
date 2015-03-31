@@ -30,43 +30,21 @@ class DocsService extends Arts.BaseService implements IDocsService
     return this.$http.get(basePath + 'l10n/docs.json');
   }
 
-  getClasses(documentation: Model.IDocs): Model.IDocClasses
+  getGroupEntries(documentation: Model.IDocs, groupType: Model.DocType): Model.IDocClasses
   {
-    var group: Model.IDocsGroup = this.getGroup(documentation, Model.DocType.Classes);
+    var group: Model.IDocsGroup = this._getGroup(documentation, groupType);
 
-    group.entries = this.getChildren(documentation, group);
+    group.entries = this._getChildren(documentation, group);
 
     return group.entries;
   }
 
-  getInterfaces(documentation: Model.IDocs): Model.IDocClasses
+  getEntries(documentation: Model.IDocs, entry: Model.IDocsGroup): void
   {
-    var group: Model.IDocsGroup = this.getGroup(documentation, Model.DocType.Interfaces);
-
-    group.entries = this.getChildren(documentation, group);
-
-    return group.entries;
+    entry.entries = this._getChildren(documentation, entry);
   }
 
-  getVariables(documentation: Model.IDocs): Model.IDocClasses
-  {
-    var group: Model.IDocsGroup = this.getGroup(documentation, Model.DocType.Variables);
-
-    group.entries = this.getChildren(documentation, group);
-
-    return group.entries;
-  }
-
-  getFunctions(documentation: Model.IDocs): Model.IDocClasses
-  {
-    var group: Model.IDocsGroup = this.getGroup(documentation, Model.DocType.Functions);
-
-    group.entries = this.getChildren(documentation, group);
-
-    return [];
-  }
-
-  getGroup(documentation: Model.IDocs, docType: Model.DocType): Model.IDocsGroup {
+  _getGroup(documentation: Model.IDocs, docType: Model.DocType): Model.IDocsGroup {
     var group: Model.IDocsGroup = null;
 
     angular.forEach(documentation.groups, (element: Model.IDocsGroup): void => {
@@ -79,7 +57,7 @@ class DocsService extends Arts.BaseService implements IDocsService
     return group;
   }
 
-  getChildren(documentation: Model.IDocs, element: Model.IDocsGroup): any {
+  _getChildren(documentation: Model.IDocs, element: Model.IDocsGroup): any {
     var entries: Model.IDocBaseId[] = [];
 
     angular.forEach(element.children, (id: number): void => {
@@ -92,20 +70,6 @@ class DocsService extends Arts.BaseService implements IDocsService
     });
 
     return entries;
-  }
-
-  getEntries(documentation: Model.IDocs, id: number): Model.IDocsGroup {
-    var entry: any = null;
-
-    angular.forEach(documentation.children, (element: Model.IDocBaseId): void => {
-      if (element.id === id)
-      {
-        entry = element;
-        return;
-      }
-    });
-
-    return entry;
   }
 
 }

@@ -38,7 +38,7 @@
 
           <md-list ng-if="group.entries">
             <md-item ng-repeat="entry in group.entries">
-              <md-button class="md-primary code-class" ng-click="vm.switchToTab( group )">
+              <md-button class="md-primary code-class" ng-click="vm.showDocumentation( entry )">
                 <span>{{ entry.name }}</span>
               </md-button>
             </md-item>

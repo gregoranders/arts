@@ -6,10 +6,9 @@ interface IDocsService extends Arts.IService
 {
   getDocs(): ng.IHttpPromise<Model.IDocs>;
 
-  getClasses(documentation: Model.IDocs): Model.IDocClasses;
-  getInterfaces(documentation: Model.IDocs): Model.IDocClasses;
-  getVariables(documentation: Model.IDocs): Model.IDocClasses;
-  getFunctions(documentation: Model.IDocs): Model.IDocClasses;
+  getGroupEntries(documentation: Model.IDocs, groupType: Model.DocType): Model.IDocClasses;
+
+  getEntries(documentation: Model.IDocs, entry: Model.IDocsGroup): void;
 }
 
 export = IDocsService;

@@ -16,6 +16,8 @@ interface IController extends Arts.IController<IScope>
 
   tabSelected(group:Model.IDocsGroup): void;
   switchToTab(group:Model.IDocsGroup): void;
+
+  showDocumentation(entry: Model.IDocsGroup): void;
 }
 
 class IndexController extends Arts.BaseController<IScope> implements IController
@@ -68,10 +70,11 @@ class IndexController extends Arts.BaseController<IScope> implements IController
         {
           this.documentation = data;
 
-          this.documentation.classes = this.IDocsService.getClasses(this.documentation);
-          this.documentation.interfaces = this.IDocsService.getInterfaces(this.documentation);
-          this.documentation.variables = this.IDocsService.getVariables(this.documentation);
-          this.documentation.functions = this.IDocsService.getFunctions(this.documentation);
+          this.documentation.enumerations = this.IDocsService.getGroupEntries(this.documentation, Model.DocType.Enum);
+          this.documentation.classes = this.IDocsService.getGroupEntries(this.documentation, Model.DocType.Class);
+          this.documentation.interfaces = this.IDocsService.getGroupEntries(this.documentation, Model.DocType.Interface);
+          this.documentation.variables = this.IDocsService.getGroupEntries(this.documentation, Model.DocType.Variable);
+          this.documentation.functions = this.IDocsService.getGroupEntries(this.documentation, Model.DocType.Function);
         })
         .error((data:any):void =>
         {
@@ -93,6 +96,10 @@ class IndexController extends Arts.BaseController<IScope> implements IController
   {
     this.selectedTabIndex = this.documentation.groups.indexOf(group);
     this.$mdSidenav('left').close();
+  }
+
+  showDocumentation(entry: Model.IDocsGroup): void
+  {
   }
 }
 
