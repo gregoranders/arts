@@ -10,8 +10,7 @@ interface IScope extends Arts.IScope<IController> {
 interface IController extends Arts.IController<IScope> {
 
   selectedTabIndex: number;
-  docs: Model.IDocs;
-  documentation: any;
+  documentation: Model.IDocs;
 
   toggleSideBar(id:string): void;
 
@@ -31,7 +30,8 @@ class IndexController extends Arts.BaseController<IScope> implements IController
     '$mdToast',
     '$mdBottomSheet',
     'localStorageService',
-    Component.SERVICE];
+    Component.SERVICE
+  ];
 
   static DEFAULT_TAB: number = 0;
 
@@ -39,19 +39,17 @@ class IndexController extends Arts.BaseController<IScope> implements IController
 
   bottomSheetPromise:ng.IPromise<void>;
 
-  docs:Model.IDocs = null;
-
-  documentation: any = {
-    classes: null
-  };
+  documentation:Model.IDocs = null;
 
   private baseURL:string;
 
-  constructor(public $scope:IScope, private $mdSidenav:ng.material.MDSidenavService,
+  constructor(public $scope:IScope,
+              private $mdSidenav:ng.material.MDSidenavService,
               private $mdToast:ng.material.MDToastService,
               private $mdBottomSheet:ng.material.MDBottomSheetService,
               private localStorageService:angular.local.storage.ILocalStorageService<number>,
-              private IDocsService:IDocsService) {
+              private IDocsService:IDocsService)
+  {
     super($scope);
 
     var component:Arts.IApplication = <Arts.IApplication>Arts.Arts.getModule(Component.NAME);
@@ -66,7 +64,7 @@ class IndexController extends Arts.BaseController<IScope> implements IController
 
     IDocsService.getDocs()
         .success((data:any):void => {
-          this.docs = data;
+          this.documentation = data;
         })
         .error((data:any):void => {
           console.log(data);
@@ -78,38 +76,12 @@ class IndexController extends Arts.BaseController<IScope> implements IController
   }
 
   tabSelected(group:Model.IDocsGroup): void {
-    this.localStorageService.set(IndexController.TABS_NAME, this.docs.groups.indexOf(group));
+    this.localStorageService.set(IndexController.TABS_NAME, this.documentation.groups.indexOf(group));
   }
 
   switchToTab(group:Model.IDocsGroup):void {
-
-    var obj: any = [];
-
-    this.documentation = {};
-
-    angular.forEach(group.children, (element: number) => {
-      var def = this.findObjectById(element, this.docs);
-
-      if (def) {
-        obj.push(def);
-      }
-    });
-
-    this.documentation.classes = obj;
-    this.selectedTabIndex = this.docs.groups.indexOf(group);
+    this.selectedTabIndex = this.documentation.groups.indexOf(group);
     this.$mdSidenav('left').close();
-  }
-
-  findObjectById(id: number, docs: Model.IDocs): Model.IDocBaseId {
-    var retval: Model.IDocBaseId = null;
-    angular.forEach(docs.children, (element: Model.IDocBaseId): void => {
-      if (element.id === id) {
-        retval = element;
-        return;
-      }
-    });
-
-    return retval;
   }
 }
 
