@@ -3,7 +3,8 @@
 import IDirective = require('./interface/IDirective');
 'use strict';
 
-class BaseDirective implements IDirective {
+class BaseDirective implements IDirective
+{
   /**
    * Class name.
    *
@@ -13,7 +14,8 @@ class BaseDirective implements IDirective {
 
   static $inject:Array<string> = [];
 
-  constructor() {
+  constructor()
+  {
   }
 }
 

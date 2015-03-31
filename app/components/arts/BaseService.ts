@@ -3,7 +3,8 @@
 import IService = require('./interface/IService');
 'use strict';
 
-class BaseService implements IService {
+class BaseService implements IService
+{
   /**
    * Class name.
    *
@@ -15,11 +16,13 @@ class BaseService implements IService {
 
   protected _name:string = BaseService.NAME;
 
-  constructor(name:string) {
+  constructor(name:string)
+  {
     this._name = name;
   }
 
-  name():string {
+  name():string
+  {
     return this._name;
   }
 }

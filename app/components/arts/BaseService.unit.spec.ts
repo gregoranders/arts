@@ -7,17 +7,21 @@
 import angular = require('angular');
 import BaseService = require('./BaseService');
 
-class TestClass extends BaseService {
+class TestClass extends BaseService
+{
   static NAME:string = 'test123';
 
-  constructor() {
+  constructor()
+  {
     super(TestClass.NAME);
   }
 }
 
-describe('arts - BaseService', () => {
+describe('arts - BaseService', () =>
+{
 
-  it('should provide name', () => {
+  it('should provide name', () =>
+  {
     var testSubject = new TestClass();
     expect(testSubject.name()).toBe('test123');
   });

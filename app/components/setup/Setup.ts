@@ -3,7 +3,8 @@ import Arts = require("../arts/Arts");
 import IndexController = require("./controller/IndexController");
 import Component = require("./Component");
 
-class ModuleConfiguration extends Arts.BaseConfiguration {
+class ModuleConfiguration extends Arts.BaseConfiguration
+{
 
   static NAME:string = Component.NAME + '.configuration';
 
@@ -11,7 +12,8 @@ class ModuleConfiguration extends Arts.BaseConfiguration {
               protected $controllerProvider:angular.IControllerProvider,
               protected $provideService:ng.auto.IProvideService,
               protected $compileProvider:ng.ICompileProvider,
-              protected $translateProvider:ng.translate.ITranslateProvider) {
+              protected $translateProvider:ng.translate.ITranslateProvider)
+  {
 
     super($routeProvider, $controllerProvider, $provideService, $compileProvider, $translateProvider);
 
@@ -28,7 +30,8 @@ class ModuleConfiguration extends Arts.BaseConfiguration {
   }
 }
 
-class SetupComponent extends Arts.BaseModule {
+class SetupComponent extends Arts.BaseModule
+{
 
   static NAME:string = Component.NAME;
 
@@ -36,12 +39,14 @@ class SetupComponent extends Arts.BaseModule {
     'pascalprecht.translate'
   ];
 
-  constructor(baseURL:string) {
+  constructor(baseURL:string)
+  {
     super(SetupComponent.NAME, baseURL, SetupComponent.DEPENDENCIES, ModuleConfiguration);
     Arts.Arts.registerModule(SetupComponent.NAME, this);
   }
 
-  static initializeComponents(basePath:string):SetupComponent {
+  static initializeComponents(basePath:string):SetupComponent
+  {
     return new SetupComponent(basePath);
   }
 }

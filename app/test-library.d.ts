@@ -2,6 +2,7 @@
 
 /// <amd-dependency path="angular-mocks" />
 
-declare module 'angular-mocks' {
+declare module 'angular-mocks'
+{
 
 }

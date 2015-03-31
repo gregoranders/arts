@@ -7,7 +7,8 @@ import BaseController = require("../../../BaseController");
 /**
  * Interface representing a theme used in arts.
  */
-interface ITheme {
+interface ITheme
+{
 
   /**
    * Theme id. Example: 'red', 'blue'
@@ -18,7 +19,8 @@ interface ITheme {
 /**
  * Interface representing a language used in arts.
  */
-interface ILanguage {
+interface ILanguage
+{
 
   /**
    * Language id. Example: 'en_US', 'de_DE'
@@ -29,7 +31,8 @@ interface ILanguage {
 /**
  * Interface representing a application used in arts.
  */
-interface IApplication {
+interface IApplication
+{
 
   /**
    * Application id. Example: 'arts'
@@ -45,13 +48,15 @@ interface IApplication {
 /**
  * Interface representing the scope of the controller.
  */
-interface IToolbarControllerScope extends IScope<IToolbarController> {
+interface IToolbarControllerScope extends IScope<IToolbarController>
+{
 }
 
 /**
  * Interface representing the ToolbarController public properties and methods that can be used in the view.
  */
-interface IToolbarController extends IController<IToolbarControllerScope> {
+interface IToolbarController extends IController<IToolbarControllerScope>
+{
 
   /**
    * Available languages.
@@ -112,7 +117,8 @@ interface IToolbarController extends IController<IToolbarControllerScope> {
 /**
  * Default IToolbarController implementation.
  */
-class ToolbarController extends BaseController<IToolbarControllerScope> implements IToolbarController {
+class ToolbarController extends BaseController<IToolbarControllerScope> implements IToolbarController
+{
 
   /**
    * Name of the controller.
@@ -163,7 +169,8 @@ class ToolbarController extends BaseController<IToolbarControllerScope> implemen
   /**
    * AngularJS DI.
    */
-  static $inject:string[] = ['$scope',
+  static $inject:string[] = [
+    '$scope',
     '$translate',
     '$window',
     'localStorageService'
@@ -183,23 +190,29 @@ class ToolbarController extends BaseController<IToolbarControllerScope> implemen
 
   constructor(public $scope:IToolbarControllerScope, private $translate:ng.translate.ITranslateService,
               private $window:Window,
-              private localStorageService:angular.local.storage.ILocalStorageService<string>) {
+              private localStorageService:angular.local.storage.ILocalStorageService<string>)
+  {
     super($scope);
 
     // language
     this.languages = ToolbarController.LANGUAGES;
     var lang = localStorageService.get('language');
 
-    if (!lang) {
+    if (!lang)
+    {
       lang = ToolbarController.LANGUAGE;
     }
 
-    $translate.use(lang).then(() => {
+    $translate.use(lang).then(() =>
+    {
       this.setLanguage(lang);
-      this.$scope.$watch(() => {
+      this.$scope.$watch(() =>
+      {
         return this.language;
-      }, (language:string, old:string) => {
-        if (language && old !== language) {
+      }, (language:string, old:string) =>
+      {
+        if (language && old !== language)
+        {
           this.setLanguage(language);
         }
       });
@@ -209,14 +222,18 @@ class ToolbarController extends BaseController<IToolbarControllerScope> implemen
     this.themes = ToolbarController.THEMES;
     this.theme = localStorageService.get('theme');
 
-    if (!this.theme) {
+    if (!this.theme)
+    {
       this.theme = ToolbarController.THEME;
     }
 
-    this.$scope.$watch(() => {
+    this.$scope.$watch(() =>
+    {
       return this.theme;
-    }, (theme:string, old:string) => {
-      if (old !== theme) {
+    }, (theme:string, old:string) =>
+    {
+      if (old !== theme)
+      {
         this.setTheme(theme);
       }
     });
@@ -225,25 +242,31 @@ class ToolbarController extends BaseController<IToolbarControllerScope> implemen
     this.applications = ToolbarController.APPLICATIONS;
     this.application = localStorageService.get('application');
 
-    if (!this.application) {
+    if (!this.application)
+    {
       this.application = ToolbarController.APPLICATION;
     }
 
-    this.$scope.$watch(() => {
+    this.$scope.$watch(() =>
+    {
       return this.application;
-    }, (application:string) => {
+    }, (application:string) =>
+    {
       this.setApplication(application);
     });
   }
 
-  setLanguage(language:string):void {
-    this.$translate.use(language).then(() => {
+  setLanguage(language:string):void
+  {
+    this.$translate.use(language).then(() =>
+    {
       this.language = language;
       this.localStorageService.set('language', this.language);
     });
   }
 
-  setTheme(theme:string):void {
+  setTheme(theme:string):void
+  {
     this.theme = theme;
 
     this.localStorageService.set('theme', this.theme);
@@ -252,7 +275,8 @@ class ToolbarController extends BaseController<IToolbarControllerScope> implemen
     this.$window.location.reload();
   }
 
-  setApplication(application:string):void {
+  setApplication(application:string):void
+  {
     this.application = application;
     this.localStorageService.set('application', this.application);
   }

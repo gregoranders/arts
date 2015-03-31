@@ -7,22 +7,27 @@
 import angular = require('angular');
 import BaseConfiguration = require('./BaseConfiguration');
 
-class TestClass extends BaseConfiguration {
+class TestClass extends BaseConfiguration
+{
 
   constructor($routeProvider:angular.route.IRouteProvider,
               $controllerProvider:angular.IControllerProvider,
               $provide:ng.auto.IProvideService,
               $compileProvider:ng.ICompileProvider,
-              $translateProvider:ng.translate.ITranslateProvider) {
+              $translateProvider:ng.translate.ITranslateProvider)
+  {
     super($routeProvider, $controllerProvider, $provide, $compileProvider, $translateProvider);
   }
 }
 
-describe('arts - BaseModule', () => {
+describe('arts - BaseModule', () =>
+{
 
-  it('test otherwise', () => {
+  it('test otherwise', () =>
+  {
     var mockService = <any>{
-          otherwise: function () {
+          otherwise: function ()
+          {
 
           }
         },
@@ -32,9 +37,11 @@ describe('arts - BaseModule', () => {
     expect(mockService.otherwise).toHaveBeenCalled();
   });
 
-  it('test when', () => {
+  it('test when', () =>
+  {
     var mockService = <any>{
-          when: function () {
+          when: function ()
+          {
 
           }
         },

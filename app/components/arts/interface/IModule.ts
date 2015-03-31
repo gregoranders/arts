@@ -8,7 +8,8 @@ import IService = require('./IService');
 import IController = require('./IController');
 import IScope = require('./IScope');
 
-interface IModule extends IInject, IIdentifier {
+interface IModule extends IInject, IIdentifier
+{
   name(): string;
 
   configure(configuration:IConfiguration): IModule;

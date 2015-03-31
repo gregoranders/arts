@@ -1,4 +1,5 @@
-interface IIdentifier {
+interface IIdentifier
+{
   NAME?: string;
 }
 

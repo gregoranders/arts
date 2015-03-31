@@ -5,7 +5,8 @@ import BaseConfiguration = require('./BaseConfiguration');
 
 'use strict';
 
-class BaseApplicationConfiguration extends BaseConfiguration {
+class BaseApplicationConfiguration extends BaseConfiguration
+{
   /**
    * Class name.
    *
@@ -21,7 +22,8 @@ class BaseApplicationConfiguration extends BaseConfiguration {
     '$translateProvider',
     '$translatePartialLoaderProvider',
     '$mdThemingProvider',
-    'localStorageServiceProvider'];
+    'localStorageServiceProvider'
+  ];
 
   constructor(protected id:string,
               protected defaultLanguage:string,
@@ -33,11 +35,13 @@ class BaseApplicationConfiguration extends BaseConfiguration {
               protected $translateProvider:ng.translate.ITranslateProvider,
               protected $translatePartialLoaderProvider:ng.translate.ITranslatePartialLoaderService,
               protected $mdThemingProvider:ng.material.MDThemingProvider,
-              protected localStorageServiceProvider:angular.local.storage.ILocalStorageServiceProvider) {
+              protected localStorageServiceProvider:angular.local.storage.ILocalStorageServiceProvider)
+  {
 
     super($routeProvider, $controllerProvider, $provideService, $compileProvider, $translateProvider);
 
-    if (!$routeProvider) {
+    if (!$routeProvider)
+    {
       throw new Error('Invalid $routeProvider');
     }
     $routeProvider.otherwise({
@@ -67,11 +71,13 @@ class BaseApplicationConfiguration extends BaseConfiguration {
     var theme = localStorage.getItem(id + '.theme'),
         language = localStorage.getItem(id + '.language');
 
-    if (!language) {
+    if (!language)
+    {
       language = defaultLanguage;
     }
 
-    if (!theme) {
+    if (!theme)
+    {
       theme = defaultTheme;
     }
 
@@ -79,7 +85,8 @@ class BaseApplicationConfiguration extends BaseConfiguration {
     $mdThemingProvider.setDefaultTheme(theme);
   }
 
-  initTranslations(basePath:string) {
+  initTranslations(basePath:string)
+  {
     // translations
     this.$translateProvider.useLoader('$translatePartialLoader', {
       urlTemplate: basePath + 'components/{part}/l10n/{lang}.json'

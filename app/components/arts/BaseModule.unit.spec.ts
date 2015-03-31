@@ -11,51 +11,63 @@ import BaseController = require('./BaseController');
 import BaseDirective = require('./BaseDirective');
 import BaseModule = require('./BaseModule');
 
-class TestService extends BaseService {
+class TestService extends BaseService
+{
   static NAME:string = 'testService';
 }
 
-class TestController extends BaseController<any> {
+class TestController extends BaseController<any>
+{
   static NAME:string = 'testController';
 }
 
-class TestDirective extends BaseDirective {
+class TestDirective extends BaseDirective
+{
   static NAME:string = 'testDirective';
   static $inject:string[] = ['test'];
 }
 
-class TestClass extends BaseModule {
+class TestClass extends BaseModule
+{
   static NAME:string = 'test123';
 
-  constructor(name:string, baseURL:string, dependencies?:Array<string>, configuration?:IConfiguration) {
+  constructor(name:string, baseURL:string, dependencies?:Array<string>, configuration?:IConfiguration)
+  {
     super(name, baseURL, dependencies, configuration);
   }
 }
 
-describe('arts - BaseModule', () => {
+describe('arts - BaseModule', () =>
+{
 
-  it('should provide name', () => {
+  it('should provide name', () =>
+  {
     var testSubject = new TestClass(TestClass.NAME, './test/', []);
     expect(testSubject.name()).toBe(TestClass.NAME);
   });
 
-  it('should provide name without deps', () => {
+  it('should provide name without deps', () =>
+  {
     var testSubject = new TestClass(TestClass.NAME, './test/');
     expect(testSubject.name()).toBe(TestClass.NAME);
   });
 
-  it('should execute configuration', () => {
+  it('should execute configuration', () =>
+  {
     var testSubject = new TestClass(TestClass.NAME, './test/');
-    testSubject.configure(() => {
+    testSubject.configure(() =>
+    {
 
     });
     expect(testSubject.name()).toBe(TestClass.NAME);
   });
 
-  it('should register service', () => {
+  it('should register service', () =>
+  {
     var testSubject = new TestClass(TestClass.NAME, './test/'),
         mockService = <any>{
-          service: function () {
+          service: function ()
+          {
 
           }
         };
@@ -65,10 +77,12 @@ describe('arts - BaseModule', () => {
     expect(mockService.service).toHaveBeenCalled();
   });
 
-  it('should register controller', () => {
+  it('should register controller', () =>
+  {
     var testSubject = new TestClass(TestClass.NAME, './test/'),
         mockService = <any>{
-          register: function () {
+          register: function ()
+          {
 
           }
         };
@@ -78,10 +92,12 @@ describe('arts - BaseModule', () => {
     expect(mockService.register).toHaveBeenCalled();
   });
 
-  it('should register directive', () => {
+  it('should register directive', () =>
+  {
     var testSubject = new TestClass(TestClass.NAME, './test/'),
         mockService = <any>{
-          directive: function () {
+          directive: function ()
+          {
 
           }
         };
@@ -91,14 +107,17 @@ describe('arts - BaseModule', () => {
     expect(mockService.directive).toHaveBeenCalled();
   });
 
-  it('should run with configuration', ():void => {
+  it('should run with configuration', ():void =>
+  {
 
     var native:any = <any> {
-      run: ():void => {
+      run: ():void =>
+      {
       }
     };
 
-    spyOn(angular, 'module').and.callFake(():void => {
+    spyOn(angular, 'module').and.callFake(():void =>
+    {
       return native;
     }).and.returnValue(native);
 
@@ -111,9 +130,11 @@ describe('arts - BaseModule', () => {
     expect(native.run).toHaveBeenCalledWith([null]);
   });
 
-  it('should create directive', ():void => {
+  it('should create directive', ():void =>
+  {
     var $compileProviderMock:any = {
-          directive: (name:string, factory:any):void => {
+          directive: (name:string, factory:any):void =>
+          {
             expect(name).toBe(TestDirective.NAME);
             expect(factory).toBeDefined();
             expect(factory.$inject).toBeDefined();
@@ -129,13 +150,16 @@ describe('arts - BaseModule', () => {
     testSubject.directive(TestDirective);
   });
 
-  it('should create directive with DI', ():void => {
-    var DITestDirective:any = (params: string[]) => {
+  it('should create directive with DI', ():void =>
+  {
+    var DITestDirective:any = (params:string[]) =>
+        {
           expect(params).toContain('test1');
           expect(params).toContain('test2');
         },
         $compileProviderMock:any = {
-          directive: (name:string, factory:any):void => {
+          directive: (name:string, factory:any):void =>
+          {
             expect(name).toBe(DITestDirective.NAME);
             expect(factory).toBeDefined();
             expect(factory.$inject).toBeDefined();
@@ -146,8 +170,11 @@ describe('arts - BaseModule', () => {
         },
         testSubject = new TestClass(TestClass.NAME, 'test');
 
-    DITestDirective.NAME  = 'testDirective';
-    DITestDirective.$inject = ['test1', 'test2'];
+    DITestDirective.NAME = 'testDirective';
+    DITestDirective.$inject = [
+      'test1',
+      'test2'
+    ];
 
     testSubject.initModule(null, null, null, $compileProviderMock);
 

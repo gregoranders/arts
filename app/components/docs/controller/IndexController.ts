@@ -3,11 +3,13 @@ import Component = require('../Component');
 import IDocsService = require('../service/IDocsService');
 import Model = require('../model/IDocsModel');
 
-interface IScope extends Arts.IScope<IController> {
+interface IScope extends Arts.IScope<IController>
+{
 
 }
 
-interface IController extends Arts.IController<IScope> {
+interface IController extends Arts.IController<IScope>
+{
 
   selectedTabIndex: number;
   documentation: Model.IDocs;
@@ -18,11 +20,12 @@ interface IController extends Arts.IController<IScope> {
   switchToTab(group:Model.IDocsGroup): void;
 }
 
-class IndexController extends Arts.BaseController<IScope> implements IController {
+class IndexController extends Arts.BaseController<IScope> implements IController
+{
 
-  static NAME: string = Component.NAME + '.controller.index';
+  static NAME:string = Component.NAME + '.controller.index';
 
-  static TABS_NAME: string = 'docs.controller.index.tab';
+  static TABS_NAME:string = 'docs.controller.index.tab';
 
   static $inject:string[] = [
     '$scope',
@@ -33,7 +36,7 @@ class IndexController extends Arts.BaseController<IScope> implements IController
     Component.SERVICE
   ];
 
-  static DEFAULT_TAB: number = 0;
+  static DEFAULT_TAB:number = 0;
 
   selectedTabIndex:number = 0;
 
@@ -56,30 +59,36 @@ class IndexController extends Arts.BaseController<IScope> implements IController
 
     this.selectedTabIndex = localStorageService.get(IndexController.TABS_NAME);
 
-    if (!this.selectedTabIndex) {
+    if (!this.selectedTabIndex)
+    {
       this.selectedTabIndex = IndexController.DEFAULT_TAB;
     }
 
     this.baseURL = component.getBaseURL();
 
     IDocsService.getDocs()
-        .success((data:any):void => {
+        .success((data:any):void =>
+        {
           this.documentation = data;
         })
-        .error((data:any):void => {
+        .error((data:any):void =>
+        {
           console.log(data);
         })
   }
 
-  toggleSideBar(id:string):void {
+  toggleSideBar(id:string):void
+  {
     this.$mdSidenav(id).toggle();
   }
 
-  tabSelected(group:Model.IDocsGroup): void {
+  tabSelected(group:Model.IDocsGroup):void
+  {
     this.localStorageService.set(IndexController.TABS_NAME, this.documentation.groups.indexOf(group));
   }
 
-  switchToTab(group:Model.IDocsGroup):void {
+  switchToTab(group:Model.IDocsGroup):void
+  {
     this.selectedTabIndex = this.documentation.groups.indexOf(group);
     this.$mdSidenav('left').close();
   }

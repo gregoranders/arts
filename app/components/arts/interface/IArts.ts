@@ -7,7 +7,8 @@ import IController = require('./IController');
 import IModule = require('./IModule');
 import IApplication = require('./IApplication');
 
-interface IArts {
+interface IArts
+{
   registerApplication(name:string, application:IApplication): IArts;
   getApplication(application:string): IApplication;
 

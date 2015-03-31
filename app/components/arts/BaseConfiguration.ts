@@ -3,7 +3,8 @@
 import IConfiguration = require('./interface/IConfiguration');
 'use strict';
 
-class BaseConfiguration implements IConfiguration {
+class BaseConfiguration implements IConfiguration
+{
   /**
    * Class name.
    *
@@ -23,15 +24,18 @@ class BaseConfiguration implements IConfiguration {
               protected $controllerProvider:angular.IControllerProvider,
               protected $provideService:ng.auto.IProvideService,
               protected $compileProvider:ng.ICompileProvider,
-              protected $translateProvider:ng.translate.ITranslateProvider) {
+              protected $translateProvider:ng.translate.ITranslateProvider)
+  {
   }
 
-  when(name:string, route:angular.route.IRoute):BaseConfiguration {
+  when(name:string, route:angular.route.IRoute):BaseConfiguration
+  {
     this.$routeProvider.when(name, route);
     return this;
   }
 
-  otherwise(route:angular.route.IRoute):BaseConfiguration {
+  otherwise(route:angular.route.IRoute):BaseConfiguration
+  {
     this.$routeProvider.otherwise(route);
     return this;
   }

@@ -4,7 +4,8 @@ import IScope = require('./interface/IScope');
 import IController = require('./interface/IController');
 'use strict';
 
-class BaseController<T extends IScope<any>> implements IController<T> {
+class BaseController<T extends IScope<any>> implements IController<T>
+{
   /**
    * Class name.
    *
@@ -14,7 +15,8 @@ class BaseController<T extends IScope<any>> implements IController<T> {
 
   static $inject:Array<string> = ['$scope'];
 
-  constructor(public scope:T) {
+  constructor(public scope:T)
+  {
     this.scope.vm = this;
   }
 }

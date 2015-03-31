@@ -7,18 +7,22 @@
 import angular = require('angular');
 import BaseApplication = require('./BaseApplication');
 
-class TestClass extends BaseApplication {
+class TestClass extends BaseApplication
+{
 
 }
 
 
-describe('BaseApplication', ():void => {
+describe('BaseApplication', ():void =>
+{
 
-  it('bootstrap', ():void => {
+  it('bootstrap', ():void =>
+  {
 
     var testSubject = new TestClass('test', 'test1', ['test2'], null);
 
-    spyOn(angular, 'bootstrap').and.callFake((element: any, name: string[]): any => {
+    spyOn(angular, 'bootstrap').and.callFake((element:any, name:string[]):any =>
+    {
       expect(element).toBe(document);
       expect(name).toContain('test');
     });

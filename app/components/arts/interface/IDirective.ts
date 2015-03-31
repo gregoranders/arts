@@ -3,7 +3,8 @@
 import IInject = require('./IInject');
 import IIdentifier = require('./IIdentifier');
 
-interface IDirective extends IInject, IIdentifier, ng.IDirective {
+interface IDirective extends IInject, IIdentifier, ng.IDirective
+{
 }
 
 export = IDirective;

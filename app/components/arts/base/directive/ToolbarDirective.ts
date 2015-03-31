@@ -1,7 +1,8 @@
 import BaseDirective = require("../../BaseDirective");
 import ToolbarController = require('./controller/ToolbarController');
 
-class ToolbarDirective extends BaseDirective {
+class ToolbarDirective extends BaseDirective
+{
   static NAME:string = 'artsToolbar';
 
   restrict:string = 'E';

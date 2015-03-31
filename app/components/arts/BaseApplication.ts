@@ -27,7 +27,8 @@ import IConfiguration = require('./interface/IConfiguration');
 import BaseModule = require('./BaseModule');
 'use strict';
 
-class BaseApplication extends BaseModule implements IApplication {
+class BaseApplication extends BaseModule implements IApplication
+{
   /**
    * Class name.
    *
@@ -51,15 +52,18 @@ class BaseApplication extends BaseModule implements IApplication {
     'hljs'
   ];
 
-  static dependencies(deps:Array<string>):Array<string> {
+  static dependencies(deps:Array<string>):Array<string>
+  {
     return BaseApplication.DEPENDENCIES.concat(deps);
   }
 
-  constructor(name:string, baseURL:string, deps?:Array<string>, configuration?:IConfiguration) {
+  constructor(name:string, baseURL:string, deps?:Array<string>, configuration?:IConfiguration)
+  {
     super(name, baseURL, BaseApplication.dependencies(deps), configuration);
   }
 
-  bootstrap():void {
+  bootstrap():void
+  {
     angular.bootstrap(document, [this.name()]);
   }
 }

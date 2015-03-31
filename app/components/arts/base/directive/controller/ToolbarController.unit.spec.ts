@@ -7,55 +7,68 @@
 import angular = require('angular');
 import testSubject = require('./ToolbarController');
 
-describe('ToolbarController', ():void => {
+describe('ToolbarController', ():void =>
+{
 
-  it('should have static $inject property', ():void => {
+  it('should have static $inject property', ():void =>
+  {
     expect(testSubject.$inject).toBeDefined();
   });
 
-  it('should have 4 $inject entries', ():void => {
+  it('should have 4 $inject entries', ():void =>
+  {
     expect(testSubject.$inject.length).toBe(4);
   });
 
-  it('should contain $scope in $inject', ():void => {
+  it('should contain $scope in $inject', ():void =>
+  {
     expect(testSubject.$inject).toContain('$scope');
   });
 
-  it('should contain $translate in $inject', ():void => {
+  it('should contain $translate in $inject', ():void =>
+  {
     expect(testSubject.$inject).toContain('$translate');
   });
 
-  it('should contain $window in $inject', ():void => {
+  it('should contain $window in $inject', ():void =>
+  {
     expect(testSubject.$inject).toContain('$window');
   });
 
-  it('should contain localStorageService in $inject', ():void => {
+  it('should contain localStorageService in $inject', ():void =>
+  {
     expect(testSubject.$inject).toContain('localStorageService');
   });
 
-  it('should be able to be created', ():void => {
+  it('should be able to be created', ():void =>
+  {
     var promise:any = {
-          then: (func:any):void => {
+          then: (func:any):void =>
+          {
             func();
           }
         },
         $scope:any = {
-          $watch: (func:any, func1:any):void => {
+          $watch: (func:any, func1:any):void =>
+          {
             func();
             func1('test', 'test');
           }
         },
         $translate:any = {
-          use: ():ng.IPromise<any> => {
+          use: ():ng.IPromise<any> =>
+          {
             return promise;
           }
         },
         $window:any = {},
         localStorageService:any = {
-          get: ():string => {
+          get: ():string =>
+          {
             return '';
           },
-          set: ():void => {
+          set: ():void =>
+          {
 
           }
         };
@@ -64,34 +77,41 @@ describe('ToolbarController', ():void => {
     expect(new testSubject($scope, $translate, $window, localStorageService)).toBeDefined();
   });
 
-  it('should be able to be set theme', ():void => {
+  it('should be able to be set theme', ():void =>
+  {
     var promise:any = {
-          then: (func:any):void => {
+          then: (func:any):void =>
+          {
             func();
           }
         },
         $scope:any = {
-          $watch: (func:any, func1:any):void => {
+          $watch: (func:any, func1:any):void =>
+          {
             func();
             func1('test', 'tes1t');
           }
         },
         $translate:any = {
-          use: ():ng.IPromise<any> => {
+          use: ():ng.IPromise<any> =>
+          {
             return promise;
           }
         },
         $window:any = {
           location: {
-            reload: () => {
+            reload: () =>
+            {
             }
           }
         },
         localStorageService:any = {
-          get: ():string => {
+          get: ():string =>
+          {
             return '';
           },
-          set: ():void => {
+          set: ():void =>
+          {
 
           }
         },
@@ -101,33 +121,42 @@ describe('ToolbarController', ():void => {
   });
 
 
-  describe('should have locales', ():void => {
-    it('4 defined', ():void => {
+  describe('should have locales', ():void =>
+  {
+    it('4 defined', ():void =>
+    {
       expect(testSubject.LANGUAGES.length).toBe(4);
     });
 
-    it('default', ():void => {
+    it('default', ():void =>
+    {
       expect(testSubject.LANGUAGE).toBe('en_US');
     });
   });
 
 
-  describe('should have themes', ():void => {
-    it('3 themes defined', ():void => {
+  describe('should have themes', ():void =>
+  {
+    it('3 themes defined', ():void =>
+    {
       expect(testSubject.THEMES.length).toBe(3);
     });
 
-    it('default theme', ():void => {
+    it('default theme', ():void =>
+    {
       expect(testSubject.THEME).toBe('green');
     });
   });
 
-  describe('should have applications', ():void => {
-    it('1 themes applications', ():void => {
+  describe('should have applications', ():void =>
+  {
+    it('1 themes applications', ():void =>
+    {
       expect(testSubject.APPLICATIONS.length).toBe(1);
     });
 
-    it('default application', ():void => {
+    it('default application', ():void =>
+    {
       expect(testSubject.APPLICATION).toBe('arts');
     });
   });

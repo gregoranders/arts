@@ -2,7 +2,8 @@
 
 import IController = require('./IController');
 
-interface IScope<T extends IController<IScope<any>>> extends angular.IScope {
+interface IScope<T extends IController<IScope<any>>> extends angular.IScope
+{
   vm: IController<T>;
 }
 

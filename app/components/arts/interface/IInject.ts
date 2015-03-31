@@ -11,7 +11,8 @@
  *
  * @see https://docs.angularjs.org/guide/di
  */
-interface IInject {
+interface IInject
+{
 
   /**
    * Array of strings used for DI.

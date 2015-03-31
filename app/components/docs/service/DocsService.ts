@@ -3,7 +3,8 @@ import IDocsService = require('./IDocsService');
 import Component = require('../Component');
 import Model = require('../model/IDocsModel');
 
-class DocsService extends Arts.BaseService implements IDocsService {
+class DocsService extends Arts.BaseService implements IDocsService
+{
   /**
    * Class name.
    *
@@ -13,11 +14,13 @@ class DocsService extends Arts.BaseService implements IDocsService {
 
   static $inject:Array<string> = ['$http'];
 
-  constructor(private $http:ng.IHttpService) {
+  constructor(private $http:ng.IHttpService)
+  {
     super(DocsService.NAME);
   }
 
-  getDocs():ng.IHttpPromise<Model.IDocs> {
+  getDocs():ng.IHttpPromise<Model.IDocs>
+  {
     var component:Arts.IApplication = <Arts.IApplication>Arts.Arts.getModule(Component.NAME),
         basePath = component.getBaseURL();
 

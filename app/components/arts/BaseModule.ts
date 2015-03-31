@@ -13,7 +13,8 @@ import IController = require('./interface/IController');
 import IScope = require('./interface/IScope');
 'use strict';
 
-class BaseModule implements IModule {
+class BaseModule implements IModule
+{
   /**
    * Class name.
    *
@@ -31,30 +32,36 @@ class BaseModule implements IModule {
   private compileProvider:angular.ICompileProvider;
 
 
-  constructor(name:string, baseURL:string, dependencies?:Array<string>, configuration?:IConfiguration) {
+  constructor(name:string, baseURL:string, dependencies?:Array<string>, configuration?:IConfiguration)
+  {
     this.native = angular.module(name, (dependencies ? dependencies : []), <Function>configuration);
     this.baseURL = baseURL;
   }
 
-  name():string {
+  name():string
+  {
     return this.native.name;
   }
 
-  configure(configuration:IConfiguration):IModule {
+  configure(configuration:IConfiguration):IModule
+  {
     this.native.config([configuration]);
     return this;
   }
 
-  run(configuration:IConfiguration):IModule {
+  run(configuration:IConfiguration):IModule
+  {
     this.native.run([configuration]);
     return this;
   }
 
-  directive(directive:IDirective):IModule {
+  directive(directive:IDirective):IModule
+  {
     // Directives are expected to be functions.... to be able to use a class we need to
     // use this factory approach here.
     var func:any = BaseModule.__getDirective(directive);
-    var factory:IDirectiveFactory<IDirective> = (...params:Array<any>):IDirective => {
+    var factory:IDirectiveFactory<IDirective> = (...params:Array<any>):IDirective =>
+    {
       return new func(params);
     };
 
@@ -63,12 +70,14 @@ class BaseModule implements IModule {
     return this;
   }
 
-  service(service:IService):IModule {
+  service(service:IService):IModule
+  {
     this.serviceProvider.service(service.NAME, <any>service);
     return this;
   }
 
-  controller<T extends IScope<any>>(controller:IController<T>):IModule {
+  controller<T extends IScope<any>>(controller:IController<T>):IModule
+  {
     this.controllerProvider.register(controller.NAME, <any>controller);
     return this;
   }
@@ -76,7 +85,8 @@ class BaseModule implements IModule {
   initModule($routeProvider:angular.route.IRouteProvider,
              $controllerProvider:angular.IControllerProvider,
              $provideService:ng.auto.IProvideService,
-             $compileProvider:ng.ICompileProvider):IModule {
+             $compileProvider:ng.ICompileProvider):IModule
+  {
 
     this.routeProvider = $routeProvider;
     this.controllerProvider = $controllerProvider;
@@ -86,11 +96,13 @@ class BaseModule implements IModule {
     return this;
   }
 
-  getBaseURL():string {
+  getBaseURL():string
+  {
     return this.baseURL;
   }
 
-  static __getDirective(directive:IDirective):any {
+  static __getDirective(directive:IDirective):any
+  {
     return directive;
   }
 }

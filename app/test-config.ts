@@ -1,16 +1,20 @@
 /// <reference path="./library.d.ts" />
 
-interface Window {
+interface Window
+{
   __karma__: any;
 }
 
 var TEST_REGEXP = /.*\.unit\.spec\.js$/;
 
-function collectTestSpecs():Array<string> {
+function collectTestSpecs():Array<string>
+{
   var allTestFiles:Array<string> = [];
 
-  Object.keys(window.__karma__.files).forEach((file:string) => {
-    if (TEST_REGEXP.test(file)) {
+  Object.keys(window.__karma__.files).forEach((file:string) =>
+  {
+    if (TEST_REGEXP.test(file))
+    {
       allTestFiles.push(file.replace(/^\/base\//, '').replace(/\.js$/, ''));
     }
   });

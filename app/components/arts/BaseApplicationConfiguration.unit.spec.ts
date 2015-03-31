@@ -7,98 +7,125 @@
 import angular = require('angular');
 import BaseApplicationConfiguration = require('./BaseApplicationConfiguration');
 
-class TestClass extends BaseApplicationConfiguration {
+class TestClass extends BaseApplicationConfiguration
+{
 
 }
 
-describe('BaseApplicationConfiguration', () => {
+describe('BaseApplicationConfiguration', () =>
+{
 
-  it('has DI property', () => {
+  it('has DI property', () =>
+  {
     expect(TestClass.$inject).toBeDefined();
   });
 
-  it('DI property has default amount of entries', () => {
+  it('DI property has default amount of entries', () =>
+  {
     expect(TestClass.$inject.length).toBe(8);
   });
 
-  it('DI contains $routeProvider', () => {
+  it('DI contains $routeProvider', () =>
+  {
     expect(TestClass.$inject).toContain('$routeProvider');
   });
 
-  it('DI contains $controllerProvider', () => {
+  it('DI contains $controllerProvider', () =>
+  {
     expect(TestClass.$inject).toContain('$controllerProvider');
   });
 
-  it('DI contains $provide', () => {
+  it('DI contains $provide', () =>
+  {
     expect(TestClass.$inject).toContain('$provide');
   });
 
-  it('DI contains $compileProvider', () => {
+  it('DI contains $compileProvider', () =>
+  {
     expect(TestClass.$inject).toContain('$compileProvider');
   });
 
-  it('DI contains $translateProvider', () => {
+  it('DI contains $translateProvider', () =>
+  {
     expect(TestClass.$inject).toContain('$translateProvider');
   });
 
-  it('DI contains $translatePartialLoaderProvider', () => {
+  it('DI contains $translatePartialLoaderProvider', () =>
+  {
     expect(TestClass.$inject).toContain('$translatePartialLoaderProvider');
   });
 
-  it('DI contains $mdThemingProvider', () => {
+  it('DI contains $mdThemingProvider', () =>
+  {
     expect(TestClass.$inject).toContain('$mdThemingProvider');
   });
 
-  it('DI contains localStorageServiceProvider', () => {
+  it('DI contains localStorageServiceProvider', () =>
+  {
     expect(TestClass.$inject).toContain('localStorageServiceProvider');
   });
 
-  it('throws error on null $routeProvider', () => {
-    expect(() =>{new TestClass('test', 'en_US', 'test', null, null, null, null,
-        null, null, null, null)}).toThrow(new Error('Invalid $routeProvider'));
+  it('throws error on null $routeProvider', () =>
+  {
+    expect(() =>
+    {
+      new TestClass('test', 'en_US', 'test', null, null, null, null,
+          null, null, null, null)
+    }).toThrow(new Error('Invalid $routeProvider'));
   });
 
-  it('sets default 404 handler theming local storage and locale', () => {
+  it('sets default 404 handler theming local storage and locale', () =>
+  {
 
     var $routeProviderMock = <any> {
-      otherwise: () => {
+      otherwise: () =>
+      {
       }
     };
 
     var themeMock = <any> {
-      primaryPalette: (): any => {
+      primaryPalette: ():any =>
+      {
         return this;
       },
-      accentPalette: (): any => {
+      accentPalette: ():any =>
+      {
         return this;
       }
     };
 
     var $mdThemingProviderMock = <any> {
-      theme: (): any => {
+      theme: ():any =>
+      {
         return themeMock;
       },
-      alwaysWatchTheme: () => {
+      alwaysWatchTheme: () =>
+      {
       },
-      setDefaultTheme: (): any => {
+      setDefaultTheme: ():any =>
+      {
 
       }
     };
 
     var $translateProviderMock = <any>{
-      preferredLanguage: (): void => {
+      preferredLanguage: ():void =>
+      {
 
       }
     };
 
     var localStorageServiceProvider = <any> {
-      setPrefix: () => {
+      setPrefix: () =>
+      {
         return this;
       },
-      setNotify: () => {
+      setNotify: () =>
+      {
         return this;
       },
-      getItem: () => {
+      getItem: () =>
+      {
         return '';
       }
     };
@@ -113,7 +140,8 @@ describe('BaseApplicationConfiguration', () => {
     spyOn($translateProviderMock, 'preferredLanguage');
     spyOn($mdThemingProviderMock, 'setDefaultTheme');
 
-    spyOn(window.localStorage, 'getItem').and.callFake((key: string): string => {
+    spyOn(window.localStorage, 'getItem').and.callFake((key:string):string =>
+    {
       return key;
     });
 
@@ -136,47 +164,58 @@ describe('BaseApplicationConfiguration', () => {
     expect($mdThemingProviderMock.setDefaultTheme).toHaveBeenCalledWith('test.theme');
   });
 
-  it('sets 404 handler theming local storage and locale', () => {
+  it('sets 404 handler theming local storage and locale', () =>
+  {
 
     var $routeProviderMock = <any> {
-      otherwise: () => {
+      otherwise: () =>
+      {
       }
     };
 
     var themeMock = <any> {
-      primaryPalette: (): any => {
+      primaryPalette: ():any =>
+      {
         return this;
       },
-      accentPalette: (): any => {
+      accentPalette: ():any =>
+      {
         return this;
       }
     };
 
     var $mdThemingProviderMock = <any> {
-      theme: (): any => {
+      theme: ():any =>
+      {
         return themeMock;
       },
-      alwaysWatchTheme: () => {
+      alwaysWatchTheme: () =>
+      {
       },
-      setDefaultTheme: (): any => {
+      setDefaultTheme: ():any =>
+      {
 
       }
     };
 
     var $translateProviderMock = <any>{
-      preferredLanguage: (): void => {
+      preferredLanguage: ():void =>
+      {
 
       }
     };
 
     var localStorageServiceProvider = <any> {
-      setPrefix: () => {
+      setPrefix: () =>
+      {
         return this;
       },
-      setNotify: () => {
+      setNotify: () =>
+      {
         return this;
       },
-      getItem: () => {
+      getItem: () =>
+      {
         return '';
       }
     };
@@ -190,7 +229,8 @@ describe('BaseApplicationConfiguration', () => {
     spyOn(localStorageServiceProvider, 'setNotify').and.returnValue(localStorageServiceProvider);
     spyOn($translateProviderMock, 'preferredLanguage');
     spyOn($mdThemingProviderMock, 'setDefaultTheme');
-    spyOn(window.localStorage, 'getItem').and.callFake((key: string): string => {
+    spyOn(window.localStorage, 'getItem').and.callFake((key:string):string =>
+    {
       return undefined;
     });
 
@@ -213,56 +253,69 @@ describe('BaseApplicationConfiguration', () => {
     expect($mdThemingProviderMock.setDefaultTheme).toHaveBeenCalledWith('nase');
   });
 
-  it('sets default 404 handler theming local storage and locale', () => {
+  it('sets default 404 handler theming local storage and locale', () =>
+  {
 
     var $routeProviderMock = <any> {
-      otherwise: () => {
+      otherwise: () =>
+      {
       }
     };
 
     var themeMock = <any> {
-      primaryPalette: (): any => {
+      primaryPalette: ():any =>
+      {
         return this;
       },
-      accentPalette: (): any => {
+      accentPalette: ():any =>
+      {
         return this;
       }
     };
 
     var $mdThemingProviderMock = <any> {
-      theme: (): any => {
+      theme: ():any =>
+      {
         return themeMock;
       },
-      alwaysWatchTheme: () => {
+      alwaysWatchTheme: () =>
+      {
       },
-      setDefaultTheme: (): any => {
+      setDefaultTheme: ():any =>
+      {
 
       }
     };
 
     var $translateProviderMock = <any>{
-      preferredLanguage: (): void => {
+      preferredLanguage: ():void =>
+      {
 
       },
-      useLoader: (): void => {
+      useLoader: ():void =>
+      {
 
       }
     };
 
     var $translatePartialLoaderProviderMock = <any>{
-      addPart: (): void => {
+      addPart: ():void =>
+      {
 
       }
     };
 
     var localStorageServiceProvider = <any> {
-      setPrefix: () => {
+      setPrefix: () =>
+      {
         return this;
       },
-      setNotify: () => {
+      setNotify: () =>
+      {
         return this;
       },
-      getItem: () => {
+      getItem: () =>
+      {
         return '';
       }
     };
@@ -278,7 +331,8 @@ describe('BaseApplicationConfiguration', () => {
     spyOn($translateProviderMock, 'preferredLanguage');
     spyOn($translateProviderMock, 'useLoader');
     spyOn($mdThemingProviderMock, 'setDefaultTheme');
-    spyOn(window.localStorage, 'getItem').and.callFake((key: string): string => {
+    spyOn(window.localStorage, 'getItem').and.callFake((key:string):string =>
+    {
       return undefined;
     });
 

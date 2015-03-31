@@ -5,7 +5,8 @@ import Arts = require("./components/arts/Arts");
 import SetupComponent = require('./components/setup/Setup');
 import DocsComponent = require('./components/docs/Docs');
 
-class ApplicationConfiguration extends Arts.BaseApplicationConfiguration {
+class ApplicationConfiguration extends Arts.BaseApplicationConfiguration
+{
 
   static NAME:string = 'com.github.gregoranders.arts.configuration';
 
@@ -16,7 +17,8 @@ class ApplicationConfiguration extends Arts.BaseApplicationConfiguration {
               protected $translateProvider:ng.translate.ITranslateProvider,
               protected $translatePartialLoaderProvider:ng.translate.ITranslatePartialLoaderService,
               protected $mdThemingProvider:ng.material.MDThemingProvider,
-              protected localStorageServiceProvider:angular.local.storage.ILocalStorageServiceProvider) {
+              protected localStorageServiceProvider:angular.local.storage.ILocalStorageServiceProvider)
+  {
 
     super(Application.NAME, 'en_US', 'green', $routeProvider, $controllerProvider, $provideService,
         $compileProvider, $translateProvider, $translatePartialLoaderProvider, $mdThemingProvider,
@@ -34,7 +36,8 @@ class ApplicationConfiguration extends Arts.BaseApplicationConfiguration {
   }
 }
 
-class Application extends Arts.BaseApplication {
+class Application extends Arts.BaseApplication
+{
 
   static NAME:string = 'com.github.gregoranders.arts';
 
@@ -43,12 +46,14 @@ class Application extends Arts.BaseApplication {
     DocsComponent.NAME
   ];
 
-  constructor(baseURL:string) {
+  constructor(baseURL:string)
+  {
     super(Application.NAME, baseURL, Application.DEPENDENCIES, ApplicationConfiguration);
     Arts.Arts.registerApplication(Application.NAME, this);
   }
 
-  static initializeComponents(basePath:string):Arts.IModule[] {
+  static initializeComponents(basePath:string):Arts.IModule[]
+  {
 
     var components:Arts.IModule[] = [];
 
