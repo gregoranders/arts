@@ -70,8 +70,8 @@ class IndexController extends Arts.BaseController<IScope> implements IController
 
           this.documentation.classes = this.IDocsService.getClasses(this.documentation);
           this.documentation.interfaces = this.IDocsService.getInterfaces(this.documentation);
-
-          console.log(this.documentation.classes);
+          this.documentation.variables = this.IDocsService.getVariables(this.documentation);
+          this.documentation.functions = this.IDocsService.getFunctions(this.documentation);
         })
         .error((data:any):void =>
         {

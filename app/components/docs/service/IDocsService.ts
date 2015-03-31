@@ -8,6 +8,8 @@ interface IDocsService extends Arts.IService
 
   getClasses(documentation: Model.IDocs): Model.IDocClasses;
   getInterfaces(documentation: Model.IDocs): Model.IDocClasses;
+  getVariables(documentation: Model.IDocs): Model.IDocClasses;
+  getFunctions(documentation: Model.IDocs): Model.IDocClasses;
 }
 
 export = IDocsService;

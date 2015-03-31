@@ -36,18 +36,10 @@
         <md-tab-label>{{ group.title }}</md-tab-label>
         <md-tab-template>
 
-          <md-list ng-if="vm.documentation.classes">
-            <md-item ng-repeat="class in vm.documentation.classes">
-              <md-button class="md-primary sidebar-link" ng-click="vm.switchToTab( group )">
-                <span>{{ class.name }}</span>
-              </md-button>
-            </md-item>
-          </md-list>
-
-          <md-list ng-if="vm.documentation.interfaces">
-            <md-item ng-repeat="class in vm.documentation.interfaces">
-              <md-button class="md-primary sidebar-link" ng-click="vm.switchToTab( group )">
-                <span>{{ class.name }}</span>
+          <md-list ng-if="group.entries">
+            <md-item ng-repeat="entry in group.entries">
+              <md-button class="md-primary code-class" ng-click="vm.switchToTab( group )">
+                <span>{{ entry.name }}</span>
               </md-button>
             </md-item>
           </md-list>

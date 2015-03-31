@@ -3,13 +3,6 @@ import IDocsService = require('./IDocsService');
 import Component = require('../Component');
 import Model = require('../model/IDocsModel');
 
-enum Type
-{
-  Class = 128,
-  Interface = 256,
-  Variable= 32,
-  Function = 128,
-};
 
 class DocsService extends Arts.BaseService implements IDocsService
 {
@@ -20,7 +13,9 @@ class DocsService extends Arts.BaseService implements IDocsService
    */
   static NAME:string = Component.SERVICE;
 
-  static $inject:Array<string> = ['$http'];
+  static $inject:Array<string> = [
+    '$http'
+  ];
 
   constructor(private $http:ng.IHttpService)
   {
@@ -39,14 +34,36 @@ class DocsService extends Arts.BaseService implements IDocsService
   {
     var group: Model.IDocsGroup = this.getGroup(documentation, Model.DocType.Classes);
 
-    return this.getChildren(documentation, group);
+    group.entries = this.getChildren(documentation, group);
+
+    return group.entries;
   }
 
   getInterfaces(documentation: Model.IDocs): Model.IDocClasses
   {
     var group: Model.IDocsGroup = this.getGroup(documentation, Model.DocType.Interfaces);
 
-    return this.getChildren(documentation, group);
+    group.entries = this.getChildren(documentation, group);
+
+    return group.entries;
+  }
+
+  getVariables(documentation: Model.IDocs): Model.IDocClasses
+  {
+    var group: Model.IDocsGroup = this.getGroup(documentation, Model.DocType.Variables);
+
+    group.entries = this.getChildren(documentation, group);
+
+    return group.entries;
+  }
+
+  getFunctions(documentation: Model.IDocs): Model.IDocClasses
+  {
+    var group: Model.IDocsGroup = this.getGroup(documentation, Model.DocType.Functions);
+
+    group.entries = this.getChildren(documentation, group);
+
+    return [];
   }
 
   getGroup(documentation: Model.IDocs, docType: Model.DocType): Model.IDocsGroup {
