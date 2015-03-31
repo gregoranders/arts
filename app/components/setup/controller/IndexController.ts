@@ -8,6 +8,7 @@ interface IScope extends Arts.IScope<IController> {
 interface IController extends Arts.IController<IScope> {
   selectedTabIndex: number;
 
+  tabSelected(tab:number): void;
   switchToTab(tab:number): void;
   switchToTabFromBottomSheet(tab:number): void;
 
@@ -23,9 +24,21 @@ interface IController extends Arts.IController<IScope> {
 
 class IndexController extends Arts.BaseController<IScope> implements IController {
 
-  static $inject:string[] = ['$scope', '$mdSidenav', '$mdToast', '$mdBottomSheet'];
+  static NAME: string = Component.NAME + '.controller.index';
 
-  selectedTabIndex:number = 0;
+  static TABS_NAME: string = 'setup.controller.index.tab';
+
+  static $inject:string[] = [
+    '$scope',
+    '$mdSidenav',
+    '$mdToast',
+    '$mdBottomSheet',
+    'localStorageService'
+  ];
+
+  static DEFAULT_TAB: number = 0;
+
+  selectedTabIndex:number = IndexController.DEFAULT_TAB;
 
   bottomSheetPromise:ng.IPromise<void>;
 
@@ -33,10 +46,17 @@ class IndexController extends Arts.BaseController<IScope> implements IController
 
   constructor(public $scope:IScope, private $mdSidenav:ng.material.MDSidenavService,
               private $mdToast:ng.material.MDToastService,
-              private $mdBottomSheet:ng.material.MDBottomSheetService) {
+              private $mdBottomSheet:ng.material.MDBottomSheetService,
+              protected localStorageService:angular.local.storage.ILocalStorageService<number>) {
     super($scope);
 
     var component:Arts.IApplication = <Arts.IApplication>Arts.Arts.getModule(Component.NAME);
+
+    this.selectedTabIndex = localStorageService.get(IndexController.TABS_NAME);
+
+    if (!this.selectedTabIndex) {
+      this.selectedTabIndex = IndexController.DEFAULT_TAB;
+    }
 
     this.baseURL = component.getBaseURL();
   }
@@ -50,6 +70,10 @@ class IndexController extends Arts.BaseController<IScope> implements IController
     });
   }
 
+  tabSelected(tab:number): void {
+    this.localStorageService.set(IndexController.TABS_NAME, tab);
+  }
+
   switchToTab(tab:number):void {
     this.selectedTabIndex = tab;
     this.$mdSidenav('left').close();
@@ -60,7 +84,7 @@ class IndexController extends Arts.BaseController<IScope> implements IController
       this.$mdBottomSheet.hide(this.bottomSheetPromise);
       this.bottomSheetPromise = null;
     }
-    this.selectedTabIndex = tab;
+    this.switchToTab(tab);
   }
 
 
