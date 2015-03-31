@@ -5,12 +5,10 @@ import Model = require('../model/IDocsModel');
 
 interface IScope extends Arts.IScope<IController>
 {
-
 }
 
 interface IController extends Arts.IController<IScope>
 {
-
   selectedTabIndex: number;
   documentation: Model.IDocs;
 
@@ -22,7 +20,6 @@ interface IController extends Arts.IController<IScope>
 
 class IndexController extends Arts.BaseController<IScope> implements IController
 {
-
   static NAME:string = Component.NAME + '.controller.index';
 
   static TABS_NAME:string = 'docs.controller.index.tab';
