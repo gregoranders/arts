@@ -89,4 +89,23 @@ describe('arts - BaseModule', () => {
     testSubject.directive(<any>TestDirective);
     expect(mockService.directive).toHaveBeenCalled();
   });
+
+  it('should run with configuration', (): void => {
+
+    var native: any = <any> {
+      run: (): void => {
+      }
+    };
+
+    spyOn(angular, 'module').and.callFake( (): void => {
+      return native;
+    }).and.returnValue(native);
+
+    var testSubject = new TestClass(TestClass.NAME, './test/');
+
+    testSubject.run(null);
+
+    expect(native.run).toHaveBeenCalledWith([null]);
+  });
+
 });

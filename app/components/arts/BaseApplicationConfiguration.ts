@@ -37,32 +37,35 @@ class BaseApplicationConfiguration extends BaseConfiguration {
 
     super($routeProvider, $controllerProvider, $provideService, $compileProvider, $translateProvider);
 
+    if (!$routeProvider) {
+      throw new Error('Invalid $routeProvider');
+    }
     $routeProvider.otherwise({
       redirectTo: '/'
     });
 
-    // theming
-    this.$mdThemingProvider.theme('blue')
+    //// theming
+    $mdThemingProvider.theme('blue')
         .primaryPalette('blue')
         .accentPalette('light-blue');
 
-    this.$mdThemingProvider.theme('indigo')
+    $mdThemingProvider.theme('indigo')
         .primaryPalette('indigo')
         .accentPalette('blue');
 
-    this.$mdThemingProvider.theme('green')
+    $mdThemingProvider.theme('green')
         .primaryPalette('green')
         .accentPalette('light-green');
 
-    this.$mdThemingProvider.alwaysWatchTheme(true);
+    $mdThemingProvider.alwaysWatchTheme(true);
 
     // defaults
     localStorageServiceProvider
         .setPrefix(id)
         .setNotify(true, true);
 
-    var language = localStorage.getItem(id + '.language'),
-        theme = localStorage.getItem(id + '.theme');
+    var theme = localStorage.getItem(id + '.theme'),
+        language = localStorage.getItem(id + '.language');
 
     if (!language) {
       language = defaultLanguage;
