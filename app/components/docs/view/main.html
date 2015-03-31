@@ -32,7 +32,7 @@
   </md-sidenav>
   <md-content class="md-padding" layout="row" flex id="content">
     <md-tabs md-selected="vm.selectedTabIndex">
-      <md-tab ng-repeat="group in vm.docs.groups">
+      <md-tab ng-repeat="group in vm.docs.groups" md-on-select="vm.tabSelected( group )">
         <md-tab-label>{{ group.title }}</md-tab-label>
         <md-tab-template>
           <md-list ng-show="vm.documentation.classes">
