@@ -78,7 +78,7 @@ npm test
 [daviddm-url]: https://david-dm.org/gregoranders/arts
 [daviddm-image]: https://david-dm.org/gregoranders/arts.svg
 
-[coverall-url]: https://coveralls.io/repos/gregoranders/arts?branch=development
+[coverall-url]: https://coveralls.io/r/gregoranders/arts?branch=development
 [coverall-image]: https://coveralls.io/repos/gregoranders/arts/badge.svg?branch=development
 
 [gitter-url]: https://gitter.im/gregoranders/arts
