@@ -12,6 +12,7 @@
 
 # angular-require-typescript-seed
 **the AngularJS and RequireJS using TypeScript Seed**
+***0.0.8***
 
 
 This project is an application skeleton for a typical [AngularJS](http://angularjs.org/) web app
@@ -73,15 +74,15 @@ npm test
 [npm-image]: https://badge.fury.io/js/angular-require-typescript-seed.svg
 
 [travis-url]: https://travis-ci.org/gregoranders/arts
-[travis-image]: https://travis-ci.org/gregoranders/arts.svg?branch=development
+[travis-image]: https://travis-ci.org/gregoranders/arts.svg?branch=master
 
 [daviddm-url]: https://david-dm.org/gregoranders/arts
 [daviddm-image]: https://david-dm.org/gregoranders/arts.svg
 
-[coverall-url]: https://coveralls.io/r/gregoranders/arts?branch=development
-[coverall-image]: https://coveralls.io/repos/gregoranders/arts/badge.svg?branch=development
+[coverall-url]: https://coveralls.io/r/gregoranders/arts?branch=master
+[coverall-image]: https://coveralls.io/repos/gregoranders/arts/badge.svg?branch=master
 
-[gitter-url]: https://gitter.im/gregoranders/arts
+[gitter-url]: https://gitter.im/gregoranders/arts?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
 [gitter-image]: https://badges.gitter.im/gregoranders/arts.png
 
 [license-url]: https://github.com/gregoranders/arts/blob/master/LICENSE
