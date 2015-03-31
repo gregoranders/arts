@@ -35,6 +35,7 @@
       <md-tab ng-repeat="group in vm.documentation.groups" md-on-select="vm.tabSelected( group )">
         <md-tab-label>{{ group.title }}</md-tab-label>
         <md-tab-template>
+
           <md-list ng-if="vm.documentation.classes">
             <md-item ng-repeat="class in vm.documentation.classes">
               <md-button class="md-primary sidebar-link" ng-click="vm.switchToTab( group )">
@@ -42,6 +43,15 @@
               </md-button>
             </md-item>
           </md-list>
+
+          <md-list ng-if="vm.documentation.interfaces">
+            <md-item ng-repeat="class in vm.documentation.interfaces">
+              <md-button class="md-primary sidebar-link" ng-click="vm.switchToTab( group )">
+                <span>{{ class.name }}</span>
+              </md-button>
+            </md-item>
+          </md-list>
+
         </md-tab-template>
       </md-tab>
     </md-tabs>

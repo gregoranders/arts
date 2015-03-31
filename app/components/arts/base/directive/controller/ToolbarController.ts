@@ -7,7 +7,7 @@ import BaseController = require("../../../BaseController");
 /**
  * Interface representing a theme used in arts.
  */
-interface ITheme
+interface IToolbarTheme
 {
 
   /**
@@ -19,7 +19,7 @@ interface ITheme
 /**
  * Interface representing a language used in arts.
  */
-interface ILanguage
+interface IToolbarLanguage
 {
 
   /**
@@ -31,7 +31,7 @@ interface ILanguage
 /**
  * Interface representing a application used in arts.
  */
-interface IApplication
+interface IToolbarApplication
 {
 
   /**
@@ -61,7 +61,7 @@ interface IToolbarController extends IController<IToolbarControllerScope>
   /**
    * Available languages.
    */
-  languages: ILanguage[];
+  languages: IToolbarLanguage[];
 
   /**
    * Current language.
@@ -71,7 +71,7 @@ interface IToolbarController extends IController<IToolbarControllerScope>
   /**
    * Available themes.
    */
-  themes: ITheme[];
+  themes: IToolbarTheme[];
 
   /**
    * Current theme.
@@ -91,7 +91,7 @@ interface IToolbarController extends IController<IToolbarControllerScope>
   /**
    * Available applications.
    */
-  applications: IApplication[];
+  applications: IToolbarApplication[];
 
   /**
    * Current application.
@@ -128,7 +128,7 @@ class ToolbarController extends BaseController<IToolbarControllerScope> implemen
   /**
    * Available languages.
    */
-  static LANGUAGES:ILanguage[] = [
+  static LANGUAGES:IToolbarLanguage[] = [
     {id: 'en_US'},
     {id: 'de_DE'},
     {id: 'pl_PL'},
@@ -143,7 +143,7 @@ class ToolbarController extends BaseController<IToolbarControllerScope> implemen
   /**
    * Available themes.
    */
-  static THEMES:ILanguage[] = [
+  static THEMES:IToolbarTheme[] = [
     {id: 'blue'},
     {id: 'green'},
     {id: 'indigo'}
@@ -157,7 +157,7 @@ class ToolbarController extends BaseController<IToolbarControllerScope> implemen
   /**
    * Available applications.
    */
-  static APPLICATIONS:IApplication[] = [
+  static APPLICATIONS:IToolbarApplication[] = [
     {id: 'arts', name: 'Arts'}
   ];
 
@@ -176,13 +176,13 @@ class ToolbarController extends BaseController<IToolbarControllerScope> implemen
     'localStorageService'
   ];
 
-  languages:ILanguage[] = [];
+  languages:IToolbarLanguage[] = [];
   language:string = undefined;
 
-  themes:ILanguage[] = [];
+  themes:IToolbarTheme[] = [];
   theme:string = undefined;
 
-  applications:IApplication[];
+  applications:IToolbarApplication[];
   application:string = undefined;
 
   url:string = ArtsVersion.URL;

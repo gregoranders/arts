@@ -38,7 +38,7 @@ class BaseController<T extends IScope<IController<any>>> implements IController<
    *
    * @see https://docs.angularjs.org/guide/di
    */
-  static $inject:Array<string> = [
+  static $inject: string[] = [
     '$scope'
   ];
 

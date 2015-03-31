@@ -17,6 +17,8 @@ export interface IDocs extends IDocBase
 {
   groups: IDocsGroups;
   children: IDocsChildren;
+  classes: IDocClasses;
+  interfaces: IDocClasses;
 }
 
 export interface IDocsGroups extends Array<IDocsGroup>
@@ -34,3 +36,22 @@ export interface IDocsGroup extends IDocBaseKind
   title: string;
   children: any;
 }
+
+export interface IDocClasses extends Array<IDocClass>
+{
+  [index: number]: IDocClass;
+}
+
+export interface IDocClass extends IDocBaseKind
+{
+  title: string;
+  children: any;
+}
+
+export enum DocType
+{
+  Classes = 128,
+  Interfaces = 256,
+  Variables = 32,
+  Functions = 0
+};

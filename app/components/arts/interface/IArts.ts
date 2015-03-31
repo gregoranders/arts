@@ -7,6 +7,15 @@ import IController = require('./IController');
 import IModule = require('./IModule');
 import IApplication = require('./IApplication');
 
+/**
+ * The IArts interface provides methods to manage different types of components.
+ *
+ * @author Gregor Anders
+ * @since 0.0.1
+ * @version 0.0.1
+ *
+ * @see https://docs.angularjs.org/guide/module
+ */
 interface IArts
 {
   registerApplication(name:string, application:IApplication): IArts;
