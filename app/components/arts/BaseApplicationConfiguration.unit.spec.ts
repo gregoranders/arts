@@ -342,7 +342,7 @@ describe('BaseApplicationConfiguration', () =>
     testSubject.initTranslations('/hase/')
 
     expect($translateProviderMock.useLoader).toHaveBeenCalledWith('$translatePartialLoader', {
-      urlTemplate: '/hase/components/{part}/l10n/{lang}.json'
+      urlTemplate: '/hase//components/{part}/l10n/{lang}.json'
     });
     expect($translatePartialLoaderProviderMock.addPart).toHaveBeenCalledWith('arts');
   });

@@ -89,7 +89,7 @@ class BaseApplicationConfiguration extends BaseConfiguration
   {
     // translations
     this.$translateProvider.useLoader('$translatePartialLoader', {
-      urlTemplate: basePath + 'components/{part}/l10n/{lang}.json'
+      urlTemplate: basePath + '/components/{part}/l10n/{lang}.json'
     });
     this.$translatePartialLoaderProvider.addPart('arts');
   }

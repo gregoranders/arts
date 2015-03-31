@@ -3,7 +3,6 @@ import Component = require("../Component");
 
 interface IScope extends Arts.IScope<IController>
 {
-
 }
 
 interface IController extends Arts.IController<IScope>
@@ -26,7 +25,6 @@ interface IController extends Arts.IController<IScope>
 
 class IndexController extends Arts.BaseController<IScope> implements IController
 {
-
   static NAME:string = Component.NAME + '.controller.index';
 
   static TABS_NAME:string = 'setup.controller.index.tab';
@@ -47,10 +45,11 @@ class IndexController extends Arts.BaseController<IScope> implements IController
 
   private baseURL:string;
 
-  constructor(public $scope:IScope, private $mdSidenav:ng.material.MDSidenavService,
+  constructor(private $scope:IScope,
+              private $mdSidenav:ng.material.MDSidenavService,
               private $mdToast:ng.material.MDToastService,
               private $mdBottomSheet:ng.material.MDBottomSheetService,
-              protected localStorageService:angular.local.storage.ILocalStorageService<number>)
+              private localStorageService:angular.local.storage.ILocalStorageService<number>)
   {
     super($scope);
 

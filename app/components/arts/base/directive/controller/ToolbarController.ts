@@ -74,9 +74,14 @@ interface IToolbarController extends IController<IToolbarControllerScope>
   themes: IToolbarTheme[];
 
   /**
-   * Current theme.
+   * Choosen theme.
    */
   theme: string;
+
+  /**
+   * Current theme.
+   */
+  currentTheme: string;
 
   /**
    * Application url.
@@ -181,6 +186,7 @@ class ToolbarController extends BaseController<IToolbarControllerScope> implemen
 
   themes:IToolbarTheme[] = [];
   theme:string = undefined;
+  currentTheme: string = undefined;
 
   applications:IToolbarApplication[];
   application:string = undefined;
@@ -227,6 +233,8 @@ class ToolbarController extends BaseController<IToolbarControllerScope> implemen
       this.theme = ToolbarController.THEME;
     }
 
+    this.currentTheme = this.theme;
+
     this.$scope.$watch(() =>
     {
       return this.theme;
@@ -258,18 +266,23 @@ class ToolbarController extends BaseController<IToolbarControllerScope> implemen
 
   setLanguage(language:string):void
   {
-    this.$translate.use(language).then(() =>
-    {
-      this.language = language;
-      this.localStorageService.set('language', this.language);
-    });
+    this.$translate.use(language).then(
+        () =>
+        {
+          this.language = language;
+          this.localStorageService.set('language', this.language);
+        },
+        () =>
+        {
+          console.log('error switching language');
+        });
   }
 
   setTheme(theme:string):void
   {
-    this.theme = theme;
+    //this.theme = theme; // avoid flickering
 
-    this.localStorageService.set('theme', this.theme);
+    this.localStorageService.set('theme', theme);
 
     // It seems there is something broken with angular material forcing a hard reload here to apply new color palettes
     this.$window.location.reload();

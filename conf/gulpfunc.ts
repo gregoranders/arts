@@ -68,6 +68,7 @@ exports.func = {
         }))
         .pipe(jsFilter.restore())
         .pipe(cssFilter)
+        .pipe(replace(/url\('ui-grid/g, "url('../fonts/ui-grid")) // fix font path in ui-grid
         .pipe(gulpif(compress, minCSS()))
         .pipe(rename(function (path:any) {
           path.dirname = '/css';

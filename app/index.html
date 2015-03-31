@@ -13,20 +13,25 @@
   <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,500,400italic,700" rel="stylesheet"
         type="text/css">
   <link rel="stylesheet" href="css/styles.css"/>
+  <style>
+    [ng-cloak] {
+      display: none;
+    }
+  </style>
   <script data-main="config" src="vendor/js/require.js"></script>
 </head>
 
-<body layout="column" role="document" md-theme="{{ vm.theme }}">
+<body layout="column" role="document" md-theme="{{ vm.theme }}" ng-cloak>
 
 <arts-toolbar>
   <div layout="row">
     <div>
       <md-select ng-model="vm.application" class="md-toolbar-tools">
         <md-select-label class="md-select-label">
-          <span class="ng-scope">{{ vm.application }}</span>
+          <span class="ng-scope" ng-bind="vm.application"></span>
         </md-select-label>
         <md-option value="{{ application.id }}" ng-repeat="application in vm.applications">
-          <span>{{ application.name }}</span>
+          <span ng-bind="application.name"></span>
         </md-option>
       </md-select>
     </div>
