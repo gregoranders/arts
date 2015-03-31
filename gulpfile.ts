@@ -14,6 +14,7 @@ gulp.task('build', [
   'build:ts:main',
   'build:ts:test',
   'build:ts:e2e',
+  'build:ts:doc',
   'build:sass',
   'build:json',
   'build:html'
@@ -65,7 +66,7 @@ gulp.task('build:ts:doc', function ()
 {
   return func.build.typedoc(
     config.paths.build.development,
-    config.paths.source.typescript.main,
+    config.paths.source.typescript.typedoc,
     config.typedoc
   );
 });
@@ -201,14 +202,6 @@ gulp.task('run:server:release', function ()
 });
 
 // Watch related tasks
-gulp.task('watch:test:unit', function ()
-{
-  return func.test.unit(
-    './conf/karma.conf.js',
-    true
-  );
-});
-
 gulp.task('watch', ['run:server'], function ()
 {
   gulp.watch(config.paths.source.typescript.main, ['build:ts:main']);
@@ -217,4 +210,9 @@ gulp.task('watch', ['run:server'], function ()
   gulp.watch(config.paths.source.scss, ['build:sass']);
   gulp.watch(config.paths.source.html, ['build:html']);
   gulp.watch(config.paths.source.json, ['build:json']);
+
+  return func.test.unit(
+      './conf/karma.conf.js',
+      true
+  );
 });
