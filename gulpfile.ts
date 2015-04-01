@@ -220,9 +220,4 @@ gulp.task('watch', ['run:server'], function ()
   gulp.watch(config.paths.source.scss, ['build:sass']);
   gulp.watch(config.paths.source.html, ['build:html']);
   gulp.watch(config.paths.source.json, ['build:json']);
-
-  return func.test.unit(
-      './conf/karma.conf.js',
-      true
-  );
 });
