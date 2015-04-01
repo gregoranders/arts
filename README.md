@@ -39,7 +39,7 @@ cd arts
 Run build:
 
 ```
-npm build
+npm install
 ```
 
 Run tests:
