@@ -1,8 +1,8 @@
 $font-family: 'Roboto', "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 
-$bg-color-theme-blue: blue;
+$bg-color-theme-blue: #1a75be;
 $bg-color-theme-green: darkgreen;
-$bg-color-theme-indigo: darkblue;
+$bg-color-theme-indigo: #2d3a82;
 $fg-color: #fff;
 
 html {
@@ -14,6 +14,15 @@ body {
   font-family: $font-family;
   margin: 0;
   font-size: 14px;
+}
+
+.navigation {
+  a {
+    display: inline-block;
+    border-radius: 0!important;
+    padding: 0 16px;
+    line-height: 64px;
+  }
 }
 
 .mobile-trigger {
