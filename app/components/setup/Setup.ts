@@ -23,9 +23,9 @@ class ModuleConfiguration extends Arts.BaseConfiguration
 
     // routing
     super.when('/', {
-      name: 'index',
       templateUrl: basePath + 'view/main.html',
-      controller: IndexController
+      controller: IndexController,
+      reloadOnSearch: false
     });
   }
 }

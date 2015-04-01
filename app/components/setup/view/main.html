@@ -68,11 +68,17 @@
   </md-sidenav>
   <md-content class="md-padding" layout="row" flex id="content">
     <md-tabs md-selected="vm.selectedTabIndex">
-      <md-tab label="{{ 'load.partial.arts.about.setup' | translate }}" md-on-select="vm.tabSelected(0)">
-        <hljs lang="bash">git clone https://github.com/gregoranders/arts.git</hljs>
+      <md-tab md-on-select="vm.tabSelected(0)">
+        <md-tab-label>{{ 'load.partial.arts.about.setup' | translate }}</md-tab-label>
+        <md-tab-template>
+          <hljs lang="bash">git clone https://github.com/gregoranders/arts.git</hljs>
+        </md-tab-template>
       </md-tab>
-      <md-tab label="{{ 'load.partial.arts.about.installation' | translate }}" md-on-select="vm.tabSelected(1)">
-        <hljs lang="bash">npm install</hljs>
+      <md-tab md-on-select="vm.tabSelected(1)">
+        <md-tab-label>{{ 'load.partial.arts.about.installation' | translate }}</md-tab-label>
+        <md-tab-template>
+          <hljs lang="bash">npm install</hljs>
+        </md-tab-template>
       </md-tab>
     </md-tabs>
   </md-content>

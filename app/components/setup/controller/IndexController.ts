@@ -34,7 +34,8 @@ class IndexController extends Arts.BaseController<IScope> implements IController
     '$mdSidenav',
     '$mdToast',
     '$mdBottomSheet',
-    'localStorageService'
+    '$route',
+    '$location'
   ];
 
   static DEFAULT_TAB:number = 0;
@@ -49,13 +50,19 @@ class IndexController extends Arts.BaseController<IScope> implements IController
               private $mdSidenav:ng.material.MDSidenavService,
               private $mdToast:ng.material.MDToastService,
               private $mdBottomSheet:ng.material.MDBottomSheetService,
-              private localStorageService:angular.local.storage.ILocalStorageService<number>)
+              private $route: angular.route.IRouteService,
+              private $location: angular.ILocationService)
   {
     super($scope);
 
-    var component:Arts.IApplication = <Arts.IApplication>Arts.Arts.getModule(Component.NAME);
+    var component:Arts.IApplication = <Arts.IApplication>Arts.Arts.getModule(Component.NAME),
+        section: string = 'setup';
 
-    this.selectedTabIndex = localStorageService.get(IndexController.TABS_NAME);
+    if ($route.current.params.section) {
+      section = $route.current.params.section;
+    }
+
+    this.selectedTabIndex = this._getTabForSection(section);
 
     if (!this.selectedTabIndex)
     {
@@ -77,7 +84,7 @@ class IndexController extends Arts.BaseController<IScope> implements IController
 
   tabSelected(tab:number):void
   {
-    this.localStorageService.set(IndexController.TABS_NAME, tab);
+    this.$location.search('section', this._getSectionForTab(tab));
   }
 
   switchToTab(tab:number):void
@@ -95,7 +102,6 @@ class IndexController extends Arts.BaseController<IScope> implements IController
     }
     this.switchToTab(tab);
   }
-
 
   toggleSideBar(id:string):void
   {
@@ -128,6 +134,18 @@ class IndexController extends Arts.BaseController<IScope> implements IController
       template: '<md-toast class="error"><span translate="load.partial.arts.generic.error"></span></md-toast>',
       position: 'top right'
     });
+  }
+
+  _getTabForSection(section: string): number
+  {
+    return (section === 'setup') ? 0
+        : (section === 'installation') ? 1 : 0;
+  }
+
+  _getSectionForTab(tab: number): string
+  {
+    return (tab === 0) ? 'setup'
+        : (tab === 1) ? 'installation' : 'setup';
   }
 }
 
