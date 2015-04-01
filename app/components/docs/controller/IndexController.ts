@@ -28,10 +28,11 @@ class IndexController extends Arts.BaseController<IScope> implements IController
 
   static $inject:string[] = [
     '$scope',
+    '$location',
+    '$route',
     '$mdSidenav',
     '$mdToast',
     '$mdBottomSheet',
-    'localStorageService',
     Component.SERVICE
   ];
 
@@ -46,17 +47,24 @@ class IndexController extends Arts.BaseController<IScope> implements IController
   private baseURL:string;
 
   constructor(public $scope:IScope,
+              private $location: angular.ILocationService,
+              private $route: angular.route.IRouteService,
               private $mdSidenav:ng.material.MDSidenavService,
               private $mdToast:ng.material.MDToastService,
               private $mdBottomSheet:ng.material.MDBottomSheetService,
-              private localStorageService:angular.local.storage.ILocalStorageService<number>,
               private IDocsService:IDocsService)
   {
     super($scope);
 
-    var component:Arts.IApplication = <Arts.IApplication>Arts.Arts.getModule(Component.NAME);
+    var component:Arts.IApplication = <Arts.IApplication>Arts.Arts.getModule(Component.NAME),
+        section: string = 'Classes',
+        idx = 0;
 
-    this.selectedTabIndex = localStorageService.get(IndexController.TABS_NAME);
+    if ($route.current.params.section) {
+      section = $route.current.params.section;
+    }
+
+    this.selectedTabIndex = 0;
 
     if (!this.selectedTabIndex)
     {
@@ -75,6 +83,17 @@ class IndexController extends Arts.BaseController<IScope> implements IController
           this.documentation.interfaces = this.IDocsService.getGroupEntries(this.documentation, Model.DocType.Interface);
           this.documentation.variables = this.IDocsService.getGroupEntries(this.documentation, Model.DocType.Variable);
           this.documentation.functions = this.IDocsService.getGroupEntries(this.documentation, Model.DocType.Function);
+
+          if ($route.current.params.section) {
+            section = $route.current.params.section;
+
+            angular.forEach(this.documentation.groups, (group:Model.IDocsGroup) => {
+              if (group.title === section) {
+                this.selectedTabIndex = idx;
+              }
+              idx++;
+            });
+          }
         })
         .error((data:any):void =>
         {
@@ -89,7 +108,7 @@ class IndexController extends Arts.BaseController<IScope> implements IController
 
   tabSelected(group:Model.IDocsGroup):void
   {
-    this.localStorageService.set(IndexController.TABS_NAME, this.documentation.groups.indexOf(group));
+    this.$location.search('section', group.title);
   }
 
   switchToTab(group:Model.IDocsGroup):void

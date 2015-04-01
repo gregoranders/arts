@@ -34,9 +34,9 @@ class ModuleConfiguration extends Arts.BaseConfiguration
 
     // routing
     super.when('/docs', {
-      name: 'docs',
       templateUrl: basePath + 'view/main.html',
-      controller: IndexController
+      controller: IndexController,
+      reloadOnSearch: false
     });
 
     $translatePartialLoaderProvider.addPart('docs');
