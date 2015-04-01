@@ -31,6 +31,7 @@ requirejs.config({
     'angular-animate': 'vendor/js/angular-animate',
     'angular-aria': 'vendor/js/angular-aria',
     'angular-cookies': 'vendor/js/angular-cookies',
+    'angular-file-upload': 'vendor/js/angular-file-upload',
     'angular-highlightjs': 'vendor/js/angular-highlightjs',
     'angular-loader': 'vendor/js/angular-loader',
     'angular-local-storage': 'vendor/js/angular-local-storage',
@@ -38,6 +39,7 @@ requirejs.config({
     'angular-messages': 'vendor/js/angular-messages',
     'angular-mocks': 'vendor/js/angular-mocks',
     'angular-moment': 'vendor/js/angular-moment',
+    'angular-nvd3-directives': 'vendor/js/angularjs-nvd3-directives',
     'angular-resource': 'vendor/js/angular-resource',
     'angular-route': 'vendor/js/angular-route',
     'angular-sanitize': 'vendor/js/angular-sanitize',
@@ -50,9 +52,12 @@ requirejs.config({
     'angular-translate-loader-url': 'vendor/js/angular-translate-loader-url',
     'angular-translate-storage-cookie': 'vendor/js/angular-translate-storage-cookie',
     'angular-translate-storage-local': 'vendor/js/angular-translate-storage-local',
+    'angular-ui-grid': 'vendor/js/ui-grid',
+    'd3': 'vendor/js/d3',
     'highlight': 'vendor/js/highlight.pack',
     'jquery': 'vendor/js/jquery',
     'moment': 'vendor/js/moment',
+    'nv.d3': 'vendor/js/nv.d3',
     'text': 'vendor/js/text'
   },
 
@@ -71,6 +76,11 @@ requirejs.config({
       ]
     },
     'angular-cookies': {
+      deps: [
+        'angular'
+      ]
+    },
+    'angular-file-upload': {
       deps: [
         'angular'
       ]
@@ -103,9 +113,21 @@ requirejs.config({
         'angular'
       ]
     },
+    'angular-moment': {
+      deps: [
+        'angular',
+        'moment'
+      ]
+    },
     'angular-mocks': {
       deps: [
         'angular'
+      ]
+    },
+    'angular-nvd3-directives': {
+      deps: [
+        'angular',
+        'nv.d3'
       ]
     },
     'angular-resource': {
@@ -167,6 +189,16 @@ requirejs.config({
     'angular-translate-storage-local': {
       deps: [
         'angular-translate'
+      ]
+    },
+    'angular-ui-grid': {
+      deps: [
+        'angular'
+      ]
+    },
+    'nv.d3': {
+      deps: [
+        'd3'
       ]
     }
   },

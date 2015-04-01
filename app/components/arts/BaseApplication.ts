@@ -3,12 +3,14 @@
 ///<amd-dependency path="angular-animate" />
 ///<amd-dependency path="angular-aria" />
 ///<amd-dependency path="angular-cookies" />
+///<amd-dependency path="angular-file-upload" />
 ///<amd-dependency path="angular-highlightjs" />
 ///<amd-dependency path="angular-loader" />
 ///<amd-dependency path="angular-local-storage" />
 ///<amd-dependency path="angular-material" />
 ///<amd-dependency path="angular-messages" />
 ///<amd-dependency path="angular-moment" />
+///<amd-dependency path="angular-nvd3-directives" />
 ///<amd-dependency path="angular-resource" />
 ///<amd-dependency path="angular-route" />
 ///<amd-dependency path="angular-sanitize" />
@@ -21,6 +23,7 @@
 ///<amd-dependency path="angular-translate-loader-url" />
 ///<amd-dependency path="angular-translate-storage-cookie" />
 ///<amd-dependency path="angular-translate-storage-local" />
+///<amd-dependency path="angular-ui-grid" />
 
 import IApplication = require('./interface/IApplication');
 import IConfiguration = require('./interface/IConfiguration');
@@ -46,10 +49,27 @@ class BaseApplication extends BaseModule implements IApplication
     'ngRoute',
     'ngSanitize',
     'ngTouch',
+    'hljs',
     'pascalprecht.translate',
+    'angularFileUpload',
     'angularMoment',
-    'LocalStorageModule',
-    'hljs'
+    'nvd3ChartDirectives',
+    'ui.grid',
+    'ui.grid.pagination',
+    'ui.grid.selection',
+    'ui.grid.expandable',
+    'ui.grid.pinning',
+    'ui.grid.resizeColumns',
+    'ui.grid.moveColumns',
+    'ui.grid.edit',
+    'ui.grid.rowEdit',
+    'ui.grid.cellNav',
+    'ui.grid.exporter',
+    'ui.grid.importer',
+    'ui.grid.saveState',
+    'ui.grid.infiniteScroll',
+    'ui.grid.autoResize',
+    'LocalStorageModule'
   ];
 
   static dependencies(deps:Array<string>):Array<string>
